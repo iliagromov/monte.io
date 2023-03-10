@@ -3,17 +3,45 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `frontend`,
-    siteUrl: `https://www.yourdomain.tld`
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
-  plugins: [{
-    resolve: 'gatsby-source-wordpress',
-    options: {
-      "url": "https://dev.gromov-studio.ru/monte/graphql\u0017"
-    }
+  plugins: [
+    {
+      resolve: 'gatsby-source-wordpress',
+      options: {
+        url:  "https://dev.gromov-studio.ru/portfolio/graphql",
+        // url:  "http://localhost:8080/graphql",
+        baseUrl: `dev.gromov-studio.ru`,
+        protocol: `https`,
+        hostingWPCOM: false,
+        useACF: true,
+        auth: {
+            htaccess: {
+              username: process.env.WP_USER,
+              password: process.env.WP_PASSWORD,
+            }
+        },
+        verbose: false,
+        debug: {
+          preview: false,
+          timeBuildSteps: false,
+          throwRefetchErrors: false,
+          // graphql: {
+
+          // },
+          // production: {
+
+          // }
+        },
+        develop: {
+          // server wp update  5min times
+          nodeUpdateInterval: 300000,
+        },
+        catchLinks: false,
+      },
   }, 
   "gatsby-plugin-image", 
   "gatsby-plugin-sharp", 
@@ -41,7 +69,8 @@ const config: GatsbyConfig = {
       "path": "./src/pages/"
     },
     __key: "pages"
-  }]
+  }
+  ]
 };
 
 export default config;
