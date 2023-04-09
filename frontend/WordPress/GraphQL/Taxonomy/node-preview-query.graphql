@@ -1,0 +1,39 @@
+query PREVIEW_QUERY($id: ID!) {
+  taxonomy(id: $id, idType: ID, asPreview: true) {
+    archivePath
+
+    connectedContentTypes(first: 100) {
+      nodes {
+        __typename
+        id
+      }
+
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
+      }
+    }
+
+    description
+    graphqlPluralName
+    graphqlSingleName
+    hierarchical
+    id
+    label
+    name
+    public
+    restBase
+    restControllerClass
+    showCloud
+    showInAdminColumn
+    showInGraphql
+    showInMenu
+    showInNavMenus
+    showInQuickEdit
+    showInRest
+    showUi
+    __typename
+  }
+}

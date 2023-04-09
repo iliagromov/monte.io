@@ -1,0 +1,78 @@
+query PREVIEW_QUERY($id: ID!) {
+  comment(id: $id, idType: ID, asPreview: true) {
+    agent
+
+    author {
+      node {
+        avatar {
+          default
+          extraAttr
+          forceDefault
+          foundAvatar
+          height
+          rating
+          scheme
+          size
+          url
+          width
+        }
+
+        databaseId
+        email
+        id
+        name
+        url
+
+        __typename
+
+        ... on User {
+          id
+        }
+      }
+    }
+
+    authorIp
+
+    commentedOn {
+      node {
+        __typename
+        id
+      }
+    }
+
+    content
+    databaseId
+    date
+    dateGmt
+    id
+    karma
+
+    wpParent: parent {
+      node {
+        __typename
+        id
+      }
+    }
+
+    parentDatabaseId
+    parentId
+
+    replies(first: 100) {
+      nodes {
+        __typename
+        id
+      }
+
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
+      }
+    }
+
+    status
+    type
+    __typename
+  }
+}

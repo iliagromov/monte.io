@@ -1,0 +1,19 @@
+// перевод в проценты с округлением
+@function cp($target, $container) {
+  @return round($target / $container * 100% * 1000) / 1000;
+}
+
+// перевод в em с округлением
+@function em($i, $j) {
+  @return round($i / $j * 1em * 1000) / 1000;
+}
+
+// перевод в rem с округлением
+@function rem($i, $j) {
+  @return round($i / $j * 1rem * 1000) / 1000;
+}
+
+// перевод в vw с округлением
+@function vw($i, $j) {
+  @return round($i / ($j / 100) * 1vw * 1000) / 1000;
+}

@@ -7,27 +7,32 @@
 // You can delete this file if you're not using it
 const path = require(`path`);
 
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
 
+
+exports.createPages = async ({ graphql, actions: { createPage }  }) => {
+
+ 
   await graphql(`
      {
-       allWpPost(sort: { fields: [date], order:DESC }) {
-         nodes {
-           title
-           excerpt
-           content
-           slug
-         }
-       }
+      allWpPage {
+          nodes {
+            id
+            uri
+            slug
+            title
+            content
+          }
+        }
      }
    `).then(result => {
-    result.data.allWpPost.nodes.forEach(node => {
+    console.log(result.data.allWpPage.nodes);
+    result.data.allWpPage.nodes.forEach(node => {
       createPage({
-        path: node.slug,
-        component: path.resolve(`./src/templates/blog-post.tsx`),
+        path: `${node.uri}`,
+        component: path.resolve(`./src/templates/page.tsx`),
         context: {
           // This is the $slug variable passed to blog-post.js
+          uri: node.uri,
           slug: node.slug,
         },
       });

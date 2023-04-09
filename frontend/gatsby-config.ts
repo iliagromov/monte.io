@@ -12,37 +12,66 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-source-wordpress',
       options: {
-        url:  "https://dev.gromov-studio.ru/portfolio/graphql",
+        // url:  "https://gromov-studio.site/graphql",
+        url:  "http://monte.io/graphql",
         // url:  "http://localhost:8080/graphql",
-        baseUrl: `dev.gromov-studio.ru`,
-        protocol: `https`,
-        hostingWPCOM: false,
-        useACF: true,
-        auth: {
-            htaccess: {
-              username: process.env.WP_USER,
-              password: process.env.WP_PASSWORD,
-            }
-        },
-        verbose: false,
-        debug: {
-          preview: false,
-          timeBuildSteps: false,
-          throwRefetchErrors: false,
-          // graphql: {
-
-          // },
-          // production: {
-
-          // }
-        },
+        baseUrl: `monte.io`,
+        // baseUrl: `gromov-studio.site`,
+        // protocol: `https`,
+        verbose: true,
         develop: {
+          hardCacheMediaFiles: true,
+
           // server wp update  5min times
           nodeUpdateInterval: 300000,
         },
-        catchLinks: false,
+        debug: {
+          // graphql: {
+          //   writeQueriesToDisk: true,
+          //   showQueryVarsOnError: true,
+          //   panicOnError: true,
+          // },
+        },
+        useACF: true,
+        
+
+        // excludeFieldNames: ['comments', 'blocksJSON', 'previewBlocks', 'previewBlocksJSON'],
+        // type: {
+        //   Post: {
+        //     limit:
+        //       process.env.NODE_ENV === `development`         ? // The number of posts to fetch on development
+        //           30
+        //         : // ... and on build
+        //           null,
+        //   },
+        //   Comment: {
+        //     limit: 0,
+        //   },
+        //   MediaItem: {
+        //     localFile: {
+        //       requestConcurrency: 5,
+        //     },
+        //     lazyNodes: false,
+        //   },
+        // },
+        // html: {
+        //   useGatsbyImage: true,
+        //   fallbackImageMaxWidth: 200,
+        //   createStaticFiles: true,
+        //   imageMaxWidth: 756,
+        // },
+        // schema: {
+        //   timeout: 3000000,
+        //   requestConcurrency: 1,
+        //   previewRequestConcurrency: 1,
+        //   perPage: 1,
+        // },
+        // production: {
+        //   allow404Images: true,
+        //   hardCacheMediaFiles: true,
+        // },
       },
-  }, 
+    }, 
   "gatsby-plugin-image", 
   "gatsby-plugin-sharp", 
   "gatsby-transformer-sharp", 

@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "description": "frontend",
-  "author": "iliagromov",
+  "author": "iliagromov t.me/gromov_ilia_web",
+  "engines": {
+    "node": "18.15.0"
+  },
   "keywords": [
     "gatsby"
   ],
@@ -17,6 +20,11 @@
   },
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
+    "@redux-devtools/extension": "^3.2.5",
+    "@reduxjs/toolkit": "^1.9.3",
+    "antd": "^5.3.0",
+    "bootstrap": "^5.2.3",
+    "classnames": "^2.3.2",
     "gatsby": "^5.7.0",
     "gatsby-plugin-google-gtag": "^5.7.0",
     "gatsby-plugin-image": "^3.7.0",
@@ -26,13 +34,17 @@
     "gatsby-plugin-sharp": "^5.7.0",
     "gatsby-plugin-sitemap": "^6.7.0",
     "gatsby-source-filesystem": "^5.7.0",
-    "gatsby-source-wordpress": "^7.7.0",
+    "gatsby-source-wordpress": "^7.8.0",
     "gatsby-transformer-remark": "^6.7.0",
     "gatsby-transformer-sharp": "^5.7.0",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
-    "sass": "^1.58.3"
+    "react-redux": "^8.0.5",
+    "redux": "^4.2.1",
+    "sass": "^1.58.3",
+    "swiper": "^9.1.0"
   },
   "devDependencies": {
     "@types/node": "^18.14.0",

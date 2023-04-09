@@ -1,0 +1,57 @@
+@mixin font-urls($name, $dir: '', $path: $font-path) {
+  // src: url($path + $dir + $name +'.eot');
+  src: url($path + $dir + $name + '.woff2') format('woff2'),
+    url($path + $dir + $name + '.woff') format('woff');
+  // ,url($path + $dir + $name +'.ttf') format('ttf'),
+  // url($path + $dir + $name +'.svg#'+ $name) format('svg'),
+  // url($path + $dir + $name +'.eot?#iefix') format('embedded-opentype');
+}
+
+@font-face {
+  @include font-urls('RegolaProTrial-Regular');
+  font-family: $font-1-name;
+  font-weight: $fw-regular;
+  font-style: normal;
+}
+
+@font-face {
+  @include font-urls('RegolaProTrial-Book');
+  font-family: $font-1-name;
+  font-weight: $fw-book;
+  font-style: normal;
+}
+
+@font-face {
+  @include font-urls('RegolaProTrial-Medium');
+  font-family: $font-1-name;
+  font-weight: $fw-medium;
+  font-style: normal;
+}
+
+@font-face {
+  @include font-urls('RegolaProTrial-Bold');
+  font-family: $font-1-name;
+  font-weight: $fw-bold;
+  font-style: normal;
+}
+
+@font-face {
+  @include font-urls('SFUIDisplay-Regular');
+  font-family: $font-2-name;
+  font-weight: $fw-regular;
+  font-style: normal;
+}
+
+@font-face {
+  @include font-urls('SFUIDisplay-Medium');
+  font-family: $font-2-name;
+  font-weight: $fw-medium;
+  font-style: normal;
+}
+
+@font-face {
+  @include font-urls('SFUIDisplay-Bold');
+  font-family: $font-2-name;
+  font-weight: $fw-bold;
+  font-style: normal;
+}

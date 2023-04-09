@@ -1,0 +1,153 @@
+query PREVIEW_QUERY($id: ID!) {
+  mediaItem(id: $id, idType: ID, asPreview: true) {
+    altText
+
+    ancestors(first: 100) {
+      nodes {
+        __typename
+        id
+      }
+
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
+      }
+    }
+
+    author {
+      node {
+        __typename
+        id
+      }
+    }
+
+    authorDatabaseId
+    authorId
+    caption
+
+    wpChildren: children(first: 100) {
+      nodes {
+        __typename
+        id
+      }
+
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
+      }
+    }
+
+    commentCount
+    commentStatus
+
+    comments(first: 100) {
+      nodes {
+        __typename
+        id
+      }
+
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
+      }
+    }
+
+    contentType {
+      node {
+        __typename
+        id
+      }
+    }
+
+    contentTypeName
+    databaseId
+    date
+    dateGmt
+    description
+    desiredSlug
+    enclosure
+    fileSize
+    guid
+    id
+    isContentNode
+    isTermNode
+
+    lastEditedBy {
+      node {
+        __typename
+        id
+      }
+    }
+
+    link
+
+    mediaDetails {
+      file
+      height
+
+      meta {
+        aperture
+        camera
+        caption
+        copyright
+        createdTimestamp
+        credit
+        focalLength
+        iso
+        keywords
+        orientation
+        shutterSpeed
+        title
+      }
+
+      sizes {
+        file
+        fileSize
+        height
+        mimeType
+        name
+        sourceUrl
+        width
+      }
+
+      width
+    }
+
+    mediaItemUrl
+    mediaType
+    mimeType
+    modified
+    modifiedGmt
+
+    wpParent: parent {
+      node {
+        __typename
+        id
+      }
+    }
+
+    parentDatabaseId
+    parentId
+    sizes
+    slug
+    sourceUrl
+    srcSet
+    status
+
+    template {
+      templateName
+
+      __typename
+    }
+
+    title
+    uri
+    __typename
+  }
+}

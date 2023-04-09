@@ -10,7 +10,7 @@ const IndexPage: React.FC<PageProps> = () => {
   return (
     <Layout>
 
-    <SEO title="Iila Gromov" />
+    <SEO title="Dev" />
     <PageMain />
    
   </Layout>

@@ -1,0 +1,104 @@
+$path: '../';
+// ---------------------------- colors
+// для генерации названия цвета можно использовать сервис
+// http://chir.ag/projects/name-that-color/#ff36c7
+
+$color-mine-shaft: #222222;
+$color-gray: #8c8c8c;
+$color-light-gray: #ecf0f3;
+$color-red-orange: #ff472e;
+$color-blue: #198cff;
+$color-mercury: #e9e9e9;
+$color-athens-gray: #f7f8fa;
+$color-silver: #c4c4c4;
+$color-santas-gray: #a2a2a4;
+$color-black: #000000;
+$color-white: #ffffff;
+$color-silver-sand: #b7b8b9;
+$color-dodger-blue: #486eff;
+$color-fern: #67ac5b;
+
+$color-error: red;
+$color-text: $color-mine-shaft;
+$color-accent: $color-red-orange;
+
+$main-gradient-color-1: #ff5823;
+$main-gradient-color-2: #ff36c7;
+$main-gradient: linear-gradient(
+  270deg,
+  $main-gradient-color-1 -24.15%,
+  $main-gradient-color-2 178.98%
+);
+
+// ---------------------------- swiper
+$themeColor: $color-red-orange;
+
+// ---------------------------- bootstrap
+$screen-xs: 0;
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-dt: 1030px;
+$screen-xl: 1200px;
+
+$screen-xs-max: ($screen-sm - 1) !default;
+$screen-sm-max: ($screen-md - 1) !default;
+$screen-md-max: ($screen-lg - 1) !default;
+$screen-lg-max: ($screen-xl - 1) !default;
+
+$grid-breakpoints: (
+  xs: $screen-xs,
+  sm: $screen-sm,
+  md: $screen-md,
+  lg: $screen-lg,
+  xl: $screen-xl,
+);
+
+$grid-gutter-width: 30px;
+$gw-05: calc($grid-gutter-width / 2);
+
+$container-padding-xs: 28px;
+
+$container-max-widths: (
+  xs: (
+    1040px + $container-padding-xs * 2,
+  ),
+);
+
+$grid-columns: 12;
+
+// ---------------------------- fonts
+$font-path: $path + 'fonts/';
+$font-1-name: 'Regola Pro Trial';
+$font-2-name: 'SFUIDisplay';
+$font-1: $font-1-name, sans-serif;
+$font-2: $font-2-name, sans-serif;
+
+$fw-extralight: 100;
+$fw-thin: 200;
+$fw-light: 300;
+$fw-book: 350;
+$fw-regular: 400;
+$fw-normal: $fw-regular;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+$fw-extrabold: 800;
+$fw-black: 900;
+
+// ---------------------------- btn
+$btn-gradient-red-color-1: $main-gradient-color-1;
+$btn-gradient-red-color-2: $main-gradient-color-2;
+$btn-gradient-red: $main-gradient;
+
+// ---------------------------- select
+$select-padding: 16px;
+$select-height: 64px;
+$select-lg-height: 68px;
+
+// ---------------------------- header
+$header-height-xs: 55px;
+$header-height-md: 79px;
+$header-height-lg: 87px;
+$add-menu-height-xs: 80px;
+$add-menu-height-lg: 88px;
