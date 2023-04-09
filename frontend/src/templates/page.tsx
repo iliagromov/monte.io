@@ -1,7 +1,7 @@
 import React from "react";
-import Layout from "../layouts";
+import Layout from "../layouts/Default/en";
 import { Link, graphql, useStaticQuery } from "gatsby";
-
+import { PageProps } from 'gatsby'
 export const query = graphql`
   query($slug: String!) {
     allWpPage(filter: { slug: { eq: $slug } }) {
@@ -13,11 +13,11 @@ export const query = graphql`
   }
 `;
 
-export default function BlogPost({ data }) {
+export default function BlogPost({ data, location }) {
   const post = data.allWpPage.nodes[0];
   console.log(post);
   return (
-    <Layout>
+    <Layout location={location}>
       <Link to="/">Home</Link>
       <div>
         <h1>{post.title}</h1>

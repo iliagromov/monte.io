@@ -1,0 +1,19 @@
+@import '../../../styles/imports';
+
+.ant-rate-custom {
+  display: inline-flex;
+  color: $color-accent;
+  font-size: 14px;
+
+  .anticon {
+    display: block;
+  }
+
+  .ant-rate {
+    &-star {
+      &:not(:last-child) {
+        margin-right: 3px;
+      }
+    }
+  }
+}

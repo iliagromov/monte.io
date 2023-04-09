@@ -1,17 +1,18 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
-import Layout from "../../layouts/";
+import Layout from "../../layouts/Default/en";
 import SEO from "../../components/common/seo"
-import PageMain  from "../../components/containers/PageMain/PageMain";
+import PageAbout from "../../components/containers/PageAbout";
 
 
-const IndexPage: React.FC<PageProps> = () => {
+const IndexPage: React.FC<PageProps> = ({ location }) => {
   return (
-    <Layout>
+    <Layout location={location}>
 
     <SEO title="Iila Gromov" />
-    <PageMain />
-   
+    <div>
+      <PageAbout/>
+    </div>
   </Layout>
   )
 }

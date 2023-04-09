@@ -1,0 +1,71 @@
+@import '../../../styles/imports';
+
+.responsive-media {
+  display: block;
+  position: relative;
+  background-position: center;
+
+  &:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 0;
+    padding-top: cp(1, 1);
+  }
+
+  > picture {
+    background-position: center;
+  }
+
+  > video,
+  > picture,
+  > picture > img,
+  > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &--2x1:before {
+    padding-top: cp(1, 2);
+  }
+
+  &--3x2:before {
+    padding-top: cp(2, 3);
+  }
+
+  &--4x3:before {
+    padding-top: cp(3, 4);
+  }
+
+  &--14x9:before {
+    padding-top: cp(9, 14);
+  }
+
+  &--16x9:before {
+    padding-top: cp(9, 16);
+  }
+
+  &--cover {
+    > picture > img,
+    > img {
+      object-fit: cover;
+    }
+  }
+
+  &--contain {
+    > picture > img,
+    > img {
+      object-fit: contain;
+    }
+  }
+
+  &--scale-down {
+    > picture > img,
+    > img {
+      object-fit: scale-down;
+    }
+  }
+}

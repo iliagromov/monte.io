@@ -31,6 +31,9 @@ const PageMain: React.FC<PageProps> = (props) => {
 
       <h1>My WordPress Blog</h1>
       <h4>Posts</h4>
+      <div className="car">
+        this is car 
+      </div>
       <div>
       **Real world gains may be less or more depending on a large number of
         contributing factors. Please note for the full adjustment it is

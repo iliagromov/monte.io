@@ -1,0 +1,97 @@
+@import '../../../styles/imports';
+
+.input-field {
+  font-size: 16px;
+
+  &__box {
+    position: relative;
+  }
+
+  &__control {
+    height: 52px;
+    border-radius: 8px;
+    padding: 0 14px;
+    border-color: rgba(#000, 0.1);
+    font-size: 1em;
+    font-feature-settings: normal;
+    font-variant: normal;
+
+    &:hover {
+      border-color: rgba(#000, 0.3);
+    }
+
+    &:focus {
+      border-color: $color-mine-shaft;
+      box-shadow: none;
+    }
+
+    &--has-error {
+      border-color: $color-accent;
+      box-shadow: none;
+    }
+
+    &--has-label {
+      height: 64px;
+    }
+
+    &--label-offset {
+      padding-top: 16px;
+    }
+
+    &--has-submit {
+      padding-right: 62px;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    top: 0;
+    left: 14px;
+    line-height: 1;
+    font-size: 1em;
+
+    transform-origin: 0% 100%;
+    transform: translateY(23px);
+    transition: transform 0.2s ease-out, color 0.2s ease-out;
+    color: rgba($color-mine-shaft, 0.3);
+
+    &--active {
+      transform: translateY(12px) scale(0.8);
+      transform-origin: 0 0;
+    }
+
+    .input-field__control:focus ~ & {
+      color: $color-mine-shaft;
+    }
+  }
+
+  &__submitButton {
+    position: absolute;
+    right: 12px;
+
+    &.ant-btn-custom.ant-btn {
+      padding: 0;
+      background: none;
+
+      &:disabled {
+        color: $color-silver-sand;
+      }
+    }
+  }
+
+  &__hint {
+    display: block;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 10px;
+
+    &--error {
+      color: $color-error;
+    }
+
+    &--success {
+      color: $color-fern;
+    }
+  }
+}

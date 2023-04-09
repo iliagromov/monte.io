@@ -1,0 +1,22 @@
+@import '../../styles/imports';
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  min-width: 375px;
+
+  padding-top: $header-height-xs;
+
+  @include media-breakpoint-up(md) {
+    padding-top: $header-height-md;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-top: $header-height-lg;
+  }
+}
+
+.main {
+  flex-grow: 1;
+}

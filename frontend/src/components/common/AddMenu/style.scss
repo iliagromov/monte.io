@@ -1,0 +1,93 @@
+@import '../../../styles/imports';
+
+.add-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border-bottom: 1px solid rgba($color-text, 0.1);
+  height: $add-menu-height-xs;
+
+  @include media-breakpoint-up(lg) {
+    height: $add-menu-height-lg;
+  }
+
+  &--absolute {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+  }
+
+  &--sticky {
+    position: sticky;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    z-index: $zindex-sticky;
+    top: $header-height-xs;
+
+    @include media-breakpoint-up(md) {
+      top: $header-height-md;
+    }
+
+    @include media-breakpoint-up(lg) {
+      top: $header-height-lg;
+    }
+  }
+
+  &__scroll {
+    width: 100%;
+    overflow: hidden;
+    overflow-x: auto;
+    // @include hide-scrollbar;
+  }
+
+  &__list {
+    padding: 10px 0;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  &__item {
+    list-style: none;
+    display: inline-block;
+  }
+
+  &__link {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 125px;
+    padding: 0 5px;
+
+    font-size: 13px;
+    color: $color-text;
+    fill: currentColor;
+
+    opacity: 0.3;
+    transition: opacity 0.2s;
+
+    &:hover {
+      color: $color-text;
+      opacity: 0.6;
+    }
+
+    &--active {
+      opacity: 1;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    height: 25px;
+    font-size: 20px;
+    line-height: 25;
+    margin-bottom: 5px;
+  }
+}

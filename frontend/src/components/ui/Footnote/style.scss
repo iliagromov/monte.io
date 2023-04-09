@@ -1,0 +1,11 @@
+@import '../../../styles/imports';
+
+.footnote {
+  color: rgba(#000, 0.3);
+  font-size: 13px;
+
+  p {
+    font-size: inherit;
+    color: inherit;
+  }
+}
