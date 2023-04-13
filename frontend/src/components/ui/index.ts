@@ -2,7 +2,7 @@
 // export * from './Badge'
 // export * from './Button'
 // export * from './Footnote'
-// export * from './Icon'
+export * from './Icon'
 // export * from './Input'
 // export * from './Modal'
 // export * from './Rate'

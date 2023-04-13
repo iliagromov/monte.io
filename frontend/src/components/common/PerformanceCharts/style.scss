@@ -1,0 +1,57 @@
+@import '../../../styles/imports';
+
+.performance-charts {
+  font-size: 12px;
+  color: rgba(34, 34, 34, 0.2);
+  font-weight: 500;
+
+  &__axis-label {
+  }
+
+  &__charts-wrap {
+    font-size: 12px;
+    color: rgba($color-text, 0.2);
+    font-weight: $fw-medium;
+  }
+
+  &__charts-container {
+    height: 250px !important;
+
+    @include media-breakpoint-up(md) {
+      height: 370px !important;
+    }
+  }
+
+  &__car-info {
+    font-size: 13px;
+    font-weight: $fw-medium;
+    text-transform: uppercase;
+    color: rgba($color-text, 0.3);
+  }
+
+  .recharts-cartesian-axis-line {
+    stroke: currentColor !important;
+  }
+
+  .recharts-cartesian-axis-tick-line {
+    stroke: #fff;
+  }
+
+  .recharts-cartesian-axis-tick-value {
+    color: inherit;
+    fill: currentColor;
+  }
+
+  .recharts-tooltip {
+    &-label {
+      font-weight: $fw-bold;
+      font-size: 1.2em;
+    }
+
+    &-item-list {
+    }
+
+    &-item-list {
+    }
+  }
+}

@@ -1,0 +1,85 @@
+@import '../../../styles/imports';
+
+.car-selects {
+  $inner-padding: 8px;
+  text-align: left;
+
+  &__inner {
+    position: relative;
+    padding: $inner-padding;
+    border-radius: 24px;
+    background: $color-athens-gray;
+  }
+
+  &__col {
+    margin-top: -1px;
+
+    @include media-breakpoint-up(md) {
+      margin: 0 0 0 -1px;
+    }
+
+    &:first-child {
+      margin: 0;
+    }
+  }
+
+  &__control {
+    &.ant-select-single.ant-select-lg:not(.ant-select-customize-input)
+      .ant-select-selector {
+      border-radius: 0;
+    }
+
+    &.ant-select-focused {
+      z-index: 1;
+    }
+
+    &--submit {
+      &.ant-btn-custom.ant-btn-primary {
+        height: $select-lg-height;
+        width: 100%;
+      }
+    }
+
+    &--radius-first.ant-select-single.ant-select-lg:not(.ant-select-customize-input)
+      .ant-select-selector,
+    &--radius-first {
+      border-radius: 20px 20px 0 0;
+
+      @include media-breakpoint-up(md) {
+        border-radius: 20px 0 0 20px;
+      }
+    }
+
+    &--radius-last.ant-btn-custom.ant-btn-primary,
+    &--radius-last {
+      border-radius: 0 0 20px 20px;
+
+      @include media-breakpoint-up(md) {
+        border-radius: 0 20px 20px 0;
+      }
+    }
+  }
+
+  &__progress {
+    position: absolute;
+    bottom: $inner-padding;
+    left: $inner-padding;
+    right: $inner-padding;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 14px;
+      background: $color-athens-gray;
+    }
+  }
+
+  &__progress-line {
+    display: block;
+    height: 2px;
+    background: $btn-gradient-red;
+  }
+}

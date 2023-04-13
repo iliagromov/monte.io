@@ -1,0 +1,82 @@
+@import '../../../styles/imports';
+
+.payments {
+  &__list {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin: 0 -12px;
+
+    @include media-breakpoint-up(md) {
+      margin: 0 -20px;
+    }
+  }
+
+  &__item {
+    display: block;
+    font-size: 20px;
+    padding: 0 12px;
+
+    filter: grayscale(1);
+    transition: all 0.2s;
+
+    @include media-breakpoint-up(md) {
+      padding: 0 20px;
+    }
+
+    &:hover {
+      filter: grayscale(0);
+    }
+
+    svg {
+      height: 1em;
+      display: block;
+    }
+
+    &--paypal {
+      font-size: 23px;
+
+      svg {
+        width: em(71, 23);
+      }
+    }
+
+    &--mastercard {
+      font-size: 22px;
+
+      svg {
+        width: em(28, 22);
+      }
+    }
+
+    &--visa {
+      font-size: 16px;
+
+      svg {
+        width: em(45, 16);
+      }
+    }
+
+    &--ssl {
+      font-size: 24px;
+
+      svg {
+        width: em(24, 20);
+      }
+    }
+
+    &--bank-transfer {
+      font-size: 24px;
+
+      svg {
+        width: em(29, 20);
+      }
+    }
+
+    &--narrow-gap {
+      @include media-breakpoint-up(md) {
+        padding: 0 15px;
+      }
+    }
+  }
+}

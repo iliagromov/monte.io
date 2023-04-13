@@ -1,0 +1,7 @@
+@import '../../../../styles/imports';
+
+.CalculatorModal__wrapper {
+  @include media-breakpoint-up(lg) {
+    min-width: 680px !important;
+  }
+}

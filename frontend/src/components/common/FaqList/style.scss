@@ -1,0 +1,73 @@
+@import '../../../styles/imports';
+
+$padding-left-xs: 53px;
+$padding-left-lg: 69px;
+
+.faq-list {
+  font-variant: normal;
+  font-feature-settings: normal;
+  border: none;
+  background: none;
+  font-size: 16px;
+
+  > .faq-list__item {
+    margin-top: 12px;
+    border: 1px solid $color-mercury;
+    border-radius: 12px;
+
+    &:first-child,
+    &:last-child {
+      border-radius: 12px;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    > .ant-collapse-header {
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      padding-left: $padding-left-xs;
+
+      font-size: 20px;
+      font-weight: $fw-medium;
+
+      @include media-breakpoint-up(lg) {
+        padding-left: $padding-left-lg;
+      }
+
+      &:before,
+      &:after {
+        display: none;
+      }
+
+      .ant-collapse-arrow {
+        left: 18px;
+        font-size: 18px;
+
+        @include media-breakpoint-up(lg) {
+          left: 28px;
+        }
+      }
+    }
+  }
+
+  .ant-collapse-content {
+    border: none;
+    background: none;
+    color: $color-text;
+    line-height: 1.75;
+  }
+
+  .ant-collapse-content-box {
+    padding: 0 30px 25px $padding-left-xs;
+
+    @include media-breakpoint-up(lg) {
+      padding: 0 48px 32px $padding-left-lg;
+    }
+  }
+
+  &__item-content {
+  }
+}

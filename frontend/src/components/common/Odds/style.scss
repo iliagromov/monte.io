@@ -1,0 +1,28 @@
+@import '../../../styles/imports';
+
+.odds {
+  &__title {
+    margin-bottom: 60px;
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 100px;
+    }
+  }
+
+  &__list {
+    margin-top: -50px;
+  }
+
+  &__item {
+    list-style: none;
+    margin-top: 50px;
+  }
+}
+
+.odds__item {
+  position: initial;
+}
+
+.odds__list {
+  position: relative;
+}

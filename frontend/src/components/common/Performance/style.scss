@@ -1,0 +1,60 @@
+@import '../../../styles/imports';
+
+.performance {
+  background: $color-athens-gray;
+  overflow: hidden;
+
+  @include media-breakpoint-up(md) {
+    padding: 100px 0;
+  }
+
+  &__model {
+    margin-bottom: 20px;
+    opacity: 0.3;
+  }
+
+  &__title {
+    margin-bottom: 25px;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__gain-wrap {
+    @include media-breakpoint-up(lg) {
+      max-width: 365px;
+    }
+  }
+
+  &__btn-wrap {
+    margin-top: 35px;
+    .ant-btn-custom.ant-btn-primary {
+      background: transparent;
+      color: #ff5823;
+      border-color: #ff5823;
+      &::before {
+        background: transparent;
+      }
+    }
+    @include media-breakpoint-up(lg) {
+      margin-top: 45px;
+    }
+  }
+
+  &__img-wrap {
+    // width: 514px;
+    width: 480px;
+    margin-bottom: -30px;
+
+    @include media-breakpoint-up(md) {
+      // width: 776px;
+      margin: 0 0 -40px -50px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      // width: 1140px;
+      // margin-left: -250px;
+    }
+  }
+}

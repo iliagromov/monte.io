@@ -1,36 +1,46 @@
 /**
- * Seo component that queries for data with
+ * SEO component that queries for data with
  *  Gatsby's useStaticQuery React hook
  *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
+ * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react";
-import PropTypes from "prop-types";
-import { Helmet } from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
+import React, { FC } from 'react'
+import { Helmet } from 'react-helmet'
+import { useStaticQuery, graphql } from 'gatsby'
 
-const Seo = ({ description, lang, meta, title }) => {
-  const { wp, wpUser } = useStaticQuery(
+type SEOProps = {
+  title: string
+  description?: string
+  lang?: string
+  meta?: {
+    content: string
+    name?: string
+    property?: string
+  }[]
+}
+
+const SEO: FC<SEOProps> = ({
+  description = ``,
+  lang = `en`,
+  meta = [],
+  title,
+}) => {
+  const { site } = useStaticQuery(
     graphql`
       query {
-        wp {
-          generalSettings {
+        site {
+          siteMetadata {
             title
             description
+            author
           }
-        }
-
-        # if there's more than one user this would need to be filtered to the main user
-        wpUser {
-          twitter: name
         }
       }
     `
   )
 
-  const metaDescription = description || wp.generalSettings?.description
-  const defaultTitle = wp.generalSettings?.title
+  const metaDescription = description || site.siteMetadata.description
 
   return (
     <Helmet
@@ -38,7 +48,7 @@ const Seo = ({ description, lang, meta, title }) => {
         lang,
       }}
       title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
           name: `description`,
@@ -62,7 +72,7 @@ const Seo = ({ description, lang, meta, title }) => {
         },
         {
           name: `twitter:creator`,
-          content: wpUser?.twitter || ``,
+          content: site.siteMetadata.author,
         },
         {
           name: `twitter:title`,
@@ -77,17 +87,4 @@ const Seo = ({ description, lang, meta, title }) => {
   )
 }
 
-Seo.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
-}
-
-Seo.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
-}
-
-export default Seo
+export default SEO

@@ -1,0 +1,96 @@
+@import '../../../styles/imports';
+
+.thumbImg {
+  max-width: 670px;
+  margin: 0 #{-$container-padding-xs};
+
+  @include media-breakpoint-up(sm) {
+    margin: 0 auto;
+  }
+}
+
+.calculatorSummaryWrapper {
+  display: inline-block;
+  max-width: 520px;
+}
+
+.buttonsWrapper {
+  display: flex;
+  flex-direction: column;
+
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.buttonAddToCart {
+  @include media-breakpoint-up(md) {
+    width: 50%;
+    margin-left: 5%;
+  }
+}
+.button {
+  margin-right: 12px;
+  margin-bottom: 20px;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    width: 48%;
+    margin-bottom: 0px;
+    margin-right: 5%;
+  }
+
+  & + & {
+    margin-top: 12px;
+
+    @include media-breakpoint-up(md) {
+      margin-top: 0;
+    }
+  }
+}
+
+/*styles for button if used Link*/
+/*.buttonReadMore {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: $color-accent;
+  border: 1px solid $color-accent;
+  border-radius: 45px;
+  transition: all 0.3s;
+  line-height: 50px;
+
+  &::before {
+    border-radius: 45px;
+    content: '';
+    display: block;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    opacity: 0;
+    z-index: 0;
+
+    background: $btn-gradient-red;
+    transition: all 0.3s;
+  }
+
+  &:hover {
+    border-color: transparent;
+
+    span {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      transition: all 0.3s;
+    }
+
+    &:before {
+      opacity: 1;
+    }
+  }
+}*/
