@@ -4,7 +4,7 @@ import { Modal as AntModal } from 'antd'
 import { ModalProps as AntModalProps } from 'antd/lib/modal'
 import Icon from '../Icon'
 
-import 'antd/es/modal/style/css'
+import 'antd/es/modal/style'
 import './style.scss'
 
 export type ModalProps = AntModalProps & {}

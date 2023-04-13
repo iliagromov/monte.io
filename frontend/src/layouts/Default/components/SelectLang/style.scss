@@ -1,0 +1,23 @@
+@import '../../../../styles/imports';
+
+.select-language {
+  display: flex;
+  align-items: center;
+
+  color: $color-text;
+  text-transform: uppercase;
+
+  &__icon {
+    display: block;
+    width: 1em;
+    height: 1em;
+    font-size: 16px;
+  }
+
+  &__menu {
+  }
+
+  &__menu-link {
+    text-transform: uppercase;
+  }
+}

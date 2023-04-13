@@ -2,7 +2,7 @@ import React, { FC, ComponentProps, useState, useCallback } from 'react'
 import { Select as SelectComponent } from 'antd'
 import cn from 'classnames'
 
-import 'antd/es/select/style/css'
+import 'antd/es/select/style'
 import './style.scss'
 
 const { Option } = SelectComponent

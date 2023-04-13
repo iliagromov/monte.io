@@ -1,0 +1,36 @@
+@import '../../../../styles/imports';
+
+.footer-nav {
+  overflow: hidden;
+
+  &__list {
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+
+    margin: -4px -20px 0;
+  }
+
+  &__item {
+    margin-top: 4px;
+    padding: 0 20px;
+    border-left: 1px solid $color-mercury;
+
+    &:first-child {
+      border: none;
+    }
+  }
+
+  &__link {
+    @include link-clicker;
+    display: block;
+    padding: 5px 0;
+    color: $color-text;
+    transition: opacity 0.2s;
+
+    &:hover {
+      color: $color-text;
+      opacity: 0.5;
+    }
+  }
+}

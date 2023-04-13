@@ -6,6 +6,7 @@ import { IntlProvider } from 'react-intl'
 import { useLayout } from './useLayout'
 import './style.scss'
 import { Header } from './components/Header'
+import { Footer } from './components/Footer'
 // @ts-ignore
 type LayoutProps = {
   i18nMessages?: any
@@ -29,7 +30,9 @@ const Layout: FC<LayoutProps> = ({ children, i18nMessages }) => {
          <div>
           test
          </div>
+
         </main>
+        <Footer langs={langsMenu} />
       </div>
     </IntlProvider>
   )

@@ -1,7 +1,7 @@
 import { notification as AntNotification } from 'antd'
 import { NotificationApi as INotificationApi } from 'antd/lib/notification'
 
-import 'antd/lib/notification/style/index.css'
+import 'antd/lib/notification/style'
 import './style.scss'
 
 export type NotificationApi = INotificationApi

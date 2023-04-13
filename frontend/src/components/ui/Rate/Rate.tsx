@@ -3,7 +3,7 @@ import cn from 'classnames'
 import { Rate as RateComponent } from 'antd'
 import { RateProps as RateComponentProps } from 'antd/lib/rate'
 
-import 'antd/es/rate/style/css'
+import 'antd/es/rate/style'
 import './style.scss'
 
 export type RateProps = RateComponentProps & {}
