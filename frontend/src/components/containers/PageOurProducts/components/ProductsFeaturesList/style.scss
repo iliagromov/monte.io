@@ -1,0 +1,57 @@
+@import '../../../../../styles/imports';
+
+.features {
+  &__list {
+    margin-top: -60px;
+  }
+
+  &__item {
+    margin-top: 60px;
+  }
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+
+  &__icon {
+    font-size: 50px;
+
+    @include media-breakpoint-up(md) {
+      font-size: 70px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      font-size: 80px;
+    }
+
+    svg {
+      max-width: 105px;
+
+      @include media-breakpoint-up(lg) {
+        max-width: 120px;
+      }
+    }
+  }
+
+  &__text {
+    //display: inline-block;
+    margin-top: 28px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: normal;
+    word-break: break-word;
+
+    @include media-breakpoint-up(md) {
+      margin-top: 38px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      font-size: 24px;
+      font-weight: 500;
+      margin-top: 42px;
+    }
+  }
+}

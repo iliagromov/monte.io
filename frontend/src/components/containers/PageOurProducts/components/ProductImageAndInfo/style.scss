@@ -1,0 +1,93 @@
+@import '../../../../../styles/imports';
+
+.product-image-and-info {
+  &__image {
+    width: 100%;
+    max-width: 270px;
+    margin: 0 auto 48px;
+
+    img {
+      object-fit: scale-down !important;
+    }
+  }
+
+  &__info-list {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    flex: 0 0 170px;
+    max-width: 170px;
+    padding: 0 12px;
+
+    &:nth-of-type(even) {
+      border-left: 1px solid $color-mercury;
+    }
+  }
+
+  &__info-title {
+    font-size: 28px;
+    font-family: $font-2;
+    font-weight: $fw-medium;
+    margin-bottom: 8px;
+  }
+
+  &__info-descr {
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: $fw-medium;
+  }
+
+  &__advantages {
+    margin: 47px 0 0;
+
+    @include media-breakpoint-up(md) {
+      margin: 62px 0 0;
+    }
+  }
+}
+
+.advantage-item {
+  text-align: center;
+  color: $color-santas-gray;
+
+  &__icon {
+    height: 41px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+
+    &--adv-display-card svg {
+      font-size: 29px;
+    }
+
+    &--adv-error-code svg {
+      font-size: 41px;
+    }
+
+    &--adv-power-meter svg {
+      font-size: 39px;
+    }
+
+    &--adv-app-controllable svg {
+      font-size: 36px;
+    }
+  }
+
+  &__text {
+    font-size: 13px;
+    line-height: 1.25;
+    max-width: 100px;
+    margin: 0 auto;
+
+    @include media-breakpoint-up(lg) {
+      font-size: 16px;
+    }
+  }
+}

@@ -5,6 +5,24 @@
  */
 
 // You can delete this file if you're not using it
+
+
+// Problem - chunk commons [mini-css-extract-plugin] Conflicting order. Following module has been added:
+// https://robertmarshall.dev/blog/fix-warn-chunk-commons-mini-css-extract-plugin-error-in-gatsby-js/
+const FilterWarningsPlugin = require("webpack-filter-warnings-plugin");
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    plugins: [
+      new FilterWarningsPlugin({
+        exclude:
+          /mini-css-extract-plugin[^]*Conflicting order. Following module has been added:/,
+      }),
+    ],
+  });
+};
+
+
 const path = require(`path`);
 
 
