@@ -1,0 +1,152 @@
+@import '../../../../../styles/imports';
+
+$url-fringe: url('../../../../../images/fringe.png');
+
+.app-ui {
+  &__title {
+    margin-bottom: 25px;
+  }
+
+  &__text {
+    margin-bottom: 50px;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 90px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 120px;
+    }
+  }
+
+  &__tabs {
+    @include media-breakpoint-up(md) {
+      margin: -20px -15px 0;
+    }
+
+    @include media-breakpoint-up(lg) {
+      margin: -30px 0 0 -36px;
+    }
+  }
+
+  &__tab {
+    display: none;
+    border-radius: 20px;
+    cursor: pointer;
+    user-select: none;
+    animation: tabFadeIn 0.6s ease;
+
+    @include media-breakpoint-up(md) {
+      display: block;
+      transition: background 0.2s;
+      padding: 20px 15px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      padding: 30px 36px;
+    }
+
+    &--active {
+      display: block;
+      cursor: auto;
+      user-select: auto;
+
+      @include media-breakpoint-up(md) {
+        color: #fff;
+        background: linear-gradient(270deg, #ff5823 -24.15%, #ff36c7 178.98%);
+        border-radius: 20px;
+      }
+    }
+  }
+
+  &__tab-title {
+    margin-bottom: 10px;
+    font-family: $font-1;
+    font-weight: $fw-bold;
+    font-size: 20px;
+
+    @include media-breakpoint-up(lg) {
+      font-size: 28px;
+    }
+  }
+
+  &__tab-text {
+    margin: 0;
+  }
+
+  &__phone {
+    position: relative;
+
+    @include media-breakpoint-up(lg) {
+      position: sticky;
+      top: $header-height-lg + 5px;
+    }
+  }
+
+  &__phone-inner {
+    margin: 0 auto;
+    font-size: 240px;
+
+    @include media-breakpoint-up(md) {
+      font-size: 279px;
+    }
+  }
+
+  &__phone-pagination {
+    display: flex;
+    justify-content: center;
+    margin: 40px -4px 25px;
+
+    @include media-breakpoint-up(md) {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 45px;
+      margin: 0;
+
+      flex-direction: column;
+    }
+  }
+
+  &__pagination-bullet {
+    height: 6px;
+    max-width: 60px;
+    flex-grow: 1;
+    border-radius: 3px;
+    background-color: #eff0f2;
+    margin: 0 4px;
+
+    cursor: pointer;
+    transition: background 0.2s;
+
+    @include media-breakpoint-up(md) {
+      height: 60px;
+      width: 6px;
+      flex-grow: 0;
+      margin: 4px 0;
+    }
+
+    &:hover {
+      background-color: darken(#eff0f2, 3);
+    }
+
+    &--active {
+      background-color: $color-accent;
+      cursor: auto;
+
+      &:hover {
+        background-color: $color-accent;
+      }
+    }
+  }
+}
+
+@keyframes tabFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

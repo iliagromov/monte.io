@@ -1,0 +1,28 @@
+@import '../../../../../styles/imports';
+
+.feedback {
+  &__title {
+    margin-bottom: 35px;
+  }
+
+  &__rating {
+    margin-bottom: 48px;
+  }
+
+  &__reviews {
+  }
+
+  &__link-wrap {
+    margin-top: 40px;
+  }
+
+  &__link {
+    @include media-breakpoint-up(md) {
+      font-size: 20px;
+    }
+  }
+
+  &__link-icon {
+    margin-left: 12px;
+  }
+}

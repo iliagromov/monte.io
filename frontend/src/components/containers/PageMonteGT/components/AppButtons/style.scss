@@ -1,0 +1,28 @@
+@import '../../../../../styles/imports';
+
+.app-buttons {
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__wrap {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: -10px 0 0 -12px;
+  }
+
+  &__btn {
+    @include link-clicker;
+    margin: 10px 0 0 12px;
+    width: 123px;
+
+    @include media-breakpoint-up(lg) {
+      width: 166px;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}

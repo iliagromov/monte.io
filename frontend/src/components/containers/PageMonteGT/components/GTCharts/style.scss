@@ -1,0 +1,58 @@
+@import '../../../../../styles/imports';
+
+.gt-charts {
+  display: none;
+  &__title {
+    @include media-breakpoint-up(md) {
+      font-size: 48px;
+    }
+  }
+
+  &__text {
+    line-height: 1.75;
+    margin-bottom: 80px;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 0;
+    }
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__slider {
+    font-size: 240px;
+
+    @include media-breakpoint-up(xl) {
+      font-size: 230px;
+    }
+  }
+
+  &__frame {
+    margin-top: 60px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid $color-mercury;
+
+    @include media-breakpoint-up(md) {
+      margin-top: 80px;
+      padding: 16px;
+    }
+
+    @include media-breakpoint-up(xl) {
+      margin-top: 0;
+    }
+  }
+
+  &__tabs {
+    margin-bottom: 28px;
+  }
+
+  &__car-info {
+    font-size: 13px;
+    font-weight: $fw-medium;
+    text-transform: uppercase;
+    color: rgba($color-text, 0.3);
+  }
+}
