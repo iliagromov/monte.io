@@ -1,0 +1,75 @@
+@import '../../../../../styles/imports';
+
+.checkout-box {
+  background-color: $color-athens-gray;
+  border-radius: 20px;
+  padding: 28px;
+
+  @include media-breakpoint-up(xl) {
+    min-width: 380px;
+  }
+
+  &__products-list {
+    list-style-type: none;
+    margin: -26px 0 20px;
+  }
+
+  &__total {
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    width: 100%;
+  }
+
+  &__product-wrapper {
+    border-bottom: 1px solid $color-mercury;
+    margin-top: 26px;
+    padding-bottom: 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__product-info {
+    display: flex;
+    margin-right: 50px;
+  }
+
+  &__product-text {
+    margin-left: 19px;
+  }
+
+  &__product-title {
+    margin-bottom: 0;
+  }
+
+  &__product-price {
+    margin-bottom: 0;
+    font-size: 16px;
+  }
+
+  &__product-remove {
+    @include link-clicker;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+
+    padding: 0;
+
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: $color-silver;
+    transition: color 0.3s;
+
+    &:hover {
+      color: darken($color-silver, 20%);
+    }
+  }
+}

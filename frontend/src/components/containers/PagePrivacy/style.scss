@@ -1,0 +1,59 @@
+@import '../../../styles/imports';
+
+.privacy {
+  &__heading {
+    padding-bottom: 54px;
+    margin-bottom: 0;
+  }
+
+  &__back-button-wrap {
+    margin-bottom: 36px;
+  }
+
+  &__container {
+    max-width: (954px + $container-padding-xs * 2);
+  }
+
+  &__addresses {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 60px;
+    line-height: 1.66;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 80px;
+    }
+  }
+
+  &__section-item {
+    margin-bottom: 100px;
+    padding: 0;
+
+    @include media-breakpoint-up(sm) {
+      margin-bottom: 80px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    p {
+      font-size: 20px;
+      font-weight: 500;
+      margin: 0 0 2em;
+      line-height: 1.8;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  a {
+    color: $color-dodger-blue;
+
+    &:hover {
+      color: $color-red-orange;
+    }
+  }
+}

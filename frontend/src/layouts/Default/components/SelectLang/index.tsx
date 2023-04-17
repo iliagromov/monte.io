@@ -26,7 +26,7 @@ export const SelectLanguage: FC<SelectLanguageProps> = ({ langs }) => {
   )
 
   return (
-    <Dropdown overlay={menu}>
+    <Dropdown menu={menu}>
       <a className="select-language" onClick={e => e.preventDefault()}>
         <Icon name="global" className="select-language__icon mr-2" />
         {currentLang}

@@ -1,0 +1,76 @@
+@import '../../../../../styles/imports';
+
+.contacts-with-map {
+  background-color: $color-athens-gray;
+  position: relative;
+  padding: 40px 0 0;
+
+  @include media-breakpoint-up(md) {
+    padding: 60px 0;
+  }
+
+  &__contacts {
+  }
+
+  &__map {
+    height: 400px;
+    margin: 35px -#{$container-padding-xs} 0;
+
+    @include media-breakpoint-up(md) {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: calc(50% - 50px);
+      height: auto;
+      width: auto;
+
+      margin: 0;
+    }
+  }
+}
+
+.contact-us {
+  &__list {
+    margin-top: -12px;
+    padding: 0.1px 0 0;
+  }
+
+  &__item {
+    list-style: none;
+    display: flex;
+    margin-top: 12px;
+  }
+
+  &__item-icon {
+    margin-top: 3px;
+    margin-right: 15px;
+  }
+
+  &__item-text {
+    align-self: center;
+    color: $color-text;
+  }
+
+  &__footer {
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid rgba($color-text, 0.1);
+
+    font-size: 20px;
+  }
+
+  &__footer-link {
+    color: $color-blue;
+    display: inline-flex;
+
+    &:hover {
+      color: darken($color-blue, 10%);
+    }
+  }
+
+  &__footer-icon {
+    font-size: 14px;
+    margin: 9px 0 0 20px;
+  }
+}

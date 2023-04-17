@@ -46,7 +46,7 @@ export const Select: FC<SelectProps> = ({
       className={cn('ant-select-custom', className, {
         'ant-select-custom--dirty': dirty,
       })}
-      dropdownClassName={cn('ant-select-dropdown-custom', dropdownClassName, {
+      popupClassName={cn('ant-select-dropdown-custom', dropdownClassName, {
         'ant-select-dropdown-custom--multiline': multiline,
       })}
       data-label={label}

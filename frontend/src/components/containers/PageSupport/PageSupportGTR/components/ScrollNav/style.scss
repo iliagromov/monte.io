@@ -1,0 +1,65 @@
+@import '../../../../../../styles/imports';
+
+.scroll-nav {
+  padding-bottom: 0.1px;
+
+  &__list {
+    @include hide-scrollbar;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+
+    overflow-x: auto;
+    scroll-behavior: smooth;
+
+    margin: 0 #{-$container-padding-xs} -5px;
+    padding-bottom: 5px;
+  }
+
+  &__item {
+    padding: 0 20px;
+
+    &:first-child {
+      padding-left: $container-padding-xs;
+    }
+
+    &:last-child {
+      padding-right: $container-padding-xs;
+    }
+  }
+
+  &__link {
+    display: block;
+    white-space: nowrap;
+    font-weight: $fw-medium;
+    font-size: 20px;
+    color: inherit;
+    opacity: 0.3;
+    transition: opacity 0.2s;
+
+    &:after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 50%;
+      background: $color-black;
+      margin: 10px auto 0;
+      opacity: 0;
+      transition: all 0.2s ease;
+    }
+
+    &:hover {
+      color: inherit;
+      opacity: 0.5;
+    }
+
+    &--active {
+      opacity: 1;
+
+      &:after {
+        opacity: 1;
+        width: 100%;
+      }
+    }
+  }
+}

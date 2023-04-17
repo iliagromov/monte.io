@@ -1,0 +1,167 @@
+@import '../../../../../styles/imports';
+
+.cart-container {
+  &__header {
+    margin-bottom: 50px;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 90px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 130px;
+    }
+  }
+
+  &__header-btn {
+    &.ant-btn-custom {
+      font-size: 24px;
+      color: $color-silver;
+      transition: color 0.3s;
+
+      &:hover {
+        color: darken($color-silver, 20%);
+      }
+    }
+  }
+
+  &__products-list {
+    list-style-type: none;
+    margin-top: -20px;
+  }
+
+  &__checkout-col {
+    margin-top: 60px;
+
+    @include media-breakpoint-up(xl) {
+      margin-top: 0;
+    }
+  }
+
+  &__checkout {
+    top: $header-height-xs + 5px;
+
+    @include media-breakpoint-up(md) {
+      top: $header-height-md + 5px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      top: $header-height-lg + 5px;
+    }
+  }
+
+  &__products-item {
+    margin-top: 20px;
+  }
+
+  &__back-button-wrapper.ant-btn-custom.ant-btn-link {
+    color: black;
+
+    &:hover {
+      color: #bdbdbd;
+    }
+  }
+
+  &__back-button-arrow-icon {
+    transform: rotate(180deg);
+    font-size: 12px;
+    margin-right: 12px;
+  }
+}
+
+.cart-product {
+  border: 1px solid $color-mercury;
+  border-radius: 20px;
+
+  @include media-breakpoint-up(md) {
+    display: flex;
+  }
+
+  &__title {
+    font-size: 24px;
+
+    @include media-breakpoint-up(md) {
+      font-size: 32px;
+    }
+  }
+
+  &__image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 290px;
+    padding: 73px 20px;
+    border-bottom: 1px solid $color-mercury;
+
+    @include media-breakpoint-up(md) {
+      border-bottom: none;
+      border-right: 1px solid $color-mercury;
+    }
+  }
+
+  &__content {
+    padding: 28px;
+
+    @include media-breakpoint-up(md) {
+      width: 100%;
+      padding: 56px;
+    }
+  }
+
+  &__property {
+    font-size: 20px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    & + & {
+      border-top: 1px solid $color-mercury;
+    }
+
+    &:last-child {
+      @include media-breakpoint-up(md) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__property-controls {
+    display: flex;
+    align-items: center;
+  }
+
+  &__btn {
+    @include link-clicker;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+
+    padding: 0;
+
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: $color-silver;
+    transition: color 0.3s;
+    font-size: 12px;
+
+    &:hover {
+      color: darken($color-silver, 20%);
+    }
+  }
+
+  &__icon {
+    font-size: 12px;
+  }
+
+  &__count {
+    min-width: 35px;
+    text-align: center;
+  }
+}

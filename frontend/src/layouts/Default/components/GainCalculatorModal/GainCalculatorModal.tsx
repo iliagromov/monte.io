@@ -15,7 +15,7 @@ export const GainCalculatorModal: FC<GainCalculatorModalProps> = ({
 }) => {
   return (
     <Modal
-      visible={isModalShowed}
+      open={isModalShowed}
       footer={null}
       onCancel={onCloseModal}
       centered

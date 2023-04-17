@@ -1,0 +1,8 @@
+@import '../../../../../styles/imports';
+
+.cart-empty {
+  &__button {
+    margin-top: 100px;
+    min-width: 300px;
+  }
+}
