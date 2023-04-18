@@ -1,0 +1,14 @@
+@import '../../../styles/imports';
+
+.car-celects-after {
+  display: none;
+  padding: 50px 0;
+  text-align: center;
+  @include media-breakpoint-up(md) {
+    display: block;
+  }
+  &__description {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}

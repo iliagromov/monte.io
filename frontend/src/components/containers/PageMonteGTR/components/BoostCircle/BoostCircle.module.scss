@@ -1,0 +1,68 @@
+@import '../../../../../styles/imports';
+.indicators {
+  grid-template-columns: repeat(1, auto);
+}
+.indicator {
+  font-size: 25px;
+}
+.root {
+  display: flex;
+  justify-content: center;
+}
+
+.inner {
+  position: relative;
+  padding-bottom: 10px;
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: 0;
+  }
+}
+
+.img {
+  font-size: 105px;
+  display: block;
+
+  @include media-breakpoint-up(md) {
+    font-size: 110px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    font-size: 136px;
+  }
+}
+
+.content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 75%;
+
+  @include media-breakpoint-up(lg) {
+    top: 75%;
+  }
+}
+
+.value {
+  font-size: 24px;
+  margin-bottom: 10px;
+
+  @include media-breakpoint-up(lg) {
+    font-size: 32px;
+  }
+}
+
+.descr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto;
+  max-width: 110px;
+  min-height: 1.2 * 2em;
+
+  line-height: 1.2;
+  font-size: 13px;
+  color: rgba($color-black, 0.5);
+}

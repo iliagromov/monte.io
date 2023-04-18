@@ -1,0 +1,72 @@
+@import '../../../../../styles/imports';
+
+.advantages {
+  &__title {
+    margin-bottom: 80px;
+  }
+
+  &__list {
+    margin-top: -80px;
+    list-style: none;
+
+    @include media-breakpoint-up(lg) {
+      margin: -80px -30px 0;
+    }
+  }
+
+  &__item {
+    margin-top: 80px;
+
+    @include media-breakpoint-up(lg) {
+      padding: 0 30px;
+    }
+  }
+}
+
+.item-advantages {
+  text-align: center;
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 116px;
+    height: 116px;
+    margin: 0 auto 30px;
+    border-radius: 50%;
+    background: $color-athens-gray;
+    transition: background 0.2s;
+
+    font-size: 38px;
+  }
+
+  &:hover .item-advantages {
+    &__icon {
+      background-color: darken($color-athens-gray, 1);
+    }
+  }
+
+  &__title {
+    font-weight: $fw-bold;
+    margin-bottom: 10px;
+  }
+
+  &__descr {
+    line-height: 1.75;
+  }
+
+  &__link-wrap {
+    margin-top: 15px;
+  }
+
+  &__link {
+    @include link-clicker;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__link-icon {
+    margin-left: 5px;
+    font-size: 12px;
+  }
+}

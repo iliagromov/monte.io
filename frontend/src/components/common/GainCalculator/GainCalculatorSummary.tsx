@@ -11,7 +11,7 @@ import { getCarPowerGain, getProductDataById } from '../../../utils'
 import { Button, Footnote } from '../../ui'
 import CalculcatorPerfomanceGain from '../PerformanceGain/CalculcatorPerformanceGain'
 // @ts-ignore: не настроена работа с module.scss
-import style from './GainCalculator.module.scss'
+import * as style from './GainCalculator.module.scss'
 
 type GainCalculatorSummaryProps = {
   onCloseModal: () => void

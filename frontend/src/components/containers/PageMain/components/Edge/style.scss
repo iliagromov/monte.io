@@ -1,0 +1,63 @@
+@import '../../../../../styles/imports';
+
+.edge {
+  background-color: $color-athens-gray;
+
+  @include media-breakpoint-up(md) {
+    padding: 120px 0;
+  }
+
+  &__list {
+    margin-top: -70px;
+  }
+
+  &__item {
+    margin-top: 70px;
+  }
+}
+
+.item-edge {
+  max-width: 435px;
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    margin-bottom: 15px;
+    font-size: 29px;
+
+    &--obd svg {
+      font-size: 1em;
+    }
+
+    &--swap svg {
+      font-size: 1em;
+    }
+
+    &--usa-flag svg {
+      font-size: em(27, 29);
+    }
+
+    &--shield-checkmark svg {
+      font-size: em(38, 29);
+    }
+  }
+
+  &__title {
+    margin-bottom: 12px;
+  }
+
+  &__descr {
+    margin-bottom: 12px;
+  }
+
+  &__link {
+    @include link-clicker;
+    display: inline-block;
+  }
+
+  &__link-icon {
+    margin-left: 5px;
+    font-size: 12px;
+  }
+}

@@ -1,7 +1,7 @@
 import React, { FC, ComponentProps } from 'react'
 import cn from 'classnames'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, { Pagination, Lazy } from 'swiper'
+import SwiperCore, { Pagination } from 'swiper'
 import { Button, Img, ImgProps } from '../../ui'
 import { Link } from 'gatsby'
 import { useIntl } from 'react-intl'
@@ -12,7 +12,7 @@ import './style.scss'
 
 type SwiperProps = ComponentProps<typeof Swiper>
 
-SwiperCore.use([Pagination, Lazy])
+SwiperCore.use([Pagination])
 
 type ProductCardProps = {
   images: {
@@ -46,7 +46,6 @@ export const ProductCard: FC<ProductCardProps> = ({
 
   const swiperParams: SwiperProps = {
     spaceBetween: 20,
-    lazy: true,
     pagination: {
       clickable: true,
     },

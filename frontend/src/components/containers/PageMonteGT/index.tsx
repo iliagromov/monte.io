@@ -37,12 +37,13 @@ import FaqList from '../../common/FaqList'
 // @ts-ignore
 import * as styles from './PageMonteGT.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, { Pagination, Lazy, Navigation } from 'swiper'
+import SwiperCore, { Pagination, Navigation } from 'swiper'
+
 import { Button, Img, ImgProps } from '../../ui'
 
 type SwiperProps = ComponentProps<typeof Swiper>
 
-SwiperCore.use([Pagination, Lazy, Navigation])
+SwiperCore.use([Pagination, Navigation])
 
 type PageMonteGTProps = {}
 
@@ -112,7 +113,6 @@ const PageMonteGT: FC<PageMonteGTProps> = () => {
 
   const swiperParams: SwiperProps = {
     spaceBetween: 20,
-    lazy: true,
     pagination: {
       clickable: true,
     },
@@ -138,7 +138,7 @@ const PageMonteGT: FC<PageMonteGTProps> = () => {
       <section className={cn('section', styles.sectionSlider)}>
         <div className="container">
           <div className="row">
-            <div className={cn('col-md-12', styles.slider)}>
+            <div className={cn('col-md-12')}>
               <h2 className="app-ui__title h3 text-lg-center">
                 Easy to install in less than 5 minutes
               </h2>

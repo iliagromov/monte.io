@@ -1,0 +1,41 @@
+@import '../../../../../styles/imports';
+
+.news-item {
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+  }
+
+  &__img-wrap {
+    border-radius: 20px;
+    overflow: hidden;
+
+    &:before {
+      padding-top: cp(220, 328);
+    }
+
+    img {
+      transform: scale(1.05);
+      transition: all 0.3s ease;
+    }
+
+    .news-item:hover & {
+      img {
+        transform: scale(1);
+      }
+    }
+  }
+
+  &__title {
+  }
+
+  &__text {
+  }
+
+  &__date {
+    margin-top: 30px;
+    opacity: 0.3;
+    font-size: 13px;
+  }
+}

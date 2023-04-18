@@ -1,0 +1,34 @@
+@import '../../../../../styles/imports';
+$root-size: 433;
+
+.chip-slider {
+  position: relative;
+  width: 1em;
+  user-select: none;
+
+  &__slider {
+    position: absolute;
+    top: em(41, $root-size);
+    left: em(83, $root-size);
+    right: em(92, $root-size);
+    height: auto;
+    border-radius: em(8, $root-size);
+  }
+
+  &__slide {
+    @include responsive-media(176, 258);
+
+    img {
+      object-fit: cover;
+    }
+
+    .swiper-lazy {
+      opacity: 0;
+      transition: opacity 0.2s;
+
+      &-loaded {
+        opacity: 1;
+      }
+    }
+  }
+}

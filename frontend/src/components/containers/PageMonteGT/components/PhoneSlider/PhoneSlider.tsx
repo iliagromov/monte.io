@@ -2,11 +2,14 @@ import cn from 'classnames'
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import React, { FC } from 'react'
-import SwiperCore, { Autoplay, EffectFade, Lazy, Pagination } from 'swiper'
+
 import { Swiper, SwiperSlide } from 'swiper/react'
+
+import SwiperCore, { Autoplay, EffectFade, Pagination } from 'swiper'
+
 import './style.scss'
 
-SwiperCore.use([Pagination, EffectFade, Autoplay, Lazy])
+SwiperCore.use([Pagination, EffectFade, Autoplay])
 
 export type PhoneSliderProps = Swiper & {
   slides: {
@@ -47,7 +50,6 @@ export const PhoneSlider: FC<PhoneSliderProps> = ({
     loop: isFewSlides,
     allowTouchMove: isFewSlides,
     preloadImages: true,
-    lazy: false,
     effect: 'fade',
     ...restProps,
   }

@@ -21,7 +21,7 @@ import CarSelects from '../CarSelects'
 import Products from '../Products'
 import ProductsItemStore from '../ProductsItem/ProductsItemStore'
 // @ts-ignore: не настроена работа с module.scss
-import style from './GainCalculator.module.scss'
+import * as style from './GainCalculator.module.scss'
 import { GainCalculatorSummary } from './GainCalculatorSummary'
 import { useGainCalculator } from './useGainCalculator'
 

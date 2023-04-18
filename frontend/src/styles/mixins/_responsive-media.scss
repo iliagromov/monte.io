@@ -7,7 +7,7 @@
     display: block;
     width: 100%;
     height: 0;
-    padding-top: percentage($height / $width);
+    padding-top: percentage(calc($height / $width));
   }
 
   > video,
