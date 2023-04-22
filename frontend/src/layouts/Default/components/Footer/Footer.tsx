@@ -15,39 +15,39 @@ type FooterProps = {
 export const Footer: FC<FooterProps> = ({ langs }) => {
   // TODO: получать только модели, 
   // TODO: сделать так чтобы в цикл попадали только страницы с бренодом, (сделать фильтрацию по метке)
-  const { allWpPage } = useStaticQuery(graphql`{
-    allWpPage {
-      nodes {
-        id
-        slug
-        uri
-        title
-        content
-      }
-    }
-  }
-`);
+//   const { allWpPage } = useStaticQuery(graphql`{
+//     allWpPage {
+//       nodes {
+//         id
+//         slug
+//         uri
+//         title
+//         content
+//       }
+//     }
+//   }
+// `);
 
   const { models, navItems, socials, paymentIcons } = footerData
 
-  // const rendermodelLists = models.map((modelsList, i) => (
-  //   <ul className="footer__models-list" key={i}>
-  //     {modelsList.map((model: string) => (
-  //       <li className="footer__models-item" key={model}>
-  //         <a className="footer__models-link">{model}</a>
-  //       </li>
-  //     ))}
-  //   </ul>
-  // ))
+  const rendermodelLists = models.map((modelsList, i) => (
+    <ul className="footer__models-list" key={i}>
+      {modelsList.map((model: string) => (
+        <li className="footer__models-item" key={model}>
+          <a className="footer__models-link">{model}</a>
+        </li>
+      ))}
+    </ul>
+  ))
 
-  const rendermodelLists = allWpPage.nodes.map((node:any, i:number) => (
-    <li className="footer__models-item" key={i}>
-      <Link to={node.uri} className="footer__models-link">
-        {node.title}
-      </Link>
-      <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-    </li>
-  ));
+  // const rendermodelLists = allWpPage.nodes.map((node:any, i:number) => (
+  //   <li className="footer__models-item" key={i}>
+  //     <Link to={node.uri} className="footer__models-link">
+  //       {node.title}
+  //     </Link>
+  //     <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+  //   </li>
+  // ));
   const renderCopyright = (
     <>
       {`© `}
@@ -64,9 +64,7 @@ export const Footer: FC<FooterProps> = ({ langs }) => {
           <FormattedMessage id="footer.modelsTitle" />
         </div>
         <div className="footer__models">
-          <ul className="footer__models-list">
           {rendermodelLists}
-          </ul>
         </div>
 
         <div className="footer__payments">

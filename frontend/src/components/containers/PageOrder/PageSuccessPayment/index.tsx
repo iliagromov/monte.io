@@ -17,7 +17,7 @@ const PageSuccessPayment: FC = () => {
 
   // console.log(svg)
   return (
-    <section className="section">
+    <section className="PageSuccessPayment section">
       <div className="container">
         <div className="payment-results payment-results--full-height">
           <div className="container payment-results__container">

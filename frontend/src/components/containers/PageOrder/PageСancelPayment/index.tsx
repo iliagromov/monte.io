@@ -14,7 +14,7 @@ const PageСancelPayment: FC = () => {
   `)
 
   return (
-    <section className="section">
+    <section className="PageСancelPayment section">
       <div className="container">
         <div className="payment-results payment-results--full-height">
           <div className="container payment-results__container">
