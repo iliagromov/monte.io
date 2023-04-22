@@ -7,6 +7,7 @@ export type HeadingProps = {
   className?: string
   tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
   like?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+  children: any
 }
 
 /**

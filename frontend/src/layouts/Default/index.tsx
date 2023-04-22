@@ -36,9 +36,6 @@ const Layout: FC<LayoutProps> = ({ children, i18nMessages }) => {
         <main className="main">
           {children}
 
-         <div  className="container">
-          test
-         </div>
          <section className={cn('section')}>
             <div className="container">
               <SupportBanner img={bannerData.img} />

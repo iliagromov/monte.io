@@ -3,13 +3,13 @@
 const { productIds } = require('../../../types/product')
 import React, { FC } from 'react'
 import { FormattedMessage, IntlShape } from 'react-intl'
-import { Link, PageProps, useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import { FluidObject } from 'gatsby-image'
 
 // components
 import { Hero } from './components/Hero'
 import CarSelects from '../../common/CarSelects'
-import { Footnote, Heading, notification, Section } from '../../ui'
+import { Footnote, Heading, Section } from '../../ui'
 import { Video } from '../../common/Video'
 import { Advantages } from './components/Advantages'
 import Products from '../../common/Products'
@@ -31,8 +31,6 @@ import {
   edge,
   faqSection,
   hero,
-  btnText,
-  btnHref,
   news,
   products,
   programmer as programmerProps,
@@ -43,6 +41,7 @@ type PageMainProps = {
   intl: IntlShape
 }
 
+import './style.scss'
 
 
 const PageMain: FC<PageMainProps> = () => {
@@ -71,7 +70,6 @@ const PageMain: FC<PageMainProps> = () => {
 
 
   const {
-    chipAndNotebook,
     heroImgBgLg,
     heroImgBgMd,
     heroImgBgSm,
@@ -140,24 +138,8 @@ const PageMain: FC<PageMainProps> = () => {
   const productsWithImages = getProductsWithImages(products)
   const productGT = productsWithImages.find((pr: any) => pr.id == productIds.gt)
 
-  let sourses: FluidObject[] = [
-    {
-      ...heroImgBgSm.childImageSharp.fluid,
-      media: `(max-width: 767px)`,
-    },
-    {
-      ...heroImgBgMd.childImageSharp.fluid,
-      media: `(max-width: 992px)`,
-    },
-    {
-      ...heroImgBgLg.childImageSharp.fluid,
-    },
-  ]
   const renderedInstallVideo = (
     <Section withContainer>
-      <Heading tag="h2" like="h1" className="text-center mb-5">
-        <FormattedMessage id={installVideo.title} />
-      </Heading>
       <Video
         youTubeId={installVideo.youTubeId}
         preview={installVideoPreview.childImageSharp.fluid}
