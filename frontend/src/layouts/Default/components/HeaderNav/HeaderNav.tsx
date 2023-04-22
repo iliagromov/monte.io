@@ -7,7 +7,7 @@ import { getMenuShowed } from '../../../../store/selectors/getMenuShowed'
 import { getHrefWithLocale } from '../../../../utils'
 import { GainCalculatorModal } from '../GainCalculatorModal/GainCalculatorModal'
 // @ts-ignore
-import style from './HeaderNav.module.scss'
+import * as styleHeaderNav from './HeaderNav.module.scss'
 import { useGainCalculatorModal } from './useGainCalculatorModal'
 
 export type HeaderNavItem = {
@@ -50,7 +50,7 @@ export const HeaderNavComponent: FC<HeaderNavProps> = ({
               {formattedLabel => (
                 <Link
                   to={getHrefWithLocale(intl, slug)}
-                  className={cn(style.link, isButtonMod && style.linkButton)}
+                  className={cn(styleHeaderNav.link, isButtonMod && styleHeaderNav.linkButton)}
                   onClick={onClick}
                 >
                   {formattedLabel}
@@ -65,10 +65,8 @@ export const HeaderNavComponent: FC<HeaderNavProps> = ({
 
   return (
     <>
-      <nav
-        className={cn(style.nav, className, isMenuVisible && style.navShowed)}
-      >
-        <ul className={style.list}>{renderedMenuItems}</ul>
+      <nav className={cn(styleHeaderNav.nav, className, isMenuVisible && styleHeaderNav.navShowed)} >
+        <ul className={styleHeaderNav.list}>{renderedMenuItems}</ul>
       </nav>
 
       <GainCalculatorModal

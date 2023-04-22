@@ -61,10 +61,10 @@ $padding-left-lg: 69px;
   }
 
   .ant-collapse-content-box {
-    padding: 0 30px 25px $padding-left-xs;
+    padding: 0 30px 25px $padding-left-xs !important;
 
     @include media-breakpoint-up(lg) {
-      padding: 0 48px 32px $padding-left-lg;
+      padding: 0 48px 32px $padding-left-lg !important;
     }
   }
 

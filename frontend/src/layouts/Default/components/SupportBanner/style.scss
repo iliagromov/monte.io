@@ -1,0 +1,64 @@
+@import '../../../../styles/imports';
+
+.support-banner {
+  position: relative;
+  padding: 34px 32px;
+  height: 404px;
+
+  background: rgb(25, 21, 18);
+  background: linear-gradient(
+    90deg,
+    rgba(25, 21, 18, 1) 0%,
+    rgba(28, 27, 25, 1) 100%
+  );
+  color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+
+  @include media-breakpoint-up(md) {
+    display: flex;
+    align-items: center;
+    height: 308px;
+    padding: 20px 60px;
+    background: #0f0c0b;
+  }
+
+  &__title {
+    position: relative;
+    text-align: left;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: $fw-medium;
+
+    @include media-breakpoint-up(lg) {
+      text-align: center;
+      max-width: 480px;
+    }
+
+    a {
+      color: #fff;
+      white-space: nowrap;
+    }
+  }
+
+  &__img-wrap {
+    @include responsive-media(504, 756);
+    position: absolute;
+    width: 550px;
+    left: 50%;
+    margin-left: -275px;
+    bottom: -80px;
+
+    @include media-breakpoint-up(md) {
+      width: 756px;
+      margin: 0;
+      left: auto;
+      right: -180px;
+      bottom: -190px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      right: -30px;
+    }
+  }
+}

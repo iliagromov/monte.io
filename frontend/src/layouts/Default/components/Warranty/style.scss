@@ -1,0 +1,81 @@
+@import '../../../../styles/imports';
+
+.warranty {
+  &__list {
+    margin-top: -60px;
+    list-style: none;
+
+    @include media-breakpoint-up(lg) {
+      margin: -60px -20px 0;
+    }
+  }
+
+  &__item {
+    margin-top: 60px;
+
+    @include media-breakpoint-up(lg) {
+      padding: 0 20px;
+    }
+  }
+}
+
+.item-warranty {
+  text-align: center;
+  font-size: 12px;
+
+  @include media-breakpoint-up(md) {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include media-breakpoint-up(lg) {
+    font-size: 16px;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    margin: 0 0 15px;
+    font-size: 33px;
+
+    &--shield-checkmark svg {
+      font-size: em(30, 33);
+    }
+
+    &--return-box svg {
+      font-size: em(31, 33);
+    }
+  }
+
+  &__title {
+    font-weight: $fw-bold;
+    line-height: 1.75;
+  }
+
+  &__descr {
+    line-height: 1.75;
+  }
+
+  &__link-wrap {
+    margin-top: auto;
+    padding-top: 10px;
+
+    @include media-breakpoint-up(lg) {
+      padding-top: 5px;
+    }
+  }
+
+  &__link {
+    @include link-clicker;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__link-icon {
+    margin-left: 5px;
+    font-size: 12px;
+  }
+}

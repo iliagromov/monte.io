@@ -18,10 +18,12 @@ export default function BlogPost({ data, location }) {
   console.log(post);
   return (
     <Layout location={location}>
-      <Link to="/">Home</Link>
-      <div>
-        <h1>{post.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      <div className="container">
+        <Link to="/">Home</Link>
+        <div > 
+          <h1>{post.title}</h1>
+          <div dangerouslySetInnerHTML={{ __html: post.content }} />
+        </div>
       </div>
     </Layout>
   )

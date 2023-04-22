@@ -51,9 +51,8 @@ export const HeaderComponent: FC<HeaderComponentProps> = ({
           </div>
 
           <div className="col-lg px-0 px-lg-4 order-1 order-lg-0 d-flex justify-content-center">
-            {/* <HeaderNav onLinkClick={closeMenu} /> */}
+            <HeaderNav onLinkClick={closeMenu} />
             <div>
-            HeaderNav
             </div>
           </div>
 
