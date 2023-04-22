@@ -39,8 +39,6 @@ export const ChipSlider: FC<ChipSliderProps> = ({
     spaceBetween: 20,
     loop: isFewSlides,
     allowTouchMove: isFewSlides,
-    preloadImages: false,
-    lazy: true,
     effect: 'fade',
     ...restProps,
   }

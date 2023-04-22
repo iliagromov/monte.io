@@ -46,7 +46,7 @@ export const Exposition: FC<ExpositionProps> = ({
         <Tooltip
           title={trnslatedDescr}
           color="#fff"
-          visible={activeItem === id}
+          open={activeItem === id}
           overlayClassName="exposition__num-tooltip"
         >
           <span className="exposition__num-icon d-md-none">{i + 1}</span>

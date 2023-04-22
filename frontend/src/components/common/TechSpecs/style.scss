@@ -32,6 +32,7 @@
     }
     .download-btns__btn.ant-btn-custom.ant-btn-primary::before {
       box-shadow: none;
+      position: relative !important;
     }
     .app-buttons__title {
       font-weight: 700;

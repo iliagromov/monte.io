@@ -57,7 +57,7 @@ const OddsItem: FC<OddsItemProps> = ({ icon, title, text }) => {
         trigger="click"
         placement="bottomLeft"
         overlayClassName="odds-item-popover"
-        onVisibleChange={onVisibleChange}
+        onOpenChange={onVisibleChange}
       >
         <i className="odds-item__mobile-overlay" />
       </Popover>

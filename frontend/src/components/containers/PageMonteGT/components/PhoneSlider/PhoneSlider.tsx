@@ -49,7 +49,6 @@ export const PhoneSlider: FC<PhoneSliderProps> = ({
     spaceBetween: 20,
     loop: isFewSlides,
     allowTouchMove: isFewSlides,
-    preloadImages: true,
     effect: 'fade',
     ...restProps,
   }

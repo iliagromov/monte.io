@@ -26,9 +26,8 @@ const ModesTabs: FC<ModesTabsProps> = ({ modes, ...restProps }) => {
       defaultActiveKey={modes[0].id}
       tabBarGutter={0}
       {...restProps}
-    >
-      {renderTabs}
-    </Tabs>
+      items={modes}
+      />
   )
 }
 
