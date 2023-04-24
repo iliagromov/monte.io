@@ -4,14 +4,8 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-// import wrapWithProvider from './wrap-with-provider'
-import './src/styles/index';
-
 
 import wrapWithProvider from './wrap-with-provider'
 import './src/styles/index'
 
 export const wrapRootElement = wrapWithProvider
-
-
-// export const wrapRootElement = wrapWithProvider

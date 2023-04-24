@@ -1,4 +1,4 @@
-import { ProductsType } from '.'
+import { ProductsType } from './types'
 
 export const api = async (): Promise<ProductsType> => {
   try {

@@ -2,6 +2,7 @@ const languages = require('./languages')
 const menu = require('./menu')
 
 module.exports = {
+  siteUrl: `http://test.montetuning.com/`,
   languages,
   menu,
   title: `Monte Tuning`,

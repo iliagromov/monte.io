@@ -6,6 +6,7 @@ require('dotenv').config({
 })
 
 const config: GatsbyConfig = {
+
   siteMetadata,
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -80,29 +81,34 @@ const config: GatsbyConfig = {
   "gatsby-plugin-sharp", 
   "gatsby-transformer-sharp", 
   "gatsby-plugin-sass", 
-  "gatsby-plugin-google-gtag", 
-  "gatsby-plugin-sitemap", {
+  // "gatsby-plugin-google-gtag", 
+  // "gatsby-plugin-sitemap", 
+  {
     resolve: 'gatsby-plugin-manifest',
     options: {
       "icon": "src/images/icon.png"
     }
   }, 
   "gatsby-plugin-mdx", 
-  "gatsby-transformer-remark", {
+  "gatsby-transformer-remark", 
+  {
     resolve: 'gatsby-source-filesystem',
     options: {
       "name": "images",
-      "path": "./src/images/"
+      "path": `${__dirname}/src/images/`
     },
     __key: "images"
   }, {
     resolve: 'gatsby-source-filesystem',
     options: {
       "name": "pages",
-      "path": "./src/pages/"
+      "path": `${__dirname}/src/pages/`
     },
     __key: "pages"
-  }
+  },
+   // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+    `gatsby-plugin-offline`,
   ]
 };
 

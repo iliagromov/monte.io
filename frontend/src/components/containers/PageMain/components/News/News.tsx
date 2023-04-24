@@ -19,7 +19,6 @@ export const News: FC<NewsProps> = ({ items, title }) => {
   const swiperOptions: SwiperProps = {
     spaceBetween: 16,
     slidesPerView: 1,
-    watchSlidesVisibility: true,
     breakpoints: {
       768: {
         slidesPerView: 2,

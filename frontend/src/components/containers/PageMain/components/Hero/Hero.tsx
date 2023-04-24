@@ -12,8 +12,11 @@ type HeroProps = {
 export const Hero: FC<HeroProps> = ({ children, title, imgOne, imgTwo }) => {
   return (
     <section className="section section--under-header hero">
+      <picture>
       <Img className="hero__img-background" fluid={imgOne} />
       <Img className="hero__img-product" fluid={imgTwo} />
+      </picture>
+      
       <div className="container">
         <h1 className="h2 hero__title mx-auto text-center">
           <FormattedMessage id={title} />

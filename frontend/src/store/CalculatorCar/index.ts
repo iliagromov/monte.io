@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { AppState } from '../'
+import { AppState } from '..'
 import { CalculatorBrand } from '../../api/implementation/calculatorBrands'
 import { CalculatorModel } from '../../api/implementation/calculatorModels'
 import { CalculatorEngine } from '../../api/implementation/calculatorEngines'

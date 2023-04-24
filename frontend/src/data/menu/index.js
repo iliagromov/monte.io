@@ -3,7 +3,6 @@ const {
   CONTACT_US,
   SUPPORT_GTR,
   STORE,
-  SUPPORT_INSTALLATION,
 } = require('../routes')
 
 module.exports = [

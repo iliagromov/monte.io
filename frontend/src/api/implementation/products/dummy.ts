@@ -1,4 +1,4 @@
-import { ProductsType } from '.'
+import { ProductsType } from './types'
 
 export const dummy = async (): Promise<ProductsType> => {
   const itemsCount = 3
