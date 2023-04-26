@@ -47,7 +47,33 @@ exports.createPages = async ({ graphql, actions: { createPage }  }) => {
     result.data.allWpPage.nodes.forEach(node => {
       createPage({
         path: `${node.uri}`,
-        component: path.resolve(`./src/templates/page.tsx`),
+        component: path.resolve(`./src/templates/page-single-seo.tsx`),
+        context: {
+          // This is the $slug variable passed to blog-post.js
+          uri: node.uri,
+          slug: node.slug,
+        },
+      });
+    });
+  });
+  await graphql(`
+     {
+      allWpPage {
+          nodes {
+            id
+            uri
+            slug
+            title
+            content
+          }
+        }
+     }
+   `).then(result => {
+    // console.log(result.data.allWpPage.nodes);
+    result.data.allWpPage.nodes.forEach(node => {
+      createPage({
+        path: `${node.uri}`,
+        component: path.resolve(`./src/templates/page-single-news.tsx`),
         context: {
           // This is the $slug variable passed to blog-post.js
           uri: node.uri,

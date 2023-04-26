@@ -1,0 +1,66 @@
+@import '../../../../styles/imports';
+
+.subscribe {
+  padding: 32px 28px 200px;
+  background: #f7f8fa;
+  border-radius: 12px;
+  background-position: -30px bottom;
+  background-repeat: no-repeat;
+  background-size: 470px;
+  min-height: 228px;
+
+  @include media-breakpoint-up(sm) {
+    background-position: right bottom;
+  }
+
+  @include media-breakpoint-up(md) {
+    padding: 40px 32px;
+    background-size: auto;
+    background-position: calc(100% + 80px) bottom;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding: 40px 56px;
+    background-position: right bottom;
+  }
+
+  &__header {
+    max-width: 450px;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: $fw-bold;
+
+    @include media-breakpoint-up(md) {
+      font-size: 32px;
+      font-weight: normal;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 1.56;
+    color: rgba($color-text, 0.3);
+
+    @include media-breakpoint-up(lg) {
+      font-size: 18px;
+    }
+  }
+
+  &__form {
+    max-width: 350px;
+
+    @include media-breakpoint-up(lg) {
+      max-width: 655px;
+    }
+  }
+
+  &__btn {
+    // width: 100%;
+
+    // @include media-breakpoint-up(lg) {
+    //   width: auto;
+    // }
+  }
+}

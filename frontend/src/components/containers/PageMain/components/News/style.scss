@@ -21,11 +21,11 @@
   }
 
   &__slide {
-    opacity: 0.2;
+    // opacity: 0.2;
     transform: translateY(20px);
     transition: all 0.2s;
 
-    &.swiper-slide-visible {
+    &.swiper-slide-active {
       opacity: 1;
       transform: translateX(0);
     }

@@ -79,8 +79,7 @@ const config: GatsbyConfig = {
     }, 
   "gatsby-plugin-image", 
   "gatsby-plugin-sharp", 
-  "gatsby-transformer-sharp", 
-  "gatsby-plugin-sass", 
+  
   // "gatsby-plugin-google-gtag", 
   // "gatsby-plugin-sitemap", 
   {
@@ -89,8 +88,6 @@ const config: GatsbyConfig = {
       "icon": "src/images/icon.png"
     }
   }, 
-  "gatsby-plugin-mdx", 
-  "gatsby-transformer-remark", 
   {
     resolve: 'gatsby-source-filesystem',
     options: {
@@ -106,6 +103,12 @@ const config: GatsbyConfig = {
     },
     __key: "pages"
   },
+  `gatsby-plugin-image`,
+  "gatsby-transformer-sharp", 
+  "gatsby-plugin-sass", 
+
+  "gatsby-plugin-mdx", 
+  "gatsby-transformer-remark", 
    // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,

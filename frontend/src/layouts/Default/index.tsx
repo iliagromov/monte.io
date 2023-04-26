@@ -14,6 +14,8 @@ import { Footer } from './components/Footer'
 import { SupportBanner } from './components/SupportBanner'
 import { FeedBackPopup } from './components/FeedBackPopup'
 import { Warranty } from './components/Warranty'
+import { Subscribe } from './components/Subscribe'
+import subscribeData from '../../data/subscribe'
 
 import './style.scss'
 // @ts-ignore
@@ -35,7 +37,15 @@ const Layout: FC<LayoutProps> = ({ children, i18nMessages }) => {
         <Header />
         <main className="main">
           {children}
-
+          
+          <div className="container mb-4">
+            <Subscribe
+              title={subscribeData.title}
+              text={subscribeData.text}
+              emailPlaceholder={subscribeData.emailPlaceholder}
+              submitText={subscribeData.submitText}
+            />
+          </div>
          <section className={cn('section')}>
             <div className="container">
               <SupportBanner img={bannerData.img} />

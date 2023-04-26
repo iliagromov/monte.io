@@ -4,5 +4,5 @@ module.exports = {
   'menu.support': 'Support',
   'menu.contacts': 'Contact Us',
   'menu.calculator': 'Gain calculator',
-  'menu.store': 'Store',
+  'menu.store': 'SHOP',
 }

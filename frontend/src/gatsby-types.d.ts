@@ -3839,6 +3839,7 @@ type SiteSiteMetadata = {
   readonly description: Maybe<Scalars['String']>;
   readonly languages: Maybe<SiteSiteMetadataLanguages>;
   readonly menu: Maybe<ReadonlyArray<Maybe<SiteSiteMetadataMenu>>>;
+  readonly siteUrl: Maybe<Scalars['String']>;
   readonly title: Maybe<Scalars['String']>;
 };
 
@@ -3847,6 +3848,7 @@ type SiteSiteMetadataFieldSelector = {
   readonly description: InputMaybe<FieldSelectorEnum>;
   readonly languages: InputMaybe<SiteSiteMetadataLanguagesFieldSelector>;
   readonly menu: InputMaybe<SiteSiteMetadataMenuFieldSelector>;
+  readonly siteUrl: InputMaybe<FieldSelectorEnum>;
   readonly title: InputMaybe<FieldSelectorEnum>;
 };
 
@@ -3855,6 +3857,7 @@ type SiteSiteMetadataFilterInput = {
   readonly description: InputMaybe<StringQueryOperatorInput>;
   readonly languages: InputMaybe<SiteSiteMetadataLanguagesFilterInput>;
   readonly menu: InputMaybe<SiteSiteMetadataMenuFilterListInput>;
+  readonly siteUrl: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
 };
 
@@ -3911,6 +3914,7 @@ type SiteSiteMetadataSortInput = {
   readonly description: InputMaybe<SortOrderEnum>;
   readonly languages: InputMaybe<SiteSiteMetadataLanguagesSortInput>;
   readonly menu: InputMaybe<SiteSiteMetadataMenuSortInput>;
+  readonly siteUrl: InputMaybe<SortOrderEnum>;
   readonly title: InputMaybe<SortOrderEnum>;
 };
 
