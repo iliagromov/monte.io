@@ -1,8 +1,8 @@
 import Img, { FluidObject } from 'gatsby-image'
 import React, { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
-import { Button } from '../../../../ui'
 import './style.scss'
+import { Link } from 'gatsby'
 
 type BannerProps = {
   title: string
@@ -28,11 +28,11 @@ export const Banner: FC<BannerProps> = ({
           <FormattedMessage id={title} />
         </h1>
         <div className="performance__btn-wrap ">
-          <Button href={btnHref} className="banner__btn" block>
+          <Link to={'/'} className="banner__btn">
             <span>
               <FormattedMessage id={btnText} />
             </span>
-          </Button>
+          </Link>
         </div>
       </div>
     </section>
