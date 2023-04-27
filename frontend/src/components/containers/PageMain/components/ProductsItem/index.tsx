@@ -155,7 +155,7 @@ const ProductsItemStore: FC<ProductsItemProps> = ({
               </div>
             </div>
 
-            <div className="col-lg py-lg-3 products-item__col-border">
+            <div className="col-lg py-lg-3 products-item__col-feedback">
             
               <Heading
                 tag="h3"
@@ -174,7 +174,7 @@ const ProductsItemStore: FC<ProductsItemProps> = ({
                   className="products-item__feedback"
                   fluid={feedback.childImageSharp.fluid}
                 />
-              <Link href={'/contact-us/'}>More feedback</Link>
+              <Link  className="products-item__feedback-link" href={'/contact-us/'}>More feedback</Link>
             </div>
           </div>
         }
