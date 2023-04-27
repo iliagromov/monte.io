@@ -3,6 +3,7 @@ const {
   CONTACT_US,
   SUPPORT_GTR,
   STORE,
+  NEWS
 } = require('../routes')
 
 module.exports = [
@@ -17,6 +18,10 @@ module.exports = [
   {
     label: 'menu.contacts',
     slug: CONTACT_US,
+  },
+  {
+    label: 'menu.news',
+    slug: NEWS,
   },
   /*uncomment after calculator fix*/
   /**/ {

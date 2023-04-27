@@ -13,6 +13,7 @@ const ABOUT = `${ROOT}about/`
 const OUR_PRODUCTS = `${ABOUT}our-products/`
 const CART = `${ROOT}cart/`
 const STORE = `${ROOT}store/`
+const NEWS = `${ROOT}news/`
 
 const SUPPORT = `${ROOT}support/`
 const SUPPORT_GTR = `${SUPPORT}gtr/`
@@ -38,6 +39,7 @@ module.exports = {
   OUR_PRODUCTS,
   CART,
   STORE,
+  NEWS,
   ABOUT,
   CONTACT_US,
   RESELLERS,

@@ -79,7 +79,7 @@ exports.createPages = async ({ graphql, actions: { createPage }  }) => {
       result.data.allWpPost.nodes.forEach(node => {
         console.log(node);
         createPage({
-          path: `${node.slug}`,
+          path: `news/${node.slug}`,
           component: path.resolve(`./src/templates/page-single-news.tsx`),
           context: {
             // This is the $slug variable passed to blog-post.js

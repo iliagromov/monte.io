@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../layouts/Default/en";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import { PageProps } from 'gatsby'
+import PageSingleNews from "../components/containers/PageSingleNews";
 
 
 /**
@@ -33,11 +34,12 @@ export const query = graphql`
 export default function BlogPost({ data, location }) {
   // FIXME: data.allWpPost.nodes[0] cделать нормальный путь и проверку
   const post = data.allWpPost.nodes[0];
-  console.log(post);
+  // console.log(post);
   return (
     <Layout location={location}>
       <div className="container">
         <Link to="/">Home</Link>
+        <PageSingleNews/>
         <div > 
           <h1>{post.title}</h1>
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
