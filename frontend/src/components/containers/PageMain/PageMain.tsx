@@ -31,7 +31,12 @@ import FaqList from '../../common/FaqList';
 import { Button, Icon, Section } from '../../ui';
 import { Video } from '../../common/Video';
 import { StaticImage } from 'gatsby-plugin-image';
-
+import Products from './components/Products';
+import ProductsItem from './components/ProductsItem';
+// hooks
+import { useCart } from '../../../hooks/useCart'
+// utils
+import { getProductsWithImages } from '../../../utils/getProductsWithImages'
 
 const PageMain: FC<PageMainProps> = () => {
 
@@ -130,6 +135,13 @@ const PageMain: FC<PageMainProps> = () => {
           }
         }
       }
+      productGT: file(relativePath: { eq: "product-GT.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 792, quality: 100) {
+            ...GatsbyImageSharpFluid_noBase64
+          }
+        }
+      }
       certificates: file(relativePath: { eq: "certificates.png" }) {
         childImageSharp {
           fluid(maxWidth: 792, quality: 100) {
@@ -207,6 +219,11 @@ const PageMain: FC<PageMainProps> = () => {
     },
   ]
 
+  const { addToCart } = useCart()
+  const productsWithImages = getProductsWithImages(products)
+  const productGT = productsWithImages.find((pr: any) => pr.id == productIds.gt)
+
+
   return (
     <>
       <div className="page-main">
@@ -246,11 +263,11 @@ const PageMain: FC<PageMainProps> = () => {
                   <div className="banner__action">
                     <Button
                       className={`page-btn`}
-                      href={'/contact-us'}
+                      href={'/store'}
                       block
                     >
                       <span>
-                        Contact us now
+                        buy now usd $349.00
                       </span>
                     </Button>
                   </div>
@@ -278,7 +295,7 @@ const PageMain: FC<PageMainProps> = () => {
                 <div className="product-about__actions">
                   <Button
                     className={`page-btn`}
-                    href={'/products/monte-gt'}
+                    href={'/store'}
                     block
                   >
                     <span>
@@ -362,6 +379,16 @@ const PageMain: FC<PageMainProps> = () => {
             </div>
           </div>
         </div>
+        <Products>
+          <ProductsItem
+            {...productGT}
+            moreLink={productGT.pageLink}
+            featuresList={undefined}
+            key={productGT.title}
+            addToCartClick={() => addToCart(productGT.id)}
+            
+          />
+        </Products>
 
         <div className="review">
           <h2 className={cn(
