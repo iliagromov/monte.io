@@ -62,3 +62,12 @@ body {
 a {
   text-decoration: none;
 }
+.ant-btn-custom.ant-btn-primary{
+  background: linear-gradient(66.12deg, #C74FDF 8.88%, #8F67F6 88.15%) !important;
+  text-transform: uppercase;
+  color: #fff;
+}
+.tech-specs__groups .download-btns__btn.ant-btn-custom.ant-btn-primary,
+.performance__btn-wrap .ant-btn-custom.ant-btn-primary{
+  background: transparent !important;
+}

@@ -35,7 +35,9 @@ export const SupportBanner: FC<SupportBannerProps> = ({
           <br />
           <a href="mailto:support@montetuning.com">support@montetuning.com</a>
           <br />
-          <Button
+          
+        </div>
+        <Button
             className={`page-btn`}
             href={'/contact-us'}
             block
@@ -44,7 +46,6 @@ export const SupportBanner: FC<SupportBannerProps> = ({
             Contact us now
             </span>
           </Button>
-        </div>
       </div>
     </div>
   )

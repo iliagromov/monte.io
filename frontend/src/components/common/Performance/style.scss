@@ -58,3 +58,17 @@
     }
   }
 }
+
+
+.performance__img{
+  
+  &-bg{
+    width: 65%;
+  }
+  @include media-breakpoint-up(md) {
+    margin-right: -20%;
+    margin-right: -61%;
+    margin-left: -15%;
+    width: 107%;
+  }
+}

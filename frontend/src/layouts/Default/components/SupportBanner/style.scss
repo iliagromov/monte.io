@@ -19,8 +19,8 @@
   @include media-breakpoint-up(md) {
     display: flex;
     align-items: left;
-    height: 308px;
-    padding: 20px 60px;
+    height: 358px;
+    padding: 50px 60px;
     background: #0f0c0b;
   }
 
@@ -34,6 +34,9 @@
     font-size: 18px;
     line-height: 30px;
     font-weight: $fw-medium;
+    
+    margin-bottom: 50px;
+    
 
     @include media-breakpoint-up(lg) {
 
@@ -45,7 +48,10 @@
       white-space: nowrap;
     }
     &-h2{
-      color: #fff
+      color: #fff;
+      font-size: 32px;
+      line-height: 44px;
+      margin-bottom: 18px;
     }
   }
 

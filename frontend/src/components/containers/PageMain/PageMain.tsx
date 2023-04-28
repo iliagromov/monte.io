@@ -7,6 +7,7 @@ import { FormattedMessage, IntlShape } from 'react-intl'
 import { useStaticQuery, graphql, Link } from "gatsby";
 import Img, { FluidObject } from 'gatsby-image'
 import { News } from './components/News'
+import { Advantages } from './components/Advantages'
 
 // data
 import {
@@ -25,6 +26,8 @@ type PageMainProps = {
 
 }
 
+import { Hero } from './components/Hero'
+
 import './style.scss'
 import FaqSection from '../../common/Faq';
 import FaqList from '../../common/FaqList';
@@ -42,6 +45,9 @@ const PageMain: FC<PageMainProps> = () => {
 
 
   const {
+
+    heroImgBg,
+    heroImgProduct,
     bannerImg,
     bannerImgSm,
     bannerImgXs,
@@ -207,6 +213,21 @@ const PageMain: FC<PageMainProps> = () => {
           }
         }
       }
+      heroImgBg: file(relativePath: { eq: "color-cloud.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 792, quality: 100) {
+            ...GatsbyImageSharpFluid_noBase64
+          }
+        }
+      }
+      heroImgProduct: file(relativePath: { eq: "hero-gt-main.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 659, quality: 100) {
+            ...GatsbyImageSharpFluid_noBase64
+          }
+        }
+      }
+
     }
   `)
   let sourses: FluidObject[] = [
@@ -227,7 +248,7 @@ const PageMain: FC<PageMainProps> = () => {
   return (
     <>
       <div className="page-main">
-        <div className="banner">
+        {/* <div className="banner">
           <div className="banner__img-background">
             <Img className="page-img" fluid={sourses} />
           </div>
@@ -281,8 +302,18 @@ const PageMain: FC<PageMainProps> = () => {
           </div>
 
 
-        </div>
-
+        </div> */}
+          <Hero
+            title={hero.title}
+            imgOne={heroImgBg.childImageSharp.fluid}
+            imgTwo={heroImgProduct.childImageSharp.fluid}
+          >
+          </Hero>
+          <Advantages
+            items={advantages.items as any}
+            titleText={advantages.titleText}
+            titleClassName="h3"
+          />
         <div className="product-about">
           <h2 className={cn(
             'text-lg-center h1 mb-4 mb-lg-5', 'text-md-left h2 mb-4 mb-lg-4'

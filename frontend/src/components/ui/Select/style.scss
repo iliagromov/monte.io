@@ -134,6 +134,7 @@
 .ant-select-dropdown-custom {
   padding: 16px 0;
   border-radius: 20px;
+  z-index: 9999;
 
   .ant-select-item {
     padding: 5px $select-padding;
