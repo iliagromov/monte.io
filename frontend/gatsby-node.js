@@ -77,7 +77,7 @@ exports.createPages = async ({ graphql, actions: { createPage }  }) => {
     }`)
     .then(result => {
       result.data.allWpPost.nodes.forEach(node => {
-        console.log(node);
+        // console.log(node);
         createPage({
           path: `news/${node.slug}`,
           component: path.resolve(`./src/templates/page-single-news.tsx`),
