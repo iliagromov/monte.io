@@ -40,12 +40,18 @@ import ProductsItem from './components/ProductsItem';
 import { useCart } from '../../../hooks/useCart'
 // utils
 import { getProductsWithImages } from '../../../utils/getProductsWithImages'
+import ProductMain from './components/ProductMain';
+
+import {
+  product as productProps,
+} from '../../../data/page-gt'
+
 
 const PageMain: FC<PageMainProps> = () => {
 
 
   const {
-
+    productMain1,
     heroImgBg,
     heroImgProduct,
     bannerImg,
@@ -69,7 +75,13 @@ const PageMain: FC<PageMainProps> = () => {
     installVideoPreview,
   } = useStaticQuery(graphql`
     query {
-      
+      productMain1: file(relativePath: { eq: "product-main-01.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 577, quality: 100) {
+            ...GatsbyImageSharpFluid_noBase64
+          }
+        }
+      }
       bannerImg: file(relativePath: { eq: "banner-main.png" }) {
         childImageSharp {
           fluid(maxWidth: 792, quality: 100) {
@@ -244,11 +256,17 @@ const PageMain: FC<PageMainProps> = () => {
   const productsWithImages = getProductsWithImages(products)
   const productGT = productsWithImages.find((pr: any) => pr.id == productIds.gt)
 
+  const productImages = [
+    {
+      img: productMain1.childImageSharp.fluid,
+      name: 'gt-phone',
+    },
+  ]
 
   return (
     <>
       <div className="page-main">
-        {/* <div className="banner">
+       <div className="banner">
           <div className="banner__img-background">
             <Img className="page-img" fluid={sourses} />
           </div>
@@ -302,18 +320,17 @@ const PageMain: FC<PageMainProps> = () => {
           </div>
 
 
-        </div> */}
-          <Hero
-            title={hero.title}
-            imgOne={heroImgBg.childImageSharp.fluid}
-            imgTwo={heroImgProduct.childImageSharp.fluid}
-          >
-          </Hero>
-          <Advantages
+        </div> 
+          {/* <ProductMain
+          isBtn={true}
+          images={productImages}
+          {...(productProps as any)}
+        /> */}
+          {/* <Advantages
             items={advantages.items as any}
             titleText={advantages.titleText}
             titleClassName="h3"
-          />
+          /> */}
         <div className="product-about">
           <h2 className={cn(
             'text-lg-center h1 mb-4 mb-lg-5', 'text-md-left h2 mb-4 mb-lg-4'
@@ -339,7 +356,8 @@ const PageMain: FC<PageMainProps> = () => {
 
               </div>
               <div className="product-about__img">
-                <Img className="page-img" fluid={productAboutDesktop.childImageSharp.fluid} />
+                <Img className="page-img page-img_mob" fluid={productAboutMobile.childImageSharp.fluid} />
+                <Img className="page-img page-img_desc" fluid={productAboutDesktop.childImageSharp.fluid} />
               </div>
             </div>
           </div>
