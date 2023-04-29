@@ -71,8 +71,8 @@ const ProductsItem: FC<ProductsItemProps> = ({
   ]
 
   const renderMoreLink = moreLink && addToCartClick && (
-    <div className="row products-item__links">
-      <div className="col text-right">
+    <div className="row products-item__links justify-content-center">
+      <div className="col text-right col-md-3 col-xs-12">
         <Link
           to={getHrefWithLocale(intl, moreLink)}
           className="products-item__link"
@@ -81,7 +81,7 @@ const ProductsItem: FC<ProductsItemProps> = ({
           <RightOutlined className="products-item__link-icon" />
         </Link>
       </div>
-      <div className="col text-left">
+      <div className="col text-left col-md-3 col-xs-12">
         <Link
           to={getHrefWithLocale(intl, 'cart/')}
           onClick={addToCartClick}

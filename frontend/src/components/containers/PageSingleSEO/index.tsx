@@ -11,11 +11,16 @@ import {
   advantages,
   faqSection,
   news,
+  products,
 } from '../../../data/page-main'
 import FaqSection from '../../common/Faq'
 import FaqList from '../../common/FaqList'
 import { News } from '../PageMain/components/News'
 import CarSelects from '../../common/CarSelects'
+import Products from '../../common/Products'
+import ProductsItem from '../../common/ProductsItem'
+import { getProductsWithImages } from '../../../utils/getProductsWithImages'
+import { useCart } from '../../../hooks/useCart'
 
 
 
@@ -81,6 +86,12 @@ const PageSingleSEO: FC<PageSingleSEOProps> = ({ postProps }) => {
     },
   ]
 
+  const { addToCart } = useCart()
+  const productsWithImages = getProductsWithImages(products);
+
+  const productGT = productsWithImages[0];
+
+  
   return (
     <main className="page-seo ">
       <section className="banner">
@@ -135,6 +146,17 @@ const PageSingleSEO: FC<PageSingleSEOProps> = ({ postProps }) => {
             titleText={advantages.titleText}
             titleClassName="h3"
           /> 
+
+      <Products>
+        <ProductsItem
+          {...productGT}
+          moreLink={productGT.pageLink}
+          featuresList={undefined}
+          key={productGT.title}
+          addToCartClick={() => addToCart(productGT.id)}
+        />
+      </Products>
+
       
       <section className='post-text post-content'>
         <div className="container">
