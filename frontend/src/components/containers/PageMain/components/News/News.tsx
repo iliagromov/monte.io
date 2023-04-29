@@ -57,8 +57,8 @@ export const News: FC<NewsProps> = ({ items, title }) => {
           {renderSlides}
         </Swiper>
 
-        <div className={`${blockName}__link-wrap text-md-right`}>
-          <Link to="/" className={`${blockName}__link-more`}>
+        <div className={`${blockName}__link-wrap`}>
+          <Link to="/news" className={`${blockName}__link-more`}>
             <FormattedMessage id="pageMain.readOther" />
             <RightOutlined className="ml-2" />
           </Link>

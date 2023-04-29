@@ -40,6 +40,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Pagination, Navigation } from 'swiper'
 
 import { Button, Img, ImgProps } from '../../ui'
+import './style.scss'
 
 type SwiperProps = ComponentProps<typeof Swiper>
 
@@ -59,6 +60,7 @@ const PageMonteGT: FC<PageMonteGTProps> = () => {
     spanishPdf,
   } = useStaticQuery(graphql`
     query {
+      
       productMain1: file(relativePath: { eq: "product-main-01.png" }) {
         childImageSharp {
           fluid(maxWidth: 577, quality: 100) {
@@ -122,7 +124,7 @@ const PageMonteGT: FC<PageMonteGTProps> = () => {
 
   return (
     <>
-      <section className={cn('section', styles.pageGT)}> 
+      <section className={cn('section', 'pageGT')}> 
         <AddMenu items={productsMenu as any} mod="absolute" />
         <ProductMain
           isBtn={true}
@@ -212,7 +214,7 @@ const PageMonteGT: FC<PageMonteGTProps> = () => {
               <div className={cn('col-12', 'col-md-6', 'col-lg-7', styles.specs)}>
                 <TechSpecs asTableUp="md" {...techSpecsProps} />
               </div>
-              <div className={cn('col-12', 'col-md-6', 'col-lg-5', styles.specs)}>
+              <div className={cn('col-12','col-md-6', 'col-lg-5', styles.specs)}>
                 <Feedback title="Feedback" >
                   <FeedbackRating
                     voteRatings={votes}
@@ -221,6 +223,26 @@ const PageMonteGT: FC<PageMonteGTProps> = () => {
                   <Reviews reviews={reviews} className="feedback__reviews" />
               </Feedback>
               </div>
+              <div className={cn('col-12', 'col-md-5')}>
+                
+                  <h3 className="tech-specs__group-title h5">Product PDF manual</h3>
+                  <div className="download-btns-inner">
+                    <a
+                      className="ant-btn ant-btn-primary ant-btn-round ant-btn-lg ant-btn-custom download-btns__btn"
+                      href={englishPdf.publicURL}
+                      download
+                    >
+                      <span>Download Manual English</span>
+                    </a>
+                    <a
+                      className="ant-btn ant-btn-primary ant-btn-round ant-btn-lg ant-btn-custom download-btns__btn"
+                      href={spanishPdf ? spanishPdf.publicURL : ''}
+                      download
+                    >
+                      <span>Download Manual Española</span>
+                    </a>
+                  </div>
+              </div> 
 
           </div>
         </div>

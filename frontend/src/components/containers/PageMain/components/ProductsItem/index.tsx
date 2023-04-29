@@ -133,8 +133,8 @@ const ProductsItemStore: FC<ProductsItemProps> = ({
                   'mt-auto': withColumns,
                 })}
               >
-                {infoItems.map(({ title, descr }) => (
-                  <div className="products-item__info">
+                {infoItems.map(({ title, descr }, i: number) => (
+                  <div className="products-item__info" key={`products-item__${i}`}>
                     <div className="products-item__info-title">
                       +{title}%<sup>*</sup>
                     </div>

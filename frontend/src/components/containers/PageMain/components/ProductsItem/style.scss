@@ -35,11 +35,13 @@
   }
 
   &__img-wrap {
-    margin-bottom: 30px;
-    width: 100% !important;
-
+    // width: 100% !important;
+    width: 80% !important;
+    margin: 0 auto 30px;
     @include media-breakpoint-up(md) {
-      margin-bottom: 40px;
+      
+      width: 50% !important;
+      margin: 30px auto;
     }
     img {
       object-fit: contain !important;
@@ -154,8 +156,11 @@
 
 
 .product-item__actions-link{
-  text-transform: uppercase;
+  text-transform: uppercase   ;
   margin-left: 20px;
+  font-size: 16px;
+  line-height: 28px;
+  margin-top: 10px
 }
 
 .products-item__title-feedback{

@@ -36,8 +36,10 @@
   }
 
   &__link-more {
-    display: inline-block;
     @include link-clicker;
     color: inherit;
+    display: flex;
+    justify-content: flex-end;
+    color: #FF4582;
   }
 }

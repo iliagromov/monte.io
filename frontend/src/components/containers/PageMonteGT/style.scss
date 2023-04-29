@@ -1,0 +1,20 @@
+.pageGT{
+    padding-top: 15px !important;  
+    .download-btns__btn.ant-btn-custom.ant-btn-primary {
+        color: #ff472e !important;
+        border: 1px solid #ff472e !important;
+        border-radius: 42px;
+        background: transparent !important;
+      
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100%;
+      }
+      .download-btns__btn.ant-btn-custom.ant-btn-primary::before {
+        box-shadow: none;
+        position: relative !important;
+      }
+      .app-buttons__title {
+        font-weight: 700;
+      }
+}

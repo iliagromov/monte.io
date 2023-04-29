@@ -123,33 +123,21 @@ const PageMain: FC<PageMainProps> = () => {
           }
         }
       }
-      imgProductCardInfo1: file(relativePath: { eq: "img-product-card-info-1.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 792, quality: 100) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
-        }
+      imgProductCardInfo1: file(relativePath: { eq: "imgProductCardInfo1.svg" }) {
+          publicURL
+          name
       }
-      imgProductCardInfo2: file(relativePath: { eq: "img-product-card-info-2.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 792, quality: 100) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
-        }
+      imgProductCardInfo2: file(relativePath: { eq: "imgProductCardInfo2.svg" }) {
+          publicURL
+          name
       }
-      imgProductCardInfo3: file(relativePath: { eq: "img-product-card-info-3.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 792, quality: 100) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
-        }
+      imgProductCardInfo3: file(relativePath: { eq: "imgProductCardInfo3.svg" }) {
+          publicURL
+          name
       }
-      imgProductCardInfo4: file(relativePath: { eq: "img-product-card-info-4.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 792, quality: 100) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
-        }
+      imgProductCardInfo4: file(relativePath: { eq: "imgProductCardInfo4.svg" }) {
+          publicURL
+          name
       }
       productGT: file(relativePath: { eq: "product-GT.png" }) {
         childImageSharp {
@@ -308,7 +296,8 @@ const PageMain: FC<PageMainProps> = () => {
         <div className="container">
           <div className="product-about-inner">
             <div className="product-about__text">
-              <h2>Monte GT</h2>
+              <h2 className="product-about__text-desktop">Monte GT</h2>
+              <h2 className="product-about__text-mobile"><span>Perfomance chip</span> via Smartphone app</h2>
               <p>The Monte GT comes with a complimentary smartphone app that provides drivers with access to a tuning database tailored to their vehicle's specifications, enabling them to experience optimized performance from the comfort of their driver's seat.</p>
               <div className="product-about__actions">
                 <Button
@@ -320,7 +309,7 @@ const PageMain: FC<PageMainProps> = () => {
                     buy now usd $349.00
                   </span>
                 </Button>
-                <Link href={'/products/monte-gt'}>learn more</Link>
+                <Link className={`product-about__actions-link`} href={'/products/monte-gt'}>learn more</Link>
               </div>
 
 
@@ -343,47 +332,47 @@ const PageMain: FC<PageMainProps> = () => {
               <div className="advantages-item">
                 <div className="advantages-item__icon-bg">
                   <div className="advantages-item__icon">
-                    <Img
-                      fluid={imgProductCardInfo1.childImageSharp.fluid}
+                    <ReactSVG
+                      src={imgProductCardInfo1.publicURL}
                     />
                   </div>
                 </div>
 
                 <div className="advantages-item__text">
-                  Unlock full <br /> potential of your car
+                  Unlock full <span>potential of your car</span> 
                 </div>
               </div>
               <div className="advantages-item">
                 <div className="advantages-item__icon-bg">
                   <div className="advantages-item__icon">
-                    <Img className="page-icon" fluid={imgProductCardInfo2.childImageSharp.fluid} />
+                    <ReactSVG className="page-icon" src={imgProductCardInfo2.publicURL} />
                   </div>
 
                 </div>
                 <div className="advantages-item__text">
-                  Up to 20% <br /> more power
+                  Up to 20% <span>more power</span> 
                 </div>
               </div>
               <div className="advantages-item">
                 <div className="advantages-item__icon-bg">
                   <div className="advantages-item__icon">
-                    <Img className="page-icon" fluid={imgProductCardInfo3.childImageSharp.fluid} />
+                    <ReactSVG className="page-icon" src={imgProductCardInfo3.publicURL} />
                   </div>
 
                 </div>
                 <div className="advantages-item__text">
-                  Save up to 10% <br /> on fuel
+                  Save up to 10% <span>on fuel</span>
                 </div>
               </div>
               <div className="advantages-item">
                 <div className="advantages-item__icon-bg">
                   <div className="advantages-item__icon">
-                    <Img className="page-icon" fluid={imgProductCardInfo4.childImageSharp.fluid} />
+                    <ReactSVG className="page-icon" src={imgProductCardInfo4.publicURL} />
                   </div>
 
                 </div>
                 <div className="advantages-item__text">
-                  Easy to install and with <br /> lifetime warranty
+                  Easy to install and with <span>lifetime warranty</span>
                 </div>
               </div>
             </div>
@@ -409,16 +398,16 @@ const PageMain: FC<PageMainProps> = () => {
         />
       </Products>
 
-      <div className="review">
+      <div className="review-block">
         <h2 className={cn(
           'text-lg-center h1 mb-4 mb-lg-5', 'h2 mb-4 mb-lg-4'
         )}>Featured review</h2>
         <div className="container">
-          <div className="review-inner">
-            <div className="review__img">
+          <div className="review-block-inner">
+            <div className="review-block__img">
               <Img className="certificate-block__img-background" fluid={reviewPoster.childImageSharp.fluid} />
             </div>
-            <div className="review__text">
+            <div className="review-block__text">
               <h2>bensmith</h2>
               <p>
                 Best value upgrade I’ve made for my car so far. My car feels alive!&. Best value upgrade I’ve made for my car so far. My car feels alive!
@@ -429,11 +418,6 @@ const PageMain: FC<PageMainProps> = () => {
 
         </div>
       </div>
-      {/* <div className="news-pereview">
-          <div className="container">
-            news pereview
-          </div>
-        </div> */}
       <News items={news.items} title={'Over 100k Customers Worldwide. Join Monte community now'} />
 
       <div className="featured">
