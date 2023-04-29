@@ -1,18 +1,187 @@
-import { graphql, useStaticQuery } from 'gatsby'
+import { Link, graphql, useStaticQuery } from 'gatsby'
 import cn from 'classnames'
 import React, { FC } from 'react'
-import { useIntl } from 'react-intl'
+import Img, { FluidObject } from 'gatsby-image'
 
 import './style.scss'
+import { Advantages } from './components/Advantages'
 
-const PageSingleSEO: FC = () => {
-  const intl = useIntl()
+
+import {
+  advantages,
+  faqSection,
+  news,
+} from '../../../data/page-main'
+import FaqSection from '../../common/Faq'
+import FaqList from '../../common/FaqList'
+import { News } from '../PageMain/components/News'
+import CarSelects from '../../common/CarSelects'
+
+
+
+type PageSingleSEOProps = {
+  postProps: {
+    title: string,
+    content: string
+  }
+}
+
+const PageSingleSEO: FC<PageSingleSEOProps> = ({ postProps }) => {
+
+  // console.log(postProps);
+
+  const {
+    title,
+    content
+  } = postProps;
+
+  const {
+    bannerImg,
+    bannerImgXs,
+    bannerGTChip
+  } = useStaticQuery(graphql`
+    query {
+      bannerImg: file(relativePath: { eq: "banner-seo-section.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 792, quality: 100) {
+            ...GatsbyImageSharpFluid_noBase64
+          }
+        }
+      }
+      bannerImgXs: file(relativePath: { eq: "banner-main-xs.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 792, quality: 100) {
+            ...GatsbyImageSharpFluid_noBase64
+          }
+        }
+      }
+      bannerImgSm: file(relativePath: { eq: "banner-main-sm.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 792, quality: 100) {
+            ...GatsbyImageSharpFluid_noBase64
+          }
+        }
+      }
+      bannerGTChip: file(relativePath: { eq: "bannerGTChip.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 792, quality: 100) {
+            ...GatsbyImageSharpFluid_noBase64
+          }
+        }
+      }
+    }`);
+
+  let sourses: FluidObject[] = [
+    {
+      ...bannerImgXs.childImageSharp.fluid,
+      media: `(max-width: 767px)`,
+    },
+    {
+      ...bannerImg.childImageSharp.fluid,
+    },
+  ]
+
   return (
-    <section className="section">
-     <div className="container">
-     PageSingleSEO
-     </div>
-    </section>
+    <main className="page-seo ">
+      <section className="banner">
+        <div className="banner__img-background">
+          <Img className="page-img" fluid={sourses} />
+        </div>
+        <div className="banner-inner-block">
+          <div className="container">
+            <div className="banner-inner">
+              <div className="banner__text">
+                <div className="banner__title">
+                  Performance chip for
+                  <span>{title}</span>
+                </div>
+                <div className="banner__power">
+                  <div className="banner-power-item">
+                    <div className="banner-power-item__title">
+                      up to 20%
+                    </div>
+                    <div className="banner-power-item__text">
+                      More Power
+                    </div>
+                  </div>
+                  <div className="banner-power-item">
+                    <div className="banner-power-item__title">
+                      up to 10%
+                    </div>
+                    <div className="banner-power-item__text">
+                      Fuel saving
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div className="banner__img">
+                <Img className="page-img" fluid={bannerGTChip.childImageSharp.fluid} />
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+      </section>
+      <section className="select-your-car">
+        <div className="container">
+          <CarSelects isMainPage={true} />
+        </div>
+      </section>
+        <Advantages
+            items={advantages.items as any}
+            titleText={advantages.titleText}
+            titleClassName="h3"
+          /> 
+      
+      <section className='post-text post-content'>
+        <div className="container">
+          <div dangerouslySetInnerHTML={{ __html: content }} />
+        </div>
+      </section>
+
+     <section className='block-permalinks'>
+        <div className="container">
+            <div className="block-permalinks-inner">
+              <h2 className='block-permalinks__title'> Monte Tuning is compatible with {title} </h2>
+              <h3 className="block-permalinks__car">Hummer</h3>
+              <div className="block-permalinks__links">
+                  <div className="block-permalinks-link"> 
+                    <Link to={'/store'}>5.7 (1997)</Link>
+                  </div>
+                  <div className="block-permalinks-link">
+                    <Link to={'/store'}>6.5L V8 Diesel 1996</Link> 
+                  </div>
+                  <div className="block-permalinks-link"> 
+                    <Link to={'/store'}>6.5L V8 Diesel 1997</Link> 
+                  </div>
+                  <div className="block-permalinks-link">  
+                    <Link to={'/store'}>6.5L Diesel 1998</Link> 
+                  </div>
+                  <div className="block-permalinks-link">  
+                    <Link to={'/store'}>6.5L V8 Turbo Diesel 1996</Link> 
+                  </div>
+                  <div className="block-permalinks-link">  
+                    <Link to={'/store'}>6.5L Turbo  Diesel  1997</Link>
+                  </div>
+                  <div className="block-permalinks-link">  
+                    <Link to={'/store'}>6.5L Turbo  Diesel  1998</Link>
+                  </div>
+              </div>
+            </div>
+        </div>
+     
+     </section>
+
+      <div className={cn('col-md-12', 'col-lg-12')}>
+        <FaqSection title={faqSection.title} mod="pt-lg">
+          <FaqList items={faqSection.items} />
+        </FaqSection>
+      </div>
+      <News items={news.items} title={'Reviews and news'} />
+    </main>
   )
 }
 

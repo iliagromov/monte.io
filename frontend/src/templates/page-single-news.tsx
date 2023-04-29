@@ -1,8 +1,8 @@
 import React from "react";
 import Layout from "../layouts/Default/en";
-import { Link, graphql, useStaticQuery } from "gatsby";
-import { PageProps } from 'gatsby'
+import { graphql, useStaticQuery } from "gatsby";
 import PageSingleNews from "../components/containers/PageSingleNews";
+import SEO from "../components/common/seo";
 
 
 /**
@@ -38,12 +38,10 @@ export default function BlogPost({ data, location }) {
   console.log(post);
   return (
     <Layout location={location}>
-      <div className="container">
-        <PageSingleNews 
+      <SEO title={post.title} />
+      <PageSingleNews 
         postProps={post}
         />
-        <Link to="/news">back to all news</Link>
-      </div>
     </Layout>
   )
 }

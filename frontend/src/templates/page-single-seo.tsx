@@ -3,6 +3,7 @@ import Layout from "../layouts/Default/en";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import { PageProps } from 'gatsby'
 import PageSingleSEO from "../components/containers/PageSingleSEO";
+import SEO from "../components/common/seo";
 export const query = graphql`
   query($slug: String!) {
     allWpPage(filter: { slug: { eq: $slug } }) {
@@ -16,17 +17,13 @@ export const query = graphql`
 
 export default function BlogPost({ data, location }) {
   const post = data.allWpPage.nodes[0];
-  console.log(post);
+  // console.log(post);
   return (
     <Layout location={location}>
-      <div className="container">
-        <Link to="/">Home</Link>
-        <div > 
-          <h1>{post.title}</h1>
-          <div dangerouslySetInnerHTML={{ __html: post.content }} />
-        </div>
-        <PageSingleSEO/>
-      </div>
+      <SEO title={post.title} />
+      <PageSingleSEO 
+        postProps={post}
+      />
     </Layout>
   )
 }

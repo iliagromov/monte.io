@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby'
+import { Link, graphql, useStaticQuery } from 'gatsby'
 import cn from 'classnames'
 import React, { FC } from 'react'
 import Img, { FluidObject } from 'gatsby-image'
@@ -49,6 +49,8 @@ const PageSingleNews: FC<PageSingleNewsProps> = ({postProps}) => {
     <article className="section page-single-news">
      <div className="container">
        <div className="page-single-news-inner">
+        
+    
         <div className="page-single-news__gallary">
             <div className="page-single-news__gallary-item">
               <Img fluid={imgNewsMonteGT1.childImageSharp.fluid} />
@@ -72,8 +74,12 @@ const PageSingleNews: FC<PageSingleNewsProps> = ({postProps}) => {
           </div>
           
         </div>
+        <div className="page-single-news__link-back">
+          <Link to="/news">back to all news</Link>
+        </div>
        </div>
      </div>
+     
     </article>
   )
 }
