@@ -45,6 +45,8 @@ import ProductMain from './components/ProductMain';
 import {
   product as productProps,
 } from '../../../data/page-gt'
+import { ReactSVG } from 'react-svg';
+import { Frequently } from './components/Frequently';
 
 
 const PageMain: FC<PageMainProps> = () => {
@@ -64,10 +66,6 @@ const PageMain: FC<PageMainProps> = () => {
     imgProductCardInfo2,
     imgProductCardInfo3,
     imgProductCardInfo4,
-    imgFrequently1,
-    imgFrequently2,
-    imgFrequently3,
-    imgFrequently4,
     certificates,
     certificateCouncil,
     featuredLogos,
@@ -182,34 +180,6 @@ const PageMain: FC<PageMainProps> = () => {
         }
       }
       reviewPoster: file(relativePath: { eq: "review-poster.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 792, quality: 100) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
-        }
-      }
-      imgFrequently1: file(relativePath: { eq: "img-frequently-1.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 792, quality: 100) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
-        }
-      }
-      imgFrequently2: file(relativePath: { eq: "img-frequently-2.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 792, quality: 100) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
-        }
-      }
-      imgFrequently3: file(relativePath: { eq: "img-frequently-3.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 792, quality: 100) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
-        }
-      }
-      imgFrequently4: file(relativePath: { eq: "img-frequently-4.png" }) {
         childImageSharp {
           fluid(maxWidth: 792, quality: 100) {
             ...GatsbyImageSharpFluid_noBase64
@@ -503,77 +473,7 @@ const PageMain: FC<PageMainProps> = () => {
         </div>
       </div>
 
-      <div className="frequently">
-        <h2
-          className={cn(
-            'faq__title', 'text-lg-center h1 mb-4 mb-lg-5', 'faq__title--small text-md-left h2 mb-4 mb-lg-4'
-          )}
-        >
-          Frequently asked questions
-        </h2>
-        <div className="container">
-          <div className="frequently-inner">
-            <div className="frequently-items">
-              <div className="frequently-item">
-                <div className="frequently-item__icon">
-                  <Img className="certificate-block__img-background" fluid={imgFrequently1.childImageSharp.fluid} />
-                </div>
-                <div className="frequently-item__text">
-                  Plug and play installation
-                </div>
-                <div className="frequently-item__description">
-                  No special automotive knowledge needed. Monte takes less than 5 minutes to be installed.
-                </div>
-                <a href="">
-                    Learn more >
-                </a>
-              </div>
-              <div className="frequently-item">
-                <div className="frequently-item__icon">
-                  <Img className="certificate-block__img-background" fluid={imgFrequently2.childImageSharp.fluid} />
-                </div>
-                <div className="frequently-item__text">
-                  Versatility
-                </div>
-                <div className="frequently-item__description">
-                  compatibility with a wide range of vehicles, including trucks and cars produced after 1996
-                </div>
-                <a href="">
-                    Learn more >
-                </a>
-              </div>
-              <div className="frequently-item">
-                <div className="frequently-item__icon">
-                  <Img className="certificate-block__img-background" fluid={imgFrequently3.childImageSharp.fluid} />
-                </div>
-                <div className="frequently-item__text">
-                  Engineered in USA
-                </div>
-                <div className="frequently-item__description">
-                  Designed and engineered in the USA  a high-quality product that is built to last.
-                </div>
-                <a href="">
-                    Learn more >
-                </a>
-              </div>
-              <div className="frequently-item">
-                <div className="frequently-item__icon">
-                  <Img className="certificate-block__img-background" fluid={imgFrequently4.childImageSharp.fluid} />
-                </div>
-                <div className="frequently-item__text">
-                  Lifetime warranty
-                </div>
-                <div className="frequently-item__description">
-                  backed by a lifetime warranty against defects, providing peace of mind
-                </div>
-                <a href="">
-                    Learn more >
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Frequently/>
 
       <div className={cn('col-md-12', 'col-lg-12')}>
         <FaqSection title={faqSection.title} mod="pt-lg">

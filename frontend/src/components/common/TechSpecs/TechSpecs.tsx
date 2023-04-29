@@ -74,8 +74,8 @@ export const TechSpecs: FC<TechSpecsProps> = ({ title, groups, asTableUp }) => {
         <FormattedMessage id={title} />
       </h3>
       <div className="tech-specs__groups">
-        <div className={cn('col-12', 'col-md-7')}>{renderGroups}</div>
-        <div className={cn('col-12', 'col-md-5')}>
+        <div className={cn('col-12')}>{renderGroups}</div>
+        {/* <div className={cn('col-12', 'col-md-5')}>
           <div className="container">
             <h3 className="tech-specs__group-title h5">Product PDF manual</h3>
             <div className="download-btns-inner">
@@ -96,7 +96,7 @@ export const TechSpecs: FC<TechSpecsProps> = ({ title, groups, asTableUp }) => {
             </div>
             <AppButtons {...appButtonsProps} />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )

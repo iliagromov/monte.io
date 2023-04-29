@@ -1,0 +1,47 @@
+@import '../../../../../styles/imports';
+
+.frequently{
+    padding-top: 100px;
+    h2{
+      text-align: center;
+    }
+
+    &-inner{
+        background: #F7F8FA;
+        border-radius: 12px;
+        padding: 40px 60px ;
+    }
+    &-items{
+      background: #F7F8FA;
+      border-radius: 12px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    &-item{
+      margin-right: 10%;
+      margin-bottom: 80px;
+  
+        
+      width: 100%;
+      @include media-breakpoint-up(md) {
+        width: 40%;
+      }
+  
+      &__icon{
+        margin-bottom: 17px;
+        width: 30px;
+        height: 30px;
+      }
+      &__text{
+        margin-bottom: 12px;
+        font-size: 32px;
+        line-height: 44px;
+        font-weight: bold;
+      }
+      &__description{
+        margin-bottom: 8px;
+        font-size: 16px;
+        line-height: 28px;
+      }
+    }
+  }

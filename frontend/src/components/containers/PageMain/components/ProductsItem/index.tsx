@@ -9,6 +9,13 @@ import { Badge, Button, Heading, HeadingProps } from '../../../../ui'
 import { getHrefWithLocale, ProductId } from '../../../../../utils'
 import { getProductDataById } from '../../../../../utils/getProductDataById'
 import './style.scss'
+import Feedback from '../../../PageMonteGT/components/Feedback'
+import FeedbackRating from '../../../PageMonteGT/components/FeedbackRating'
+import { Reviews } from '../../../PageMonteGT/components/Reviews'
+import {
+  reviews,
+  votes,
+} from '../../../../../data/page-gt'
 
 type FeatureItem = {
   id: string
@@ -157,24 +164,13 @@ const ProductsItemStore: FC<ProductsItemProps> = ({
 
             <div className="col-lg py-lg-3 products-item__col-feedback">
             
-              <Heading
-                tag="h3"
-                like={titleSize}
-                className={cn('products-item__title', {
-                  'products-item__title-feedback': isNeededBadgeOffset,
-                })}
-              >
-               Feedback
-              </Heading>
-              <Img
-                  className="products-item__feedbackStarts"
-                  fluid={feedbackStarts.childImageSharp.fluid}
-                />
-              <Img
-                  className="products-item__feedback"
-                  fluid={feedback.childImageSharp.fluid}
-                />
-              <Link  className="products-item__feedback-link" href={'/contact-us/'}>More feedback</Link>
+                   <Feedback title="Feedback" >
+                    <FeedbackRating
+                      voteRatings={votes}
+                      className="feedback__rating"
+                    />
+                    <Reviews reviews={reviews} className="feedback__reviews" />
+                </Feedback>
             </div>
           </div>
         }

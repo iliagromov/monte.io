@@ -209,9 +209,19 @@ const PageMonteGT: FC<PageMonteGTProps> = () => {
 
         <div className="container">
           <div className="row">
-            <div className={cn('col-md-12', 'col-lg-12', styles.specs)}>
-              <TechSpecs asTableUp="md" {...techSpecsProps} />
-            </div>
+              <div className={cn('col-12', 'col-md-6', 'col-lg-7', styles.specs)}>
+                <TechSpecs asTableUp="md" {...techSpecsProps} />
+              </div>
+              <div className={cn('col-12', 'col-md-6', 'col-lg-5', styles.specs)}>
+                <Feedback title="Feedback" >
+                  <FeedbackRating
+                    voteRatings={votes}
+                    className="feedback__rating"
+                  />
+                  <Reviews reviews={reviews} className="feedback__reviews" />
+              </Feedback>
+              </div>
+
           </div>
         </div>
 

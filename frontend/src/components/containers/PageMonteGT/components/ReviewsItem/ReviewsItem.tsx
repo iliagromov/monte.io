@@ -71,7 +71,7 @@ export const ReviewsItem: FC<ReviewsItemProps> = ({
       </div>
 
       <Modal
-        visible={isModalShowed}
+        open={isModalShowed}
         footer={null}
         onCancel={closeModal}
         centered

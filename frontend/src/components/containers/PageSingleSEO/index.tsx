@@ -21,6 +21,7 @@ import Products from '../../common/Products'
 import ProductsItem from '../../common/ProductsItem'
 import { getProductsWithImages } from '../../../utils/getProductsWithImages'
 import { useCart } from '../../../hooks/useCart'
+import { Frequently } from '../PageMain/components/Frequently'
 
 
 
@@ -53,14 +54,14 @@ const PageSingleSEO: FC<PageSingleSEOProps> = ({ postProps }) => {
           }
         }
       }
-      bannerImgXs: file(relativePath: { eq: "banner-main-xs.png" }) {
+      bannerImgXs: file(relativePath: { eq: "banner-seo-section-xs.png" }) {
         childImageSharp {
           fluid(maxWidth: 792, quality: 100) {
             ...GatsbyImageSharpFluid_noBase64
           }
         }
       }
-      bannerImgSm: file(relativePath: { eq: "banner-main-sm.png" }) {
+      bannerImgSm: file(relativePath: { eq: "banner-seo-section-sm.png" }) {
         childImageSharp {
           fluid(maxWidth: 792, quality: 100) {
             ...GatsbyImageSharpFluid_noBase64
@@ -103,8 +104,8 @@ const PageSingleSEO: FC<PageSingleSEOProps> = ({ postProps }) => {
             <div className="banner-inner">
               <div className="banner__text">
                 <div className="banner__title">
-                  Performance chip for
-                  <span>{title}</span>
+                  Performance chip for <br/>
+                  {title}
                 </div>
                 <div className="banner__power">
                   <div className="banner-power-item">
@@ -124,6 +125,10 @@ const PageSingleSEO: FC<PageSingleSEOProps> = ({ postProps }) => {
                     </div>
                   </div>
                 </div>
+                <div className="banner__subtitle">
+                  Select your car 
+                </div>
+               
 
               </div>
               <div className="banner__img">
@@ -170,33 +175,41 @@ const PageSingleSEO: FC<PageSingleSEOProps> = ({ postProps }) => {
               <h2 className='block-permalinks__title'> Monte Tuning is compatible with {title} </h2>
               <h3 className="block-permalinks__car">Hummer</h3>
               <div className="block-permalinks__links">
-                  <div className="block-permalinks-link"> 
-                    <Link to={'/store'}>5.7 (1997)</Link>
+                  <div className="block-permalinks__links-row">
+                    <div className="block-permalinks-link"> 
+                        <Link className='page-link' to={'/store'}>5.7 (1997)</Link>
+                    </div>
                   </div>
+                  <div className="block-permalinks__links-row">
                   <div className="block-permalinks-link">
-                    <Link to={'/store'}>6.5L V8 Diesel 1996</Link> 
+                    <Link className='page-link' to={'/store'}>6.5L V8 Diesel 1996</Link> 
                   </div>
                   <div className="block-permalinks-link"> 
-                    <Link to={'/store'}>6.5L V8 Diesel 1997</Link> 
+                    <Link className='page-link' to={'/store'}>6.5L V8 Diesel 1997</Link> 
                   </div>
                   <div className="block-permalinks-link">  
-                    <Link to={'/store'}>6.5L Diesel 1998</Link> 
+                    <Link className='page-link' to={'/store'}>6.5L Diesel 1998</Link> 
+                  </div>
+                  </div>
+                  <div className="block-permalinks__links-row">
+                  <div className="block-permalinks-link">  
+                    <Link className='page-link' to={'/store'}>6.5L V8 Turbo Diesel 1996</Link> 
                   </div>
                   <div className="block-permalinks-link">  
-                    <Link to={'/store'}>6.5L V8 Turbo Diesel 1996</Link> 
+                    <Link className='page-link' to={'/store'}>6.5L Turbo  Diesel  1997</Link>
                   </div>
                   <div className="block-permalinks-link">  
-                    <Link to={'/store'}>6.5L Turbo  Diesel  1997</Link>
+                    <Link className='page-link' to={'/store'}>6.5L Turbo  Diesel  1998</Link>
                   </div>
-                  <div className="block-permalinks-link">  
-                    <Link to={'/store'}>6.5L Turbo  Diesel  1998</Link>
                   </div>
+                 
+                 
               </div>
             </div>
         </div>
      
      </section>
-
+     <Frequently/>
       <div className={cn('col-md-12', 'col-lg-12')}>
         <FaqSection title={faqSection.title} mod="pt-lg">
           <FaqList items={faqSection.items} />

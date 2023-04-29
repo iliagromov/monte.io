@@ -169,14 +169,14 @@ module.exports = {
     images: [
       {
         srcset: {
-          desktop: '/img/gt-slide-1.png',
-          mobile: '/img/gt-slide-1-mobile.png',
+          desktop: '../../img/gt-slide-1.png',
+          mobile: '../../img/gt-slide-1-mobile.png',
         },
       },
       {
         srcset: {
-          desktop: '/img/gt-slide-2.png',
-          mobile: '/img/gt-slide-2-mobile.png',
+          desktop: '../../img/gt-slide-2.png',
+          mobile: '../../img/gt-slide-2-mobile.png',
         },
       },
       {
