@@ -296,8 +296,8 @@ const PageMain: FC<PageMainProps> = () => {
         <div className="container">
           <div className="product-about-inner">
             <div className="product-about__text">
-              <h2 className="product-about__text-desktop">Monte GT</h2>
-              <h2 className="product-about__text-mobile"><span>Perfomance chip</span> via Smartphone app</h2>
+              <h2 className="product-about__text-title">Monte GT</h2>
+              
               <p>The Monte GT comes with a complimentary smartphone app that provides drivers with access to a tuning database tailored to their vehicle's specifications, enabling them to experience optimized performance from the comfort of their driver's seat.</p>
               <div className="product-about__actions">
                 <Button
@@ -315,6 +315,7 @@ const PageMain: FC<PageMainProps> = () => {
 
             </div>
             <div className="product-about__img">
+            <h2 className="product-about__text-mobile"><span>Perfomance chip</span> via Smartphone app</h2>
               <Img className="page-img page-img_mob" fluid={productAboutMobile.childImageSharp.fluid} />
               <Img className="page-img page-img_desc" fluid={productAboutDesktop.childImageSharp.fluid} />
             </div>
@@ -436,7 +437,13 @@ const PageMain: FC<PageMainProps> = () => {
                 ( Specialty Equipment Market Association )
               </div>
               <div className="featured__img">
+                  <div className="featured__img-text">
+                    Monte Tuning is a proud member of the SEMA
+                  </div>
                 <Img className="certificate-block__img-background" fluid={certificateCouncil.childImageSharp.fluid} />
+                  <div className="featured__img-text">
+                    Tested, Safe and Certified Tuning for your car
+                  </div>
               </div>
             </div>
           </div>

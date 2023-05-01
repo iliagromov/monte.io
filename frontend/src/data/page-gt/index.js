@@ -408,12 +408,6 @@ module.exports = {
       rating: 4,
       text: 'pageGT.reviewTextBen',
     },
-    {
-      author: 'Elly',
-      date: '4 september',
-      rating: 5,
-      text: 'pageGT.reviewTextElly',
-    },
   ],
 
   performanceCharts: {

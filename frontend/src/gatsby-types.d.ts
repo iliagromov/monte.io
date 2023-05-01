@@ -390,7 +390,6 @@ type File = Node & {
   readonly ext: Scalars['String'];
   readonly extension: Scalars['String'];
   readonly gid: Scalars['Int'];
-  readonly hash: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
   readonly ino: Scalars['Float'];
   readonly internal: Internal;
@@ -411,6 +410,7 @@ type File = Node & {
   readonly size: Scalars['Int'];
   readonly sourceInstanceName: Scalars['String'];
   readonly uid: Scalars['Int'];
+  readonly url: Maybe<Scalars['String']>;
 };
 
 
@@ -536,7 +536,6 @@ type FileFieldSelector = {
   readonly ext: InputMaybe<FieldSelectorEnum>;
   readonly extension: InputMaybe<FieldSelectorEnum>;
   readonly gid: InputMaybe<FieldSelectorEnum>;
-  readonly hash: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly ino: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
@@ -556,6 +555,7 @@ type FileFieldSelector = {
   readonly size: InputMaybe<FieldSelectorEnum>;
   readonly sourceInstanceName: InputMaybe<FieldSelectorEnum>;
   readonly uid: InputMaybe<FieldSelectorEnum>;
+  readonly url: InputMaybe<FieldSelectorEnum>;
 };
 
 type FileFilterInput = {
@@ -580,7 +580,6 @@ type FileFilterInput = {
   readonly ext: InputMaybe<StringQueryOperatorInput>;
   readonly extension: InputMaybe<StringQueryOperatorInput>;
   readonly gid: InputMaybe<IntQueryOperatorInput>;
-  readonly hash: InputMaybe<StringQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly ino: InputMaybe<FloatQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
@@ -600,6 +599,7 @@ type FileFilterInput = {
   readonly size: InputMaybe<IntQueryOperatorInput>;
   readonly sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
   readonly uid: InputMaybe<IntQueryOperatorInput>;
+  readonly url: InputMaybe<StringQueryOperatorInput>;
 };
 
 type FileGroupConnection = {
@@ -665,7 +665,6 @@ type FileSortInput = {
   readonly ext: InputMaybe<SortOrderEnum>;
   readonly extension: InputMaybe<SortOrderEnum>;
   readonly gid: InputMaybe<SortOrderEnum>;
-  readonly hash: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly ino: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
@@ -685,6 +684,7 @@ type FileSortInput = {
   readonly size: InputMaybe<SortOrderEnum>;
   readonly sourceInstanceName: InputMaybe<SortOrderEnum>;
   readonly uid: InputMaybe<SortOrderEnum>;
+  readonly url: InputMaybe<SortOrderEnum>;
 };
 
 type FloatQueryOperatorInput = {
@@ -2178,7 +2178,6 @@ type Query_fileArgs = {
   ext: InputMaybe<StringQueryOperatorInput>;
   extension: InputMaybe<StringQueryOperatorInput>;
   gid: InputMaybe<IntQueryOperatorInput>;
-  hash: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   ino: InputMaybe<FloatQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
@@ -2198,6 +2197,7 @@ type Query_fileArgs = {
   size: InputMaybe<IntQueryOperatorInput>;
   sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
   uid: InputMaybe<IntQueryOperatorInput>;
+  url: InputMaybe<StringQueryOperatorInput>;
 };
 
 

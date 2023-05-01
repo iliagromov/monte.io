@@ -4,7 +4,14 @@
 .support-banner {
   position: relative;
   padding: 34px 32px;
-  height: 404px;
+  height: 600px;
+  @include media-breakpoint-up(md) {
+    height: 404px;
+  }
+  
+  @include media-breakpoint-down(md) {
+    text-align: center;
+  }
 
   background: rgb(25, 21, 18);
   background: linear-gradient(
@@ -30,13 +37,16 @@
 
   &__title {
     position: relative;
-    text-align: left;
     font-size: 18px;
     line-height: 30px;
     font-weight: $fw-medium;
     
     margin-bottom: 50px;
     
+    @include media-breakpoint-up(md) {
+     
+      text-align: left;
+    }
 
     @include media-breakpoint-up(lg) {
 
@@ -49,9 +59,15 @@
     }
     &-h2{
       color: #fff;
-      font-size: 32px;
-      line-height: 44px;
+      
       margin-bottom: 18px;
+      font-size: 18px;
+      line-height: 30px;
+      @include media-breakpoint-up(md) {
+        font-size: 32px;
+        line-height: 44px;
+      }
+  
     }
   }
 

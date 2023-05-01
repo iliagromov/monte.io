@@ -71,3 +71,16 @@ a {
 .performance__btn-wrap .ant-btn-custom.ant-btn-primary{
   background: transparent !important;
 }
+
+.certificate-block h2,
+.products-item__title,
+.news__title,
+h2, .h2{
+
+  font-size: 20px;
+  line-height: 48px;
+  @include media-breakpoint-up(md) {
+    font-size: 32px !important;
+    line-height: 44px !important;
+  }
+}
