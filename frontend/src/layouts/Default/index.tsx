@@ -35,7 +35,7 @@ const Layout: FC<LayoutProps> = ({ children, i18nMessages }) => {
     <IntlProvider locale={langKey} messages={i18nMessages}>
       <div className="site">
         <Header />
-        <main className="main">
+        <div className="main">
           {children}
           
           <div className="container mb-4">
@@ -52,7 +52,7 @@ const Layout: FC<LayoutProps> = ({ children, i18nMessages }) => {
             </div>
           </section>
           {needToShowWarranty && <Warranty items={warrantyItems as any} />}
-        </main>
+        </div>
         <Footer langs={langsMenu} />
         <FeedBackPopup />
       </div>

@@ -19,4 +19,8 @@
 
 .main {
   flex-grow: 1;
+
+  @include media-breakpoint-down(ms) {
+    margin-top: -45px;
+  }
 }

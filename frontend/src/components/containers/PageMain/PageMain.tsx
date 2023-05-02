@@ -87,6 +87,13 @@ const PageMain: FC<PageMainProps> = () => {
           }
         }
       }
+      bannerImgSm: file(relativePath: { eq: "banner-main-sm.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 792, quality: 100) {
+            ...GatsbyImageSharpFluid_noBase64
+          }
+        }
+      }
       bannerImgXs: file(relativePath: { eq: "banner-main-xs.png" }) {
         childImageSharp {
           fluid(maxWidth: 792, quality: 100) {
@@ -206,6 +213,10 @@ const PageMain: FC<PageMainProps> = () => {
       media: `(max-width: 767px)`,
     },
     {
+      ...bannerImgSm.childImageSharp.fluid,
+      media: `(max-width: 1200px)`,
+    },
+    {
       ...bannerImg.childImageSharp.fluid,
     },
   ]
@@ -258,15 +269,23 @@ const PageMain: FC<PageMainProps> = () => {
                   </div>
                 </div>
                 <div className="banner__action">
-                  <Button
-                    className={`page-btn`}
-                    href={'/store'}
-                    block
-                  >
-                    <span>
-                      buy now usd $349.00
-                    </span>
-                  </Button>
+
+                  <div className="banner__action-desktop">
+                    <Button
+                      className={`page-btn`}
+                      href={'/store'}
+                      block
+                    >
+                      <span>
+                        buy now usd $349.00
+                      </span>
+                    </Button>
+                  </div>
+
+                  <div className="banner__action-mobile">
+                    <Link className={`product-about__actions-link`} to={'/products/monte-gt'}>learn more</Link>
+                  </div>
+                  
                 </div>
               </div>
               <div className="banner__img">
@@ -309,7 +328,7 @@ const PageMain: FC<PageMainProps> = () => {
                     buy now usd $349.00
                   </span>
                 </Button>
-                <Link className={`product-about__actions-link`} href={'/products/monte-gt'}>learn more</Link>
+                <Link className={`product-about__actions-link`} to={'/products/monte-gt'}>learn more</Link>
               </div>
 
 

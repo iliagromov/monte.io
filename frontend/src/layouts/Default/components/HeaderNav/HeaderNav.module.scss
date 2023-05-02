@@ -1,7 +1,7 @@
 @import '../../../../styles/imports';
 
 .nav {
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     position: fixed;
     z-index: $zindex-fixed;
     top: 0;

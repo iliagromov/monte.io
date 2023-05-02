@@ -8,7 +8,7 @@
   right: 0;
 
   padding: 7px 0;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba($color-mine-shaft, 0.1);
 
@@ -33,6 +33,21 @@
     @include media-breakpoint-up(xl) {
       z-index: auto;
       position: static;
+    }
+
+    &_mobile{
+      display: block;
+      @include media-breakpoint-up(md){
+        display: none;
+      }
+
+    }
+    &_desktop{
+      display: none;
+      @include media-breakpoint-up(md){
+        display: block;
+      }
+
     }
 
     svg {
@@ -80,5 +95,21 @@
     width: 1em;
     height: 1em;
     fill: #1d1d1f;
+  }
+}
+
+.linkButton {
+  padding: 6px 16px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  background: #FF472E;
+  border-radius: 8px;
+
+  @include media-breakpoint-up(lg) {
+    margin: 0 0 0 4px;
+  }
+
+  &:hover {
+    color: inherit;
   }
 }
