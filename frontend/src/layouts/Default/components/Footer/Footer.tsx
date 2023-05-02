@@ -29,17 +29,33 @@ export const Footer: FC<FooterProps> = ({ langs }) => {
 // `);
 
   const { models, navItems, socials, paymentIcons } = footerData
-
-  const rendermodelLists = models.map((modelsList, i) => (
-    <ul className="footer__models-list" key={i}>
-      {modelsList.map((model: string) => (
-        <li className="footer__models-item" key={model}>
-          <a className="footer__models-link">{model}</a>
-        </li>
-      ))}
-    </ul>
-  ))
-
+  // const rendermodelLists = models.map((modelsList, i) => (
+  //   <ul className="footer__models-list" key={i}>
+  //     {modelsList.map((model: string) => (
+  //       <li className="footer__models-item" key={model}>
+  //         <a className="footer__models-link">{model}</a>
+  //       </li>
+  //     ))}
+  //   </ul>
+  // ))
+  const rendermodelLists = models.map((modelsList:any, i: number) => {
+    return (
+      <ul className="footer__models-list" key={`models-list_${i}`}>
+        {
+          modelsList.map((model: any)=>{
+            // console.log(model.title);
+            return (
+              <li className="footer__models-item" key={`models-list_${model.title}}`}>
+                <Link className="footer__models-link" to={model.link}>{model.title}</Link>
+              </li>
+            )
+          })
+        }
+      </ul>
+    )
+   
+  
+  })
   // const rendermodelLists = allWpPage.nodes.map((node:any, i:number) => (
   //   <li className="footer__models-item" key={i}>
   //     <Link to={node.uri} className="footer__models-link">

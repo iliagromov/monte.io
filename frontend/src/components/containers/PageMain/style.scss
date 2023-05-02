@@ -126,7 +126,7 @@
    
     width: 100%;
     padding-top: 100px;
-    
+
     @include media-breakpoint-up(md) {
       width: 50%;
     }
@@ -154,6 +154,8 @@
   }
   &__action{
     
+    width: 70%;
+    z-index: 100;
     @include media-breakpoint-down(md) {
       position: absolute;
       text-align: center;
@@ -161,19 +163,31 @@
       bottom: -13%;
     }
 
-   &-desktop{
-    display: none;
-    @include media-breakpoint-up(md) {
-      display: block;
-    }
-   }
-
-   &-mobile{
-    display: block;
-    @include media-breakpoint-up(md) {
+    &-desktop{
       display: none;
+      @include media-breakpoint-up(md) {
+        display: block;
+      }
     }
-   }
+
+    &-mobile{
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+
+
+      .product-about__actions-link{
+        
+        font-size: 16px;
+        line-height: 28px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        @include media-breakpoint-down(md) {
+          color: #ff472e;
+        }
+      }
+    }
   }
 
 }
@@ -270,9 +284,9 @@
     margin: 0 -15px;
     flex-direction: column;
 
-   
     @include media-breakpoint-up(md) {
       flex-direction: row;
+      margin-top: 60px;
     }
     .page-btn{
       max-width: 262px;
@@ -488,6 +502,15 @@
 .certificate-block{
   overflow: hidden;
   padding-top: 100px;
+
+
+  &__title{
+   
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+  }
+
   &-inner{
     padding-top: 10px;
     
@@ -499,7 +522,7 @@
   .certificate-block__img-background{
      
     @include media-breakpoint-down(md) {
-      height: 150px;
+      height: 130px;
     }
   }
 }

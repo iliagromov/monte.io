@@ -1,8 +1,8 @@
 module.exports = {
   paymentIcons: [
     {
-      name: 'paypal',
-      title: 'PayPal',
+      name: 'stripe',
+      title: 'Stripe',
     },
     {
       name: 'mastercard',

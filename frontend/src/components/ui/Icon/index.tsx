@@ -36,7 +36,6 @@ import { InfoSvg } from './components/InfoSvg'
 import { InstagramSvg } from './components/InstagramSvg'
 import { LocationSvg } from './components/LocationSvg'
 import { LogoSvg } from './components/LogoSvg'
-import { Logo2Svg } from './components/Logo2Svg'
 import { MailSvg } from './components/MailSvg'
 import { MastercardSvg } from './components/MastercardSvg'
 import { MinusSvg } from './components/MinusSvg'
@@ -92,7 +91,6 @@ export const iconsMap = {
   'gain-calculator': GainCalculatorSvg,
   global: GlobalSvg,
   logo: LogoSvg,
-  logo2: Logo2Svg,
   mastercard: MastercardSvg,
   monitor: MonitorSvg,
   paypal: PaypalSvg,

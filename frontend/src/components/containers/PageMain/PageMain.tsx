@@ -285,7 +285,7 @@ const PageMain: FC<PageMainProps> = () => {
                   <div className="banner__action-mobile">
                     <Link className={`product-about__actions-link`} to={'/products/monte-gt'}>learn more</Link>
                   </div>
-                  
+
                 </div>
               </div>
               <div className="banner__img">
@@ -428,9 +428,9 @@ const PageMain: FC<PageMainProps> = () => {
               <Img className="certificate-block__img-background" fluid={reviewPoster.childImageSharp.fluid} />
             </div>
             <div className="review-block__text">
-              <h2>bensmith</h2>
+              <h2>Jakey</h2>
               <p>
-                Best value upgrade I’ve made for my car so far. My car feels alive!&. Best value upgrade I’ve made for my car so far. My car feels alive!
+              I definitely feel the deference on my Abarth and here are the numbers to prove it! Great gains for both power and torque!
               </p>
 
             </div>
@@ -471,7 +471,7 @@ const PageMain: FC<PageMainProps> = () => {
       <div className="certificate-block">
         <h2
           className={cn(
-            'faq__title', 'text-lg-center h1 mb-4 mb-lg-5', 'faq__title--small text-md-left h2 mb-4 mb-lg-4'
+            'certificate-block__title', 'text-lg-center h1 mb-4 mb-lg-5', 'faq__title--small text-md-left h2 mb-4 mb-lg-4'
           )}
         >
           Tested, Safe and Certified Tuning for your car

@@ -31,13 +31,24 @@
         &__power{
             justify-content: center;
         }
+        &__text{
+            @include media-breakpoint-down(md) {
+                padding-top: 60px;
+            }
+        }
+        &__subtitle{
+            @include media-breakpoint-down(md) {
+                display: none;
+            }
+        }
         &__img{
-           
+          
+            @include media-breakpoint-down(md) {
+                bottom: -24%;
+            }
             @include media-breakpoint-up(md) {
-                position: absolute;
-                top:0;
                 right: -150px;
-              }
+            }
         }
     }
 }
@@ -64,7 +75,7 @@
         .page-link{
             font-size: 20px;
             line-height: 44px;
-            color: #222222;
+            text-decoration: underline;
         }
         @include media-breakpoint-up(md) {
             width: 33%;

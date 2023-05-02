@@ -44,6 +44,7 @@ const PageSingleSEO: FC<PageSingleSEOProps> = ({ postProps }) => {
   const {
     bannerImg,
     bannerImgXs,
+    bannerImgSm,
     bannerGTChip
   } = useStaticQuery(graphql`
     query {
@@ -81,6 +82,10 @@ const PageSingleSEO: FC<PageSingleSEOProps> = ({ postProps }) => {
     {
       ...bannerImgXs.childImageSharp.fluid,
       media: `(max-width: 767px)`,
+    },
+    {
+      ...bannerImgSm.childImageSharp.fluid,
+      media: `(max-width: 1200px)`,
     },
     {
       ...bannerImg.childImageSharp.fluid,
