@@ -17,11 +17,11 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-source-wordpress',
       options: {
-        // url:  "https://gromov-studio.site/graphql",
-        url:  "http://monte.io/graphql",
+        url:  "https://gromov-studio.site/monte/graphql",
+        // url:  "http://monte.io/graphql",
         // url:  "http://localhost:8080/graphql",
-        baseUrl: `monte.io`,
-        // baseUrl: `gromov-studio.site`,
+        // baseUrl: `monte.io`,
+        baseUrl: `gromov-studio.site`,
         // protocol: `https`,
         verbose: true,
         develop: {
