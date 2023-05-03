@@ -210,7 +210,7 @@
   &-inner{
     display: flex;
     flex-wrap: wrap;
-    
+    position: relative;
     border-radius: 12px;
     @include media-breakpoint-up(md) {
       padding: 52px 95px;
@@ -258,8 +258,13 @@
     width: 100%;
     background: #F7F8FA;
     margin-bottom: 10px;
+
+    
     @include media-breakpoint-up(md) {
-      width: 50%;
+      width: 35%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
     }
 
 
@@ -519,10 +524,18 @@
     text-align: center;
     margin-bottom: 20px;
   }
-  .certificate-block__img-background{
-     
-    @include media-breakpoint-down(md) {
-      height: 130px;
+  &__img-background{
+    &_desktop{
+      display: none;
+      @include media-breakpoint-up(md) {
+        display: block;
+      }
+    }
+    &_mobile{
+      display: block;
+      @include media-breakpoint-up(md) {
+        display: none;
+      }
     }
   }
 }

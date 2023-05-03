@@ -67,6 +67,7 @@ const PageMain: FC<PageMainProps> = () => {
     imgProductCardInfo3,
     imgProductCardInfo4,
     certificates,
+    certificates2,
     certificateCouncil,
     featuredLogos,
     reviewPoster,
@@ -154,6 +155,13 @@ const PageMain: FC<PageMainProps> = () => {
         }
       }
       certificates: file(relativePath: { eq: "certificates.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 792, quality: 100) {
+            ...GatsbyImageSharpFluid_noBase64
+          }
+        }
+      }
+      certificates2: file(relativePath: { eq: "certificate-mob.png" }) {
         childImageSharp {
           fluid(maxWidth: 792, quality: 100) {
             ...GatsbyImageSharpFluid_noBase64
@@ -478,7 +486,8 @@ const PageMain: FC<PageMainProps> = () => {
         </h2>
         <div className="container">
           <div className="certificate-block-inner">
-            <Img className="certificate-block__img-background" fluid={certificates.childImageSharp.fluid} />
+            <Img className="certificate-block__img-background certificate-block__img-background_desktop" fluid={certificates.childImageSharp.fluid} />
+            <Img className="certificate-block__img-background certificate-block__img-background_mobile" fluid={certificates2.childImageSharp.fluid} />
           </div>
         </div>
       </div>

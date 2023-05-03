@@ -389,15 +389,15 @@ module.exports = {
   votes: [
     {
       rating: 5,
-      count: 1902,
+      count: 390,
     },
     {
       rating: 4,
-      count: 404,
+      count: 30,
     },
     {
       rating: 3,
-      count: 212,
+      count: 3,
     },
   ],
 
@@ -405,7 +405,7 @@ module.exports = {
     {
       author: 'Ben Smith',
       date: '3 september',
-      rating: 4,
+      rating: 5,
       text: 'pageGT.reviewTextBen',
     },
   ],
