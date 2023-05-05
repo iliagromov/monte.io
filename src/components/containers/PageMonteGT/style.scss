@@ -1,0 +1,140 @@
+@import '../../../styles/imports';
+
+.pageGT{
+    padding-top: 15px !important; 
+
+    .banner-inner-block{
+      position: relative;
+      top: 0;
+      transform: translateY(0);
+    }
+
+
+    .banner{
+      box-shadow: 0px 11px 48px 100px rgba(233, 233, 233, 0.5);
+      &__title{
+        color: #222222;
+        font-weight: 400;
+      }
+      &__text{
+        padding-top: 146px;
+        padding-bottom: 60px;
+      }
+      &__text-img{
+        
+        @include media-breakpoint-up(md) {
+          display: none;
+        }
+      }
+
+      &__description{
+        font-size: 16px;
+        line-height: 28px;
+        color: #222222;
+
+      }
+      &__sub-description{
+        font-size: 16px;
+        line-height: 28px;
+        color: #FF472E;
+        margin-bottom: 35px;
+      }
+      &__stars{
+        margin-bottom: 10px;
+      }
+      &__advantages{
+        margin-bottom: 52px;
+
+        @include media-breakpoint-up(md) {
+          margin-right: -30%;
+        }
+      }
+      &__action{
+
+        position: relative;
+      }
+      &__action-desktop{
+        text-align: center;
+        display: block;
+      }
+      &__img{
+        
+        @include media-breakpoint-down(md) {
+          display: none;
+        }
+      }
+    }
+
+    .advantages{
+      &-items{
+        justify-content: flex-start;
+      }
+      &-item{
+        &__icon-bg{
+          margin-bottom: 9px;
+        }
+      }
+    }
+    .app-ui{
+
+    }
+
+    .app-ui__title{
+      position: relative;
+      color: #222222;
+
+      @include media-breakpoint-down(md) {
+        font-size: 27px;
+        line-height: 40px;
+        text-align: center;
+      }
+      
+      @include media-breakpoint-up(md) {
+        font-size: 54px !important;
+        line-height: 72px !important;
+      }
+    }
+    .app-ui__title-slider{
+      color: #222222;
+      @include media-breakpoint-up(md) {
+        font-size: 32px !important;
+        line-height: 44px !important;
+      }
+      
+    }
+    .performance__title {
+      color: #222222;
+      @include media-breakpoint-up(md) {
+        font-size: 54px !important;
+        line-height: 64px !important;
+      }
+      
+    }
+    .download-btns__btn.ant-btn-custom.ant-btn-primary {
+        color: #ff472e !important;
+        border: 1px solid #ff472e !important;
+        border-radius: 42px;
+        background: transparent !important;
+      
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100%;
+      }
+      .download-btns__btn.ant-btn-custom.ant-btn-primary::before {
+        box-shadow: none;
+        position: relative !important;
+      }
+      .app-buttons__title {
+        font-weight: 700;
+      }
+}
+
+
+.stars{
+  display: flex;
+  align-items: center;
+  &__count{
+    padding-top: 7px;
+    padding-left: 7px;
+  }
+}
