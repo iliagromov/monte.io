@@ -7,11 +7,12 @@ import { text } from '../../../data/disclaimer'
 import { buttonAddToCart, buttonReadMore } from '../../../data/gain-calculator'
 import { CART, MONTE_GTR } from '../../../data/routes'
 import { Product } from '../../../types/product'
-import { getCarPowerGain, getProductById } from '../../../utils'
+import { getCarPowerGain, getProductDataById } from '../../../utils'
 import { Button, Footnote } from '../../ui'
 import CalculcatorPerfomanceGain from '../PerformanceGain/CalculcatorPerformanceGain'
 // @ts-ignore: не настроена работа с module.scss
 import * as style from './GainCalculator.module.scss'
+import { getPrice } from '../../../utils/getPrice'
 
 type GainCalculatorSummaryProps = {
   onCloseModal: () => void
@@ -26,7 +27,7 @@ export const GainCalculatorSummary: React.FC<GainCalculatorSummaryProps> = ({
   selectedCarEngine,
   onAddToCart,
 }) => {
-  const productData = getProductById(productGTR.id)
+  const productData = getPrice(productGTR.id)
   // TODO: add status for price loading/error
   const price = productData?.price || 0
   const rednerAddtoBagBtn = price ? (

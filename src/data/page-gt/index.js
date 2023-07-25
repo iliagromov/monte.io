@@ -1,19 +1,18 @@
 const { productIds } = require('../../types/product')
-const { getProductById } = require('../../utils')
 const { STORE, CONTACT_US } = require('../routes')
 
 const productId = productIds.gt
-const monteGT = getProductById(productId)
 // const demoText = 'pageGT.oddsUpToText'
 
 module.exports = {
   product: {
-    id: monteGT.id,
-    price: monteGT.price,
+    id: productId,
+    price: 10,
     title: 'pageGT.introdcuingNew',
     descr: 'pageGT.customise',
     btnText: 'pageGT.addTo',
     btnHref: STORE,
+    contactsLink: CONTACT_US,
     advantages: [
       {
         icon: 'increase',

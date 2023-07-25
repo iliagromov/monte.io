@@ -4,6 +4,7 @@ import { Button, Heading, Input } from '../../../../components/ui'
 import './style.scss'
 import { SubscribeModal } from './SubscribeModal'
 import { useSubscribe } from './useSubscribe'
+import { graphql, useStaticQuery } from 'gatsby'
 
 const blockName = 'subscribe'
 
@@ -24,9 +25,22 @@ export const Subscribe: FC<SubscribeProps> = ({
   emailPlaceholder,
   submitText,
 }) => {
-  const blockStyles: CSSProperties = {
-    backgroundImage: `url('/img/mercedes.png')`,
+
+  const {
+    mercedes
+  } = useStaticQuery(graphql`
+    query {
+      mercedes: file(relativePath: { eq: "mercedes.png" }) {
+        publicURL
+        name
+      }
   }
+  `)
+
+  const blockStyles: CSSProperties = {
+    backgroundImage: `url(${mercedes.publicURL})`,
+  }
+
 
   const { formatMessage } = useIntl()
   const titleText = formatMessage({ id: title })

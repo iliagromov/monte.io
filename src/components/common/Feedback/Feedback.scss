@@ -1,0 +1,44 @@
+@import '../../../styles/imports';
+
+
+
+.feedback {
+    margin-top: 15px;
+    &__title {
+      margin-bottom: 35px;
+    }
+  
+    &__rating {
+      margin-bottom: 48px;
+    }
+  
+    &__reviews {
+    }
+  
+    &__link-wrap {
+      margin-top: 40px;
+    }
+  
+    &__link {
+      @include media-breakpoint-up(md) {
+        font-size: 20px;
+      }
+    }
+  
+    &__link-icon {
+      margin-left: 12px;
+    }
+  }
+  
+.feedback {
+    margin-top: 70px;
+  
+    @include media-breakpoint-up(md) {
+      margin-top: 0;
+    }
+  
+    @include media-breakpoint-up(lg) {
+      margin-top: 80px;
+    }
+}
+  

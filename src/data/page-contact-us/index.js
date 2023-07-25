@@ -20,11 +20,5 @@ module.exports = {
 
   bannerData: {
     title: 'pageContactUs.bannerTitle',
-    img: {
-      desktop:
-        'https://storage.yandexcloud.net/monte-storage/resources/images/support-desktop.jpg',
-      desktop2x:
-        'https://storage.yandexcloud.net/monte-storage/resources/images/support-desktop%402x.jpg',
-    },
   },
 }

@@ -1,20 +1,18 @@
 const { productIds } = require('../../types/product')
-const { getProductById } = require('../../utils')
 const { STORE, CONTACT_US } = require('../routes')
 
 const gtrId = productIds.gtr
-const monteGTR = getProductById(gtrId)
-const videoIncreasePower = require('../../images/animations/videoIncreasePower.mp4')
-const videoDrivingMode = require('../../images/animations/videoDrivingMode.mp4')
-const videoReadError = require('../../images/animations/videoReadError.mp4')
-const videoTestAcc = require('../../images/animations/videoTestAcc.mp4')
-const videoMeasureYour = require('../../images/animations/videoMeasureYour.mp4')
-const videoLiveGauges = require('../../images/animations/videoLiveGauges.mp4')
+const videoIncreasePower = require('../../assets/animations/videoIncreasePower.mp4')
+const videoDrivingMode = require('../../assets/animations/videoDrivingMode.mp4')
+const videoReadError = require('../../assets/animations/videoReadError.mp4')
+const videoTestAcc = require('../../assets/animations/videoTestAcc.mp4')
+const videoMeasureYour = require('../../assets/animations/videoMeasureYour.mp4')
+const videoLiveGauges = require('../../assets/animations/videoLiveGauges.mp4')
 
 module.exports = {
   product: {
-    id: monteGTR.id,
-    price: monteGTR.price,
+    id: gtrId,
+    price: 1,
     title: 'pageGTR.introdcuing',
     descr: 'pageGTR.diagnostics',
     btnText: 'pageGTR.shopNow',

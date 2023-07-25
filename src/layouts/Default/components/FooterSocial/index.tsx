@@ -20,6 +20,7 @@ export const FooterSocial: FC<FooterSocialProps> = ({ socials }) => {
             href={href}
             target="_blank"
             title={name}
+            rel="nofollow"
           >
             <Icon name={name} />
           </a>

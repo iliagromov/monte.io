@@ -1,5 +1,6 @@
-const { productsWithFeatures } = require('../products')
-const { MONTE_GTR } = require('../routes')
+const { productsWithFeatures } = require('../products');
+const { MONTE_GTR } = require('../routes');
+
 
 module.exports = {
   hero: {
@@ -124,37 +125,5 @@ module.exports = {
 
   news: {
     title: 'pageMain.monteNews',
-    items: [
-      {
-        img: '/img/img-new-1.png',
-        title: 'Abarth Tested with Monte GTR',
-        text:
-          'Watch Abarth tested on the dyno several times with and without Monte GTR.',
-        link: 'https://www.youtube.com/watch?v=YWZk9f8AD9s',
-        date: '09/25/2021',
-      },
-      {
-        img: '/img/img-new-2.png',
-        title: 'GTR tested by Carnews Taiwan',
-        text:
-          'Monte GTR Testeted and explained by the Taiwanese motor journalists.',
-        link: 'https://www.youtube.com/watch?v=ILkxUvJh3Pc',
-        date: '09/25/2021',
-      },
-      {
-        img: '/img/img-new-3.png',
-        title: 'Watch Monte GTR features video',
-        text: 'Learn more about Monte GTR and its features.',
-        link: 'https://www.youtube.com/watch?v=gAe6y6PzWZg&t=2s',
-        date: '09/25/2021',
-      },
-      {
-        img: '/img/img-new-4.png',
-        title: 'Video installation guide for GTR ',
-        text: 'Easy installation in less than 5 minutes. Learn how, here. ',
-        link: 'https://www.youtube.com/watch?v=PLmjexxCssc',
-        date: '09/25/2021',
-      },
-    ],
-  },
+  }
 }

@@ -9,7 +9,6 @@ import {
 import { AddressMap } from './components/AddressMap'
 import ContactsWithMap from './components/ContactsWithMap'
 import ContactUsGreeting from './components/ContactUsGreeting'
-import { SupportBanner } from './components/SupportBanner'
 // @ts-ignore
 import styles from './PageContactUs.module.scss'
 

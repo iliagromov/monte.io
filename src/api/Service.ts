@@ -11,6 +11,7 @@ import {
   calculatorModels,
   calculatorEngines,
 } from './implementation'
+import { ProductsType } from './implementation/products'
 
 class Service {
   private static __instance: Service
@@ -28,7 +29,7 @@ class Service {
   getModels(make: string): Promise<models.ModelsType> {
     return models.api(make)
   }
-  getProducts(): Promise<products.ProductsType> {
+  getProducts(): Promise<ProductsType> {
     return products.api()
   }
 

@@ -59,7 +59,7 @@ const CartContainer: FC<CartContainerProps> = ({
       case cartStates.products:
         return (
           <>
-            <Heading tag="h2" like="h1">
+            <Heading tag="h1" like="h1">
               <FormattedMessage id={title} />
             </Heading>
 

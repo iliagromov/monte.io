@@ -8,12 +8,14 @@ import { navigate } from 'gatsby'
 
 type CarSelectProps = {
   isMainPage?: boolean
+  isSeo?: boolean
   isCalculatorCar?: boolean
   onSubmitClick?: () => void
   className?: string
 }
 
 export const CarSelects: FC<CarSelectProps> = ({
+  isSeo,
   isMainPage,
   isCalculatorCar,
   onSubmitClick,
@@ -68,6 +70,13 @@ export const CarSelects: FC<CarSelectProps> = ({
     ? isCalculatorAllSelected
     : isStorePageAllSelected
 
+    function replaceSymbol(str){
+      let slugSorted0 = str.split(' ').join('-').toLowerCase();
+      let slugSorted1 = slugSorted0.split('/').join('-');
+      let slugSorted2 = slugSorted1.split('.').join('-');
+      return slugSorted2;
+    }
+    
   const onClick = () => {
     if (typeof onSubmitClick === 'function') {
       onSubmitClick()
@@ -75,6 +84,16 @@ export const CarSelects: FC<CarSelectProps> = ({
     setIsSelected(true)
     if (isMainPage) {
       navigate('/store/')
+    }
+    if (isSeo) {
+
+      
+      let slugBrand = replaceSymbol(makerSelectValue);
+      let slugModel = replaceSymbol(modelSelectValue);
+      let slugEngine = replaceSymbol(engineSelectValue);
+      let slug = `/${slugBrand}-${slugModel}-${slugEngine}-${yearSelectValue}`
+      // console.log(slug);
+      navigate(slug)
     }
   }
 

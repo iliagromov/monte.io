@@ -1,15 +1,12 @@
 import cn from 'classnames'
-import { FluidObject } from 'gatsby-image'
 import React, { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { Button } from '../../../../ui'
 import { AdvantagesType, ProductImageAndInfo } from '../ProductImageAndInfo'
 import './style.scss'
-
 const blockName = 'product-info-section'
 
 export type ProductInfoSectionProps = {
-  productImage: FluidObject
   power: string | number
   fuelSaving: string | number
   advantages: AdvantagesType[]
@@ -20,7 +17,6 @@ export type ProductInfoSectionProps = {
 }
 
 const ProductInfoSection: FC<ProductInfoSectionProps> = ({
-  productImage,
   power,
   fuelSaving,
   advantages,
@@ -29,12 +25,12 @@ const ProductInfoSection: FC<ProductInfoSectionProps> = ({
   price,
   className,
 }) => {
+
   return (
     <div className={cn(`${blockName}`, className)}>
       <div className="row">
         <div className="col-md-6 order-md-1 pt-md-4 mb-5 mb-md-0 pl-lg-5">
           <ProductImageAndInfo
-            img={productImage}
             power={power}
             fuelSaving={fuelSaving}
             advantages={advantages}

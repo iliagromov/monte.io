@@ -1,4 +1,4 @@
 import { injectIntl } from 'react-intl'
-import PageMain from './PageMain'
+import {PageMainConteiner} from './PageMain'
 
-export default injectIntl(PageMain)
+export default injectIntl(PageMainConteiner)

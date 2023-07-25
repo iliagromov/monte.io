@@ -1,6 +1,6 @@
 import { ProductInCart } from '../store/Cart'
 import { PromoProduct } from '../api/implementation/promo'
-import { getProductById } from './getProductById'
+import { getProductDataById } from './getProductDataById'
 
 export const getTotalPriceWithDiscountOfProductsInCart = (
   products: ProductInCart[],
@@ -15,7 +15,7 @@ export const getTotalPriceWithDiscountOfProductsInCart = (
       )
       totalPrice += product.count * +price_with_discount
     } catch (e) {
-      const productData = getProductById(product.id)
+      const productData = getProductDataById(product.id)
       if (productData) {
         // TODO: add status for price loading/error
         const productPrice = productData.price

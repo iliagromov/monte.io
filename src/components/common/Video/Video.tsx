@@ -1,15 +1,18 @@
 import cn from 'classnames'
-import Img, { FluidObject } from 'gatsby-image'
 import React, { CSSProperties, FC, useState } from 'react'
-import './style.scss'
+import './Video.scss'
+import { getImage, GatsbyImage } from 'gatsby-plugin-image'
 
 type VideoProps = {
   youTubeId: string
-  preview: FluidObject | FluidObject[]
-  imgStyle?: CSSProperties
+  preview: any
 }
 
-export const Video: FC<VideoProps> = ({ youTubeId, preview, imgStyle }) => {
+export const Video: FC<VideoProps> = (
+  { youTubeId, preview }) => {
+ 
+  const imgSrc = getImage(preview)
+
   const [isActive, setIsActive] = useState(false)
 
   const videoUrl = `https://www.youtube.com/embed/${youTubeId}?autoplay=1&rel=0`
@@ -44,11 +47,11 @@ export const Video: FC<VideoProps> = ({ youTubeId, preview, imgStyle }) => {
           allowFullScreen
         />
         <div className="video__overlay">
-          <Img
-            imgStyle={imgStyle}
-            className="video__img-wrap position-absolute"
-            fluid={preview}
-          />
+        <GatsbyImage
+           className="video__img-wrap position-absolute"
+          image={imgSrc}
+          alt={'img'}
+              />
           <div className="video__content">
             <button
               className="video__play"

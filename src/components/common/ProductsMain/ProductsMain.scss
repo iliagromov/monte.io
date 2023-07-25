@@ -1,0 +1,36 @@
+@import '../../../styles/imports';
+
+
+
+.products {
+    &--menu-offset {
+      @include media-breakpoint-up(lg) {
+        padding-top: 90px;
+      }
+    }
+  
+    &__header {
+      margin-bottom: 90px;
+  
+      @include media-breakpoint-up(lg) {
+        margin-bottom: 130px;
+      }
+    }
+  
+    &__item {
+      &:nth-of-type(even) {
+        @include media-breakpoint-up(md) {
+          border-left: 1px solid $color-mercury;
+        }
+      }
+  
+      & + & {
+        margin-top: 80px;
+  
+        @include media-breakpoint-up(md) {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+  

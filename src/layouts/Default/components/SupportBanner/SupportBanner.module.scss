@@ -1,0 +1,91 @@
+@import '../../../../styles/imports';
+
+
+.supportBanner {
+  position: relative;
+  height: 600px;
+  @include media-breakpoint-up(md) {
+    height: 404px;
+  }
+  
+  @include media-breakpoint-down(md) {
+    text-align: center;
+  }
+
+  background: rgb(25, 21, 18);
+  background: linear-gradient(
+    90deg,
+    rgba(25, 21, 18, 1) 0%,
+    rgba(28, 27, 25, 1) 100%
+  );
+  color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+
+  @include media-breakpoint-up(md) {
+    display: flex;
+    align-items: left;
+    height: 358px;
+    background: #0f0c0b;
+  }
+
+  &__Text{
+    position: relative;
+    width: 100%;
+
+    padding: 34px 32px;
+    @include media-breakpoint-up(md) {
+      padding: 50px 60px;
+      width: 40%;
+    }
+  
+  }
+
+  &__Title {
+    position: relative;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: $fw-medium;
+    
+    margin-bottom: 50px;
+    
+    @include media-breakpoint-up(md) {
+     
+      text-align: left;
+    }
+
+    @include media-breakpoint-up(lg) {
+
+      max-width: 480px;
+    }
+
+    a {
+      color: #fff;
+      white-space: nowrap;
+    }
+    &H2{
+      color: #fff;
+      
+      margin-bottom: 18px;
+      font-size: 18px;
+      line-height: 30px;
+      @include media-breakpoint-up(md) {
+        font-size: 32px;
+        line-height: 44px;
+      }
+  
+    }
+  }
+
+  &__imgWrap {
+    width: 100%;
+    @include media-breakpoint-up(md) {
+      width: 60%;
+    }
+  
+  }
+}
+.pageBtn{
+  background: linear-gradient(66.12deg, #C74FDF 8.88%, #8F67F6 88.15%) !important;
+  text-transform: uppercase;
+}

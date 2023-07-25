@@ -1,5 +1,3 @@
-import { graphql, useStaticQuery } from 'gatsby'
-import { FluidObject } from 'gatsby-image'
 import React, { FC } from 'react'
 import { items as aboutMenu } from '../../../data/about-menu'
 import {
@@ -21,90 +19,26 @@ import {
   ProductsFeaturesList,
 } from './components/ProductsFeaturesList'
 import { TuningPromo } from './components/TuningPromo'
-import { getProductById } from '../../../utils/getProductById'
+import { getProductDataById } from '../../../utils/getProductDataById'
 
 type PageOurProductsProps = {}
 
 const PageOurProducts: FC<PageOurProductsProps> = () => {
-  const {
-    promoImageSm,
-    promoImageMd,
-    promoImageLg,
-    gtImage,
-    gtrImage,
-  } = useStaticQuery(graphql`
-    query {
-      gtrImage: file(relativePath: { eq: "gtr-2.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 269) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
-        }
-      }
-      gtImage: file(relativePath: { eq: "gt-2.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 222) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
-        }
-      }
-      promoImageLg: file(relativePath: { eq: "tuning-promo-lg.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1038) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
-        }
-      }
-      promoImageMd: file(relativePath: { eq: "tuning-promo-md.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 718) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
-        }
-      }
-      promoImageSm: file(relativePath: { eq: "tuning-promo-sm.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 617) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
-        }
-      }
-    }
-  `)
+ 
 
   const { addToCart } = useCart()
-
-  let sourses: FluidObject[] = [
-    {
-      ...promoImageLg.childImageSharp.fluid,
-      media: `(min-width: 992px)`,
-    },
-    {
-      ...promoImageSm.childImageSharp.fluid,
-      media: `(max-width: 767px)`,
-    },
-    {
-      ...promoImageMd.childImageSharp.fluid,
-      media: `(max-width: 992px)`,
-    },
-  ]
 
   const productsWithImages = getProductsWithImages(compareProducts.products)
 
   const renderProducts = productsExtendedInfo
     .map(({ id, power, fuelSaving, title, descr, advantages }) => {
-      const productData = getProductById(id)
+      const productData = getProductDataById(id)
       // TODO: add status for price loading/error
       const productPrice = productData?.price || 0
       const isGT = id === productIds.gt
       return (
         <div className="mt-4 mt-lg-5" key={id}>
           <ProductInfoSection
-            productImage={
-              isGT
-                ? gtImage.childImageSharp.fluid
-                : gtrImage.childImageSharp.fluid
-            }
             power={power}
             fuelSaving={fuelSaving}
             advantages={advantages as AdvantagesType[]}
@@ -123,7 +57,6 @@ const PageOurProducts: FC<PageOurProductsProps> = () => {
       <TuningPromo
         heading={promo.heading}
         text={promo.text}
-        imgSourses={sourses}
       />
       <ProductsFeaturesList features={features as FeatureItemType[]} />
       <section className="section">

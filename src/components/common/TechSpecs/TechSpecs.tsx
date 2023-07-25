@@ -2,23 +2,8 @@ import { graphql, useStaticQuery } from 'gatsby'
 import React, { FC } from 'react'
 import cn from 'classnames'
 import { FormattedMessage, useIntl } from 'react-intl'
-import {
-  appButtons as appButtonsProps,
-  appUi as appUiProps,
-  odds as oddsProps,
-  performance as performanceProps,
-  performanceCharts,
-  product as productProps,
-  productCard as productCardProps,
-  reviews,
-  techSpecs as techSpecsProps,
-  votes,
-  faqSection,
-} from '../../../data/page-gt'
 
 import './style.scss'
-import { AppButtons } from '../../containers/PageMonteGT/components/AppButtons'
-
 type TechSpecsProps = {
   title: string
   groups: {
@@ -29,23 +14,12 @@ type TechSpecsProps = {
 }
 
 export const TechSpecs: FC<TechSpecsProps> = ({ title, groups, asTableUp }) => {
-  const intl = useIntl()
-  const imgMap = {
-    'google-play': '/img/google-play.svg',
-    'app-store': '/img/app-store.svg',
-  }
-  const { englishPdf, spanishPdf } = useStaticQuery(graphql`
-    query {
-      englishPdf: file(relativePath: { eq: "english.pdf" }) {
-        publicURL
-        name
-      }
-      spanishPdf: file(relativePath: { eq: "spanish-2.pdf" }) {
-        publicURL
-        name
-      }
-    }
-  `)
+  const intl = useIntl();
+
+    const englishPdf = 'https://drive.google.com/file/d/1axNmrT79F4mclbWuxqPBb6WvJbTgfYsY/view?usp=drive_link';
+    const spanishPdf = 'https://drive.google.com/file/d/1H_cmZffDPdu4N9TjWZE-eSz1rzfAkqN8/view';
+
+  
 
   const renderGroups = groups.map(({ title, info }, i) => {
     const i18nInfo = intl.formatMessage({ id: info })
@@ -82,15 +56,17 @@ export const TechSpecs: FC<TechSpecsProps> = ({ title, groups, asTableUp }) => {
             <div className="download-btns-inner">
               <a
                 className="ant-btn ant-btn-primary ant-btn-round ant-btn-lg ant-btn-custom download-btns__btn"
-                href={englishPdf.publicURL}
+                href={englishPdf}
                 download
+                target='_blank'
               >
                 <span>Download Manual English</span>
               </a>
               <a
                 className="ant-btn ant-btn-primary ant-btn-round ant-btn-lg ant-btn-custom download-btns__btn"
-                href={spanishPdf ? spanishPdf.publicURL : ''}
+                href={spanishPdf}
                 download
+                target='_blank'
               >
                 <span>Download Manual Española</span>
               </a>
@@ -101,28 +77,6 @@ export const TechSpecs: FC<TechSpecsProps> = ({ title, groups, asTableUp }) => {
               
           
           </div>
-        {/* <div className={cn('col-12', 'col-md-5')}>
-          <div className="container">
-            <h3 className="tech-specs__group-title h5">Product PDF manual</h3>
-            <div className="download-btns-inner">
-              <a
-                className="ant-btn ant-btn-primary ant-btn-round ant-btn-lg ant-btn-custom download-btns__btn"
-                href={englishPdf.publicURL}
-                download
-              >
-                <span>Download Manual English</span>
-              </a>
-              <a
-                className="ant-btn ant-btn-primary ant-btn-round ant-btn-lg ant-btn-custom download-btns__btn"
-                href={spanishPdf ? spanishPdf.publicURL : ''}
-                download
-              >
-                <span>Download Manual Española</span>
-              </a>
-            </div>
-            <AppButtons {...appButtonsProps} />
-          </div>
-        </div> */}
       </div>
     </div>
   )

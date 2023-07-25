@@ -11,59 +11,51 @@ import './style.scss'
 type FooterProps = {
   langs: any
 }
+import brandsJSON from '../../../../../brands.json';
 
-export const Footer: FC<FooterProps> = ({ langs }) => {
-  // TODO: получать только модели, 
-  // TODO: сделать так чтобы в цикл попадали только страницы с бренодом, (сделать фильтрацию по метке)
-//   const { allWpPage } = useStaticQuery(graphql`{
-//     allWpPage {
-//       nodes {
-//         id
-//         slug
-//         uri
-//         title
-//         content
-//       }
-//     }
-//   }
-// `);
+export const Footer: FC<FooterProps> = (props) => {
 
-  const { models, navItems, socials, paymentIcons } = footerData
-  // const rendermodelLists = models.map((modelsList, i) => (
-  //   <ul className="footer__models-list" key={i}>
-  //     {modelsList.map((model: string) => (
-  //       <li className="footer__models-item" key={model}>
-  //         <a className="footer__models-link">{model}</a>
-  //       </li>
-  //     ))}
-  //   </ul>
-  // ))
-  const rendermodelLists = models.map((modelsList:any, i: number) => {
+ 
+  function replaceSymbol(str){
+    let slugSorted0 = str.split(' ').join('-').toLowerCase();
+    let slugSorted1 = slugSorted0.split('/').join('-');
+    let slugSorted2 = slugSorted1.split('.').join('-');
+    return slugSorted2;
+  }
+
+  const models = brandsJSON.brands.map(item => {
+    let slug = replaceSymbol(item.brand);
+    return {title: item.brand, slug: slug}
+  });
+
+
+  const initialValue = {};
+  const sumWithInitial = models.reduce(
+    (accumulator, currentValue) => {
+      return (accumulator[currentValue.title[0]] ??= []).push(currentValue), accumulator
+    }, initialValue
+  );
+  
+
+  const modelsObj = Object.values(sumWithInitial);
+  const { navItems, socials, paymentIcons } = footerData
+
+  const rendermodelLists = modelsObj.map((modelsList: any, i: number) => {
     return (
       <ul className="footer__models-list" key={`models-list_${i}`}>
         {
-          modelsList.map((model: any)=>{
-            // console.log(model.title);
+          modelsList.map((model: any) => {
             return (
               <li className="footer__models-item" key={`models-list_${model.title}}`}>
-                <Link className="footer__models-link" to={model.link}>{model.title}</Link>
+                <Link className="footer__models-link" to={`/${model.slug}`}>{model.title}</Link>
               </li>
             )
           })
         }
       </ul>
     )
-   
-  
-  })
-  // const rendermodelLists = allWpPage.nodes.map((node:any, i:number) => (
-  //   <li className="footer__models-item" key={i}>
-  //     <Link to={node.uri} className="footer__models-link">
-  //       {node.title}
-  //     </Link>
-  //     <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-  //   </li>
-  // ));
+  });
+
   const renderCopyright = (
     <>
       {`© `}

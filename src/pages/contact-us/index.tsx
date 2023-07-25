@@ -7,7 +7,10 @@ import PageContactUs from '../../components/containers/PageContactUs'
 
 const ContactUs: FC<PageProps> = ({ location }) => (
   <Layout location={location} needToShowCallUs={false}>
-    <SEO title="Contact us" />
+    <SEO 
+    title="Сontact us - welcome to "
+    description='We are always happy to help. Email, call us or stop by during the working hours.'
+     />
     <PageContactUs />
   </Layout>
 )

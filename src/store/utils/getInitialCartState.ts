@@ -1,6 +1,6 @@
 import { ProductInCart } from '../Cart'
 import { localStorageKeyCart } from '../../constants'
-import { getProductById } from '../../utils'
+import { getProductDataById } from '../../utils'
 
 export const getInitialCartState = (): ProductInCart[] => {
   try {
@@ -12,7 +12,7 @@ export const getInitialCartState = (): ProductInCart[] => {
 
       if (cartItems?.length > 0) {
         // case with wrong ids in localstorage: [{"id":"1","count":3},{"id":"2","count":2},{"id":"WRONG ID","count":1}]
-        return cartItems.filter(product => Boolean(getProductById(product.id)))
+        return cartItems.filter(product => Boolean(getProductDataById(product.id)))
       }
 
       return cartItems || []

@@ -1,0 +1,39 @@
+@import '../../../styles/imports';
+
+
+.block-permalinks{
+    &__links{
+
+        &-row{
+            display: flex;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #E9E9E9;
+            padding: 15px 0 10px;
+        }
+    }
+
+    &-link{
+        
+        
+        border-radius: 10px;
+     
+
+        width: 50%;
+        margin-bottom: 10px;
+        .page-link{
+            font-size: 20px;
+            line-height: 44px;
+            text-decoration: underline;
+        }
+        @include media-breakpoint-up(md) {
+            width: 33%;
+          }
+
+        &:hover{
+            background: #44CEED;
+                opacity: 0.3;
+        }
+
+        
+    }
+}

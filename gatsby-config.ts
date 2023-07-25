@@ -1,6 +1,7 @@
 import type { GatsbyConfig } from "gatsby";
 
-const siteMetadata = require('./src/data/siteMetadata')
+const siteMetadata = require('./src/data/siteMetadata');
+
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -12,8 +13,32 @@ const config: GatsbyConfig = {
   // If you use VSCode you can also use the GraphQL plugin
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
+  flags: {
+    // FAST_DEV: true,
+    // FAST_REFRESH: true,
+    DEV_SSR: true,
+    // QUERY_ON_DEMAND: false,
+    // LAZY_IMAGES: false
+  },
   plugins: [
     `gatsby-plugin-no-index`,
+    // {
+    //   resolve: "gatsby-plugin-nginx-redirect",
+    //   options: {
+    //     inputConfigFile: `${__dirname}/nginx.conf`,
+    //     outputConfigFile: `${__dirname}/nginx.out.conf`,
+    //     whereToIncludeRedirects: "server.http" // defaults to: "server"
+    //   },
+    // },
+    {
+      resolve: `gatsby-plugin-fastify`,
+      options: {
+        /* discussed below */
+        features: {
+          redirects: true,
+        },
+      },
+    },
     {
       // https://www.npmjs.com/package/gatsby-plugin-google-gtag/v/2.1.11#user-content-how-to-use
       resolve: `gatsby-plugin-google-gtag`,
@@ -37,87 +62,135 @@ const config: GatsbyConfig = {
         enable_on_dev_env: true,
       },
     },
-    {
-      resolve: 'gatsby-source-wordpress',
-      options: {
-        url:  "https://gromov-studio.site/monte/graphql",
-        // url:  "http://monte.io/graphql",
-        // url:  "http://localhost:8080/graphql",
-        // baseUrl: `monte.io`,
-        baseUrl: `gromov-studio.site`,
-        // protocol: `https`,
-        verbose: true,
-        develop: {
-          hardCacheMediaFiles: true,
+    // INFO: wp используем как админку, все посты кэширем в mdx файлы, на случай если wp отвалится фронт всёровно будет работать
 
-          // server wp update  5min times
-          nodeUpdateInterval: 300000,
-        },
-        debug: {
-          // graphql: {
-          //   writeQueriesToDisk: true,
-          //   showQueryVarsOnError: true,
-          //   panicOnError: true,
-          // },
-        },
-        useACF: true,
+    // {
+    //   resolve: 'gatsby-source-wordpress',
+    //   options: {
+    //     url:  "https://gromov-studio.site/monte/graphql",
+    //     // url:  "http://monte.io/graphql",
+    //     // url:  "http://localhost:8080/graphql",
+    //     // baseUrl: `monte.io`,
+    //     baseUrl: `gromov-studio.site`,
+    //     // protocol: `https`,
+    //     verbose: true,
+    //     develop: {
+    //       hardCacheMediaFiles: true,
+
+    //       // server wp update  5min times
+    //       nodeUpdateInterval: 300000,
+    //     },
+    //     debug: {
+    //       // graphql: {
+    //       //   writeQueriesToDisk: true,
+    //       //   showQueryVarsOnError: true,
+    //       //   panicOnError: true,
+    //       // },
+    //     },
+    //     useACF: true,
         
-
-        // excludeFieldNames: ['comments', 'blocksJSON', 'previewBlocks', 'previewBlocksJSON'],
-        // type: {
-        //   Post: {
-        //     limit:
-        //       process.env.NODE_ENV === `development`         ? // The number of posts to fetch on development
-        //           30
-        //         : // ... and on build
-        //           null,
-        //   },
-        //   Comment: {
-        //     limit: 0,
-        //   },
-        //   MediaItem: {
-        //     localFile: {
-        //       requestConcurrency: 5,
-        //     },
-        //     lazyNodes: false,
-        //   },
-        // },
-        // html: {
-        //   useGatsbyImage: true,
-        //   fallbackImageMaxWidth: 200,
-        //   createStaticFiles: true,
-        //   imageMaxWidth: 756,
-        // },
-        // schema: {
-        //   timeout: 3000000,
-        //   requestConcurrency: 1,
-        //   previewRequestConcurrency: 1,
-        //   perPage: 1,
-        // },
-        // production: {
-        //   allow404Images: true,
-        //   hardCacheMediaFiles: true,
-        // },
-      },
-    }, 
+    //   },
+    // }, 
+  "gatsby-transformer-remark", 
+  `gatsby-plugin-react-helmet`,
+ 
   "gatsby-plugin-image", 
-  "gatsby-plugin-sharp", 
-  
-  // "gatsby-plugin-sitemap", 
+
   {
-    resolve: 'gatsby-plugin-manifest',
+    resolve: `gatsby-plugin-sharp`,
     options: {
-      "icon": "src/images/icon.png"
-    }
+      defaults: {
+        formats: [`auto`],
+        placeholder: `blurred`,
+        quality: 100,
+        backgroundColor: `transparent`,
+      },
+    },
+  },
+  "gatsby-transformer-sharp", 
+  
+  "gatsby-plugin-sass", 
+  {
+    resolve: "gatsby-plugin-sitemap",
   }, 
+   // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+  "gatsby-plugin-react-svg",
+  // {
+  //   resolve: 'gatsby-plugin-react-svg',
+  //   options: {
+  //     rule: {
+  //       include: 'src/assets/images\/.*\.svg/,',
+  //       options: {
+  //         tag: "symbol",
+  //         name: "MyIcon",
+  //         props: {
+  //           className: "my-class",
+  //           title: "example"
+  //         },
+  //         filters: [value => console.log(value)]
+  //       }
+  //     },
+      
+  //   },
+  // },
+
+  {
+    resolve: `gatsby-plugin-mdx`,
+    options: {
+      extensions: [`.mdx`, `.md`],
+    },
+  },
+  // {
+  //   resolve: `gatsby-plugin-canonical-urls`,
+  //   options: {
+  //     siteUrl: siteMetadata.siteUrl
+  //   },
+  // },
+  {
+    resolve: `gatsby-plugin-manifest`,
+    options: {
+      name: siteMetadata.title,
+      display: `standalone`,
+      icon: `src/assets/icons/gatsby-icon.png`, // This path is relative to the root of the site.
+      lang: `no`,
+    },
+  },
+  // {
+  //   resolve: 'gatsby-plugin-i18n',
+  //   options: {
+  //     langKeyDefault: siteMetadata.languages.defaultLangKey,
+  //     useLangKeyLayout: true,
+  //     prefixDefault: false,
+  //   },
+  // },
+
   {
     resolve: 'gatsby-source-filesystem',
     options: {
       "name": "images",
-      "path": `${__dirname}/src/images/`
+      "path": `${__dirname}/src/assets/images/`
     },
     __key: "images"
-  }, {
+  }, 
+  {
+    resolve: 'gatsby-source-filesystem',
+    options: {
+      "name": "animations",
+      "path": `${__dirname}/src/assets/animations/`
+    },
+    __key: "animations"
+  }, 
+
+  {
+    resolve: 'gatsby-source-filesystem',
+    options: {
+      "name": "images",
+      "path": `${__dirname}/src/assets/svg/`
+    },
+    __key: "svg"
+  },
+  {
     resolve: 'gatsby-source-filesystem',
     options: {
       "name": "pages",
@@ -125,34 +198,15 @@ const config: GatsbyConfig = {
     },
     __key: "pages"
   },
-  `gatsby-plugin-image`,
-  "gatsby-transformer-sharp", 
-  "gatsby-plugin-sass", 
-  "gatsby-plugin-mdx", 
-  "gatsby-transformer-remark", 
-   // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-  `gatsby-plugin-offline`,
+  
   {
-    resolve: `gatsby-plugin-manifest`,
+    resolve: 'gatsby-source-filesystem',
     options: {
-      name: `gatsby-starter-default`,
-      short_name: `starter`,
-      start_url: `/`,
-      background_color: `#663399`,
-      theme_color: `#663399`,
-      display: `minimal-ui`,
-      icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      "name": "news",
+      "path": `${__dirname}/src/posts/news`
     },
   },
-  {
-    resolve: 'gatsby-plugin-i18n',
-    options: {
-      langKeyDefault: siteMetadata.languages.defaultLangKey,
-      useLangKeyLayout: true,
-      prefixDefault: false,
-    },
-  },
+  
   ]
 };
 

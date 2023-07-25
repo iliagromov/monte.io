@@ -1,5 +1,4 @@
 import cn from 'classnames'
-import Img, { FluidObject } from 'gatsby-image'
 import React, { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { Icon, IconNamesType } from '../../../../ui'
@@ -11,7 +10,7 @@ export type AdvantagesType = {
 }
 
 type ProductImageAndInfoProps = {
-  img: FluidObject
+
   power: string | number
   fuelSaving: string | number
   advantages?: AdvantagesType[]
@@ -19,7 +18,7 @@ type ProductImageAndInfoProps = {
 }
 
 export const ProductImageAndInfo: FC<ProductImageAndInfoProps> = ({
-  img,
+  
   power,
   fuelSaving,
   advantages,
@@ -64,7 +63,7 @@ export const ProductImageAndInfo: FC<ProductImageAndInfoProps> = ({
 
   return (
     <div className={cn('product-image-and-info', className)}>
-      <Img className="product-image-and-info__image" fluid={img} />
+      {/* <Img className="product-image-and-info__image" fluid={img} /> */}
       <div className="product-image-and-info__info-list">{renderInfoItems}</div>
       {advantages && (
         <div className="product-image-and-info__advantages mx-n3 mx-sm-0">

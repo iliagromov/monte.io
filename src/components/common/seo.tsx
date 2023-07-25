@@ -18,6 +18,8 @@ type SEOProps = {
     name?: string
     property?: string
   }[]
+  linkCanonical?: string
+  isCanonical?: boolean
 }
 
 const SEO: FC<SEOProps> = ({
@@ -25,6 +27,8 @@ const SEO: FC<SEOProps> = ({
   lang = `en`,
   meta = [],
   title,
+  linkCanonical,
+  isCanonical
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -34,55 +38,67 @@ const SEO: FC<SEOProps> = ({
             title
             description
             author
+            siteUrl
           }
         }
       }
     `
-  )
+  );
 
   const metaDescription = description || site.siteMetadata.description
+  const metaSocial = [
+    {
+      name: `description`,
+      content: metaDescription,
+    },
+    {
+      property: `og:title`,
+      content: title,
+    },
+    {
+      property: `og:description`,
+      content: metaDescription,
+    },
+    {
+      property: `og:type`,
+      content: `website`,
+    },
+    {
+      name: `twitter:card`,
+      content: `summary`,
+    },
+    {
+      name: `twitter:creator`,
+      content: site.siteMetadata.author,
+    },
+    {
+      name: `twitter:title`,
+      content: title,
+    },
+    {
+      name: `twitter:description`,
+      content: metaDescription,
+    },
+  ];
+
+
+  const Canonical = isCanonical ? [{
+      rel: "canonical", 
+      href: `${site.siteMetadata.siteUrl}/${linkCanonical}`
+  }] : [];
 
   return (
     <Helmet
+      
+      defaultTitle={'Monte Tuning Inc'}
+      encodeSpecialCharacters={true}
       htmlAttributes={{
         lang,
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
+      meta={metaSocial}
+      link={Canonical}
     />
   )
 }

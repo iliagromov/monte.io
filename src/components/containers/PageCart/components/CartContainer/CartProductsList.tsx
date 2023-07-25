@@ -5,10 +5,11 @@ import React, { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { cartContainerData } from '../../../../../data/cart-container'
 import { Product, productsMap } from '../../../../../types/product'
-import { getProductById, ProductId } from '../../../../../utils'
+import { getProductDataById, ProductId } from '../../../../../utils'
 import { Icon } from '../../../../ui'
 
 import { ProductInCart } from '../../../../../store/Cart'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 type CartProductsListProps = {
   onAddItem: (productId: ProductId) => void
@@ -27,39 +28,44 @@ export const CartProductsList: FC<CartProductsListProps> = ({
     query {
       gt: file(relativePath: { eq: "gt.png" }) {
         childImageSharp {
-          fixed(width: 183, quality: 100) {
-            ...GatsbyImageSharpFixed
-          }
+          gatsbyImageData(
+            placeholder: BLURRED 
+            transformOptions: {fit: CONTAIN}
+            )
+          
         }
       }
       gtr: file(relativePath: { eq: "gtr.png" }) {
         childImageSharp {
-          fixed(width: 183, quality: 100) {
-            ...GatsbyImageSharpFixed
-          }
+          gatsbyImageData(placeholder: BLURRED )
         }
       }
     }
   `)
 
   const renderProduct = ({ id, count }) => {
-    const product = getProductById(id)
+    const product = getProductDataById(id)
     const img = images[productsMap[id]]
     const productData = productsData?.find(p => p.id === id)
     // TODO: add status for price loading/error
     const price = productData
       ? `$${productData.price * count}.00`
-      : `loading price`
+      : `loading price`;
+
+    
+  const imgNewsMonteGT1Src = getImage(img)
     return (
       <li
         className="cart-product cart-container__products-item"
         key={product.id}
       >
         <div className="cart-product__image-wrapper">
-          <Img
-            fixed={img.childImageSharp.fixed}
-            alt={`${product.title} image`}
-          />
+          
+          <GatsbyImage
+                className="page-img" 
+                image={imgNewsMonteGT1Src}
+                alt={`${product.title} image`}
+                />
         </div>
         <div className="cart-product__content">
           <h2 className={cn('cart-product__title')}>{product.title}</h2>

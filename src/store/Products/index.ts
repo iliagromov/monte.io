@@ -4,7 +4,8 @@ import { createSelector } from 'reselect'
 import { Product } from '../../types/product'
 import { AppState } from '../index'
 import { mapProductsFromApi } from '../../utils'
-import Service, { ProductsType } from '../../api'
+import Service from '../../api'
+import  { ProductsType } from '../../api';
 
 export type ProductState = {
   loading: boolean
@@ -30,7 +31,7 @@ const slice = createSlice({
       state.data = mapProductsFromApi(action.payload.results)
     },
     getProductsError(state, action) {
-      console.log(action)
+      // console.log(action)
       state.loading = false
       state.error = action.payload
     },

@@ -8,7 +8,10 @@ import PageSupportWarranty from '../../../components/containers/PageSupport/Page
 
 const SupportWarrantyShippingReturnPage: FC<PageProps> = ({ location }) => (
   <Layout location={location}>
-    <SEO title="Warranty, Shipping and Return" />
+    <SEO 
+    title="Consumer Product Warranty "
+    description='Everything about product warranty from Monte Tuning for the chip tuning products of your Monte Tuning performance chip tuning'
+     />
     <PageSupportWarranty />
   </Layout>
 )

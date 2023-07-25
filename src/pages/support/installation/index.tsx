@@ -9,7 +9,10 @@ import PageSupportInstallation from '../../../components/containers/PageSupport/
 const SupportInstallationPage: FC<PageProps> = ({ location }) => {
   return (
     <Layout location={location}>
-      <SEO title="Simple installation" />
+      <SEO 
+      title="Chip tuning installation - What you need to know about the installation"
+      description='Simple Plug and Play installation. Everything you need to know about the installation of your Monte Tuning performance chip tuning'
+       />
       <PageSupportInstallation />
     </Layout>
   )

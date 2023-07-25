@@ -24,7 +24,9 @@ export const useCarSelects = () => {
   const downloadYears = (make: string, model: string, engine: string) =>
     dispatch(years.actions.fetchYears(make, model, engine))
 
-  const setMaker = value => dispatch(car.actions.setMaker(value))
+  const setMaker = value => {
+    return dispatch(car.actions.setMaker(value))
+  }
   const setModel = value => dispatch(car.actions.setModel(value))
   const setEngine = value => dispatch(car.actions.setEngine(value))
   const setYear = value => dispatch(car.actions.setYear(value))
@@ -97,6 +99,9 @@ export const useCarSelects = () => {
     if (modelSelectValue === value) {
       return
     }
+
+    // console.log(value)
+    // console.log(option)
     downloadEngines(makerSelectValue, option.value)
     setModel(option.value)
     setEngine(null)
@@ -158,6 +163,10 @@ export const useCarSelects = () => {
   }, [yearsData])
 
   return {
+    setMaker,
+    setModel,
+    setEngine,
+    setYear,
     onMakerSelect,
     onModelSelect,
     onEngineSelect,

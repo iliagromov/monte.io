@@ -1,19 +1,19 @@
-import Img, { FluidObject } from 'gatsby-image'
+
 import React, { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
 import './style.scss'
-
+import { StaticImage } from 'gatsby-plugin-image'
 type TuningPromoProps = {
   heading: string
   text: string
-  imgSourses: FluidObject[]
 }
 
 export const TuningPromo: FC<TuningPromoProps> = ({
   heading,
   text,
-  imgSourses,
 }) => {
+
+
   return (
     <section className="tuning-promo section section--pt-lg">
       <div className="container">
@@ -28,10 +28,11 @@ export const TuningPromo: FC<TuningPromoProps> = ({
           </div>
 
           <div className="col-md-7">
-            <Img
-              className="tuning-promo__image-container ml-n3 ml-md-0"
-              fluid={imgSourses}
-            />
+            <StaticImage
+             className="tuning-promo__image-container ml-n3 ml-md-0"
+                src='../../../../../assets/images/tuning-promo-lg.png'
+                alt={` image`}
+                />
           </div>
         </div>
       </div>

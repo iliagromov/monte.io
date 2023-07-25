@@ -1,5 +1,4 @@
 import React, { FC } from 'react'
-import Img, { FluidObject } from 'gatsby-image'
 import { FormattedMessage } from 'react-intl'
 import PerformanceGain, { PerformanceGainProps } from '../PerformanceGain'
 import { Button } from '../../ui'
@@ -7,9 +6,9 @@ import { GainCalculatorModal } from '../../../layouts/Default/components/GainCal
 import { useGainCalculatorModal } from '../../../layouts/Default/components/HeaderNav/useGainCalculatorModal'
 import './style.scss'
 import { graphql, useStaticQuery } from 'gatsby'
+import { StaticImage  } from 'gatsby-plugin-image'
 
 type PerformanceProps = PerformanceGainProps & {
-  img: FluidObject | FluidObject[]
   model: string
   title: string
   btnText: string
@@ -35,20 +34,6 @@ const Performance: FC<PerformanceProps> = ({
     </FormattedMessage>
   )
 
-  const {
-    appUiMercedes
-
-  } = useStaticQuery(graphql`
-      query{
-        appUiMercedes: file(relativePath: { eq: "app-ui-Mercedes-2.png" }) {
-            childImageSharp {
-              fluid(maxWidth: 777, quality: 100) {
-                ...GatsbyImageSharpFluid_noBase64
-              }
-            }
-          }
-      }
-  `);
 
   return (
     <section className="performance section">
@@ -70,7 +55,11 @@ const Performance: FC<PerformanceProps> = ({
           </div>
 
           <div className="col-md-6 col-lg-8 align-self-end performance__img">
-            <Img className="performance__img-wrap" fluid={appUiMercedes.childImageSharp.fluid} />
+            <StaticImage
+             src='../../../assets/images/app-ui-Mercedes-2.png'
+            className="performance__img-wrap"
+            alt={'image'}
+              />
           </div>
         </div>
       </div>

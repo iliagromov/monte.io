@@ -1,0 +1,19 @@
+version: "3.9"
+
+networks:
+  web:
+    external: true
+
+services:
+  frontend:
+    image: ${PROJECT_REGISTRY_REPO}:${PROJECT_VERSION}
+    build:
+      context: .
+    hostname: "${PROJECT_DOMAIN}"
+    labels:
+      - traefik.backend=${PROJECT_NAME}
+      - traefik.frontend.rule=Host:${PROJECT_DOMAIN}
+      - traefik.docker.network=web
+      - traefik.port=80
+    networks:
+      - web

@@ -1,13 +1,11 @@
 import cn from 'classnames'
-import { graphql, useStaticQuery } from 'gatsby'
-import Img from 'gatsby-image'
 import React, { CSSProperties, FC } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { cartContainerData } from '../../../../../data/cart-container/index'
 import { useShallowEqualSelector } from '../../../../../hooks/useShallowEqualSelector'
 import { Product, productsMap } from '../../../../../types/product'
 import {
-  getProductById,
+  getProductDataById,
   getTotalDiscountSumForProductsInCart,
   getTotalPriceOfProductsInCart,
   getTotalPriceWithDiscountOfProductsInCart,
@@ -18,6 +16,8 @@ import { Button, Icon } from '../../../../ui'
 import { DiscountForm } from './DiscountForm'
 import './style.scss'
 import { ProductInCart } from '../../../../../store/Cart'
+import { StaticImage } from 'gatsby-plugin-image'
+
 
 export type CheckoutBoxProps = {
   className?: string
@@ -48,44 +48,27 @@ const CheckoutBox: FC<CheckoutBoxProps> = ({
 }) => {
   const { discountData } = useShallowEqualSelector(state => state.promo)
 
-  const images = useStaticQuery(graphql`
-    query {
-      gt: file(relativePath: { eq: "gt.png" }) {
-        childImageSharp {
-          fixed(width: 73, quality: 100) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-      gtr: file(relativePath: { eq: "gtr.png" }) {
-        childImageSharp {
-          fixed(width: 73, quality: 100) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-    }
-  `)
+ 
 
   const renderCheckoutProduct = ({ id }) => {
-    const product = getProductById(id)
+    const product = getProductDataById(id)
 
     const productData = productsData?.find(p => p.id === id)
     // TODO: add status for price loading/error
     const price = productData ? `$${productData.price}.00` : `loading price`
-    const img = images[productsMap[id]]
-    const imgStyles: CSSProperties = {
-      objectFit: 'scale-down',
-    }
+  
+    
 
     return (
       <li className="checkout-box__product-wrapper" key={product.id}>
         <div className="checkout-box__product-info">
-          <Img
-            fixed={img.childImageSharp.fixed}
-            alt={`${product.title} image`}
-            imgStyle={imgStyles}
-          />
+           <StaticImage
+                className="page-img" 
+                src='../../../../../assets/images/gt.png'
+                width={73}
+                objectFit={'contain'}
+                alt={`${product.title} image`}
+                />
           <div className="checkout-box__product-text">
             <p className="checkout-box__product-title h4">{product.title}</p>
             <p className="checkout-box__product-price">{price}</p>

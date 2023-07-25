@@ -1,14 +1,14 @@
 import React, { FC, useState, useEffect } from 'react'
 const { productIds } = require('../../../types/product')
 import cn from 'classnames'
-import Img from 'gatsby-image'
-import { RightOutlined } from '@ant-design/icons'
-import { Link } from 'gatsby'
-import { FormattedMessage, useIntl } from 'react-intl'
+import { Link,  } from 'gatsby'
+import { FormattedMessage } from 'react-intl'
 import { Badge, Button, Heading, HeadingProps } from '../../ui'
 import { getHrefWithLocale, ProductId } from '../../../utils'
-import { getProductById } from '../../../utils/getProductById'
+import { getProductDataById } from '../../../utils/getProductDataById'
 import './style.scss'
+import { StaticImage } from 'gatsby-plugin-image'
+import { getPrice } from '../../../utils/getPrice'
 
 type FeatureItem = {
   id: string
@@ -54,7 +54,11 @@ const ProductsItemStore: FC<ProductsItemProps> = ({
   className,
   titleSize = 'h1',
 }) => {
-  const productData = getProductById(id)
+  
+
+
+
+  const productData = getPrice(id)
   const price = productData?.price || 0
   // TODO: add status for price loading/error
   // FIXME: pageMain.productPower
@@ -88,9 +92,10 @@ const ProductsItemStore: FC<ProductsItemProps> = ({
                 <FormattedMessage id={descr} />
               </div>
               <Link to={moreLink}>
-                <Img
-                  className="products-item__img-wrap mx-auto"
-                  fixed={img.childImageSharp.fixed}
+                <StaticImage
+                className="products-item__img-wrap mx-auto"
+                  src='../../../assets/images/store-product-yellow.png'
+                  alt={'img'}
                 />
               </Link>
               <div

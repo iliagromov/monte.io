@@ -1,8 +1,8 @@
-import { Link, graphql, useStaticQuery } from 'gatsby'
-import cn from 'classnames'
+import { Link } from 'gatsby'
+
 import React, { FC } from 'react'
-import Img, { FluidObject } from 'gatsby-image'
 import './style.scss'
+import { StaticImage } from 'gatsby-plugin-image'
 
 type ArticleCardPreviwProps = {
     postProps: any
@@ -11,31 +11,22 @@ type ArticleCardPreviwProps = {
 const ArticleCardPreviw: FC<ArticleCardPreviwProps> = ({postProps}) => {
 
     // console.log(postProps.uri);
-    const postURL = `/news${postProps.uri}`;
-    const title = postProps.title;
+    const postURL = `/news/${postProps.frontmatter.slug}`;
+    const title = postProps.frontmatter.title;
     const date = postProps.date;
     const content = postProps.postProps;
 
-    const {
-        imgNewsMonteGT1
-    } = useStaticQuery(
-        graphql` {
-      imgNewsMonteGT1: file(relativePath: { eq: "img-news-Monte-GT-1.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 360, quality: 100) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
-        }
-      }
-    }
-`);
 
     return (
         
         <article className="article-card-preview">
             <Link to={postURL} className="article-card-preview-link">
             <div className="article-card-preview__img">
-                <Img fluid={imgNewsMonteGT1.childImageSharp.fluid} />
+            <StaticImage
+                src='../../../assets/images/img-news-Monte-GT-1.png'
+               
+                alt={'img'}
+                />
             </div>
             <div className="article-card-preview__date">
                 {date}
@@ -47,7 +38,7 @@ const ArticleCardPreviw: FC<ArticleCardPreviwProps> = ({postProps}) => {
             Watch Monte GT tested reviewed by our customer Watch Monte GT tested reviewed by our customer Watch Monte GT tested reviewed by our customer 
             </div>
             <div className="article-card-preview__link">
-                <Link to={postURL}>Learn more </Link>
+              Learn more 
             </div>
             </Link>
         </article>

@@ -1,6 +1,6 @@
 export { MakesType } from './implementation/makes'
 export { ModelsType } from './implementation/models'
-export { ProductsType } from './implementation/products'
+export { type ProductsType } from './implementation/products/types'
 export { EnginesType } from './implementation/engines'
 export { YearsType } from './implementation/years'
 

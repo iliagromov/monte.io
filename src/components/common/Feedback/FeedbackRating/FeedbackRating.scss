@@ -1,0 +1,68 @@
+@import '../../../../styles/imports';
+
+.feedback-rating {
+    padding: 20px 22px;
+    background: $color-athens-gray;
+    border-radius: 12px;
+  
+    @include media-breakpoint-up(md) {
+      padding: 20px 28px;
+    }
+  
+    @include media-breakpoint-up(lg) {
+      padding: 20px 50px;
+    }
+  
+    &__number {
+      font-size: 56px;
+      line-height: 52px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+  
+    &__votes {
+      font-size: 16px;
+      font-weight: $fw-medium;
+    }
+  
+    &__detailed {
+      display: grid;
+      gap: 8px 0;
+    }
+  
+    &__detailed-item {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 0 16px;
+    }
+  
+    &__stars {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 6px;
+    }
+  
+    &__star {
+      padding: 0 2px;
+  
+      &:first-child {
+        padding-left: 0;
+      }
+  
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  
+    &__bar {
+      background: rgba($color-mine-shaft, 0.1);
+      align-self: center;
+    }
+  
+    &__bar-line {
+      display: block;
+      height: 2px;
+      background: $color-mine-shaft;
+    }
+  }
+  

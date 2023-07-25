@@ -1,0 +1,9 @@
+@import '../../../styles/imports';
+
+.advantages {
+    margin-bottom: 100px;
+  
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 0;
+    }
+  }

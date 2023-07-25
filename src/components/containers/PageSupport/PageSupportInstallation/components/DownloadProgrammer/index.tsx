@@ -1,8 +1,8 @@
-import Img, { FluidObject } from 'gatsby-image'
 import React, { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { Button, Icon } from '../../../../../ui'
 import './style.scss'
+import { StaticImage } from 'gatsby-plugin-image'
 
 export type FeatureItem = {
   text: string
@@ -14,17 +14,17 @@ type DownloadProgrammerProps = {
   buttonText: string
   buttonHref: string
   comment: string
-  imgSourses: FluidObject[]
 }
 
 const DownloadProgrammer: FC<DownloadProgrammerProps> = ({
-  imgSourses,
   titleId,
   features,
   buttonText,
   buttonHref,
   comment,
 }) => {
+
+  
   const renderFeatures = features.map(({ text }, index) => (
     <li
       className="download-programmer__feature-item programmer-feature-item"
@@ -64,10 +64,11 @@ const DownloadProgrammer: FC<DownloadProgrammerProps> = ({
             </div>
           </div>
           <div className="col-md-6">
-            <Img
-              className="download-programmer__image-container"
-              fluid={imgSourses}
-            />
+            <StaticImage
+                className="download-programmer__image-container"
+                src='../../../../../../assets/images/chip-and-settings.png'
+                alt={'img'}
+                />
           </div>
         </div>
       </div>

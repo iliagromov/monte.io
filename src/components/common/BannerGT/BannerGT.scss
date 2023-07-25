@@ -1,0 +1,194 @@
+@import '../../../styles/imports';
+
+
+
+.product-main {
+    position: relative;
+    overflow: hidden;
+    background: $color-athens-gray;
+    padding-top: $header-height-xs + 100px;
+    margin-top: -$header-height-xs;
+  
+    @include media-breakpoint-up(md) {
+      padding-top: $header-height-xs + 80px;
+    }
+  
+    @include media-breakpoint-up(lg) {
+      padding-top: $header-height-lg + 130px;
+      margin-top: -$header-height-lg;
+    }
+  
+    &__title {
+      margin-bottom: 4px;
+      font-size: 32px;
+      color: inherit;
+  
+      @include media-breakpoint-up(lg) {
+        font-size: 50px;
+      }
+  
+      @include media-breakpoint-up(xl) {
+        font-size: 54px;
+      }
+    }
+  
+    &__descr {
+      margin-bottom: 28px;
+  
+    }
+  
+    &__advantages {
+      @include media-breakpoint-up(md) {
+        max-width: 530px;
+      }
+    }
+  
+    &__advantages-list {
+      list-style: none;
+    }
+  
+    &__advantage {
+      text-align: center;
+    }
+  
+    &__advantage-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+  
+      width: 64px;
+      height: 64px;
+      margin-bottom: 10px;
+      background-color: rgba($color-silver, 0.15);
+      border-radius: 50%;
+      font-size: 24px;
+  
+      @include media-breakpoint-up(lg) {
+        font-size: 30px;
+        width: 80px;
+        height: 80px;
+      }
+  
+      &--fuel svg {
+        font-size: em(31, 30);
+      }
+  
+      &--obd svg {
+        font-size: em(25, 30);
+      }
+  
+      &--smartphone svg {
+        font-size: em(32, 30);
+      }
+    }
+  
+    &__advantage-text {
+      font-size: 12px;
+  
+      @include media-breakpoint-up(md) {
+        font-size: 14px;
+      }
+  
+      @include media-breakpoint-up(lg) {
+        font-size: 16px;
+      }
+    }
+  
+    &__img-holder {
+      &--gt {
+        position: relative;
+        width: em(610, 61);
+        height: em(706, 61);
+        font-size: 32px;
+        margin: 5px 0 -180px auto;
+  
+        @include media-breakpoint-up(md) {
+          margin: 40px 0 -130px;
+        }
+  
+        @include media-breakpoint-up(xl) {
+          font-size: 61px;
+          margin: 0 0 -240px;
+        }
+      }
+  
+      &--gtr {
+        position: relative;
+        width: 302px;
+        height: 260px;
+        flex-shrink: 0;
+        margin: 36px auto 0;
+  
+        @include media-breakpoint-up(md) {
+          width: 424px;
+          height: auto;
+          margin: 0;
+        }
+  
+        @include media-breakpoint-up(lg) {
+          margin: 20px 0 0 -50px;
+        }
+      }
+    }
+  
+    &__img-wrap {
+      &--gt-phone {
+        width: 10em;
+        top: 0;
+        left: 0;
+  
+        div {
+          padding-bottom: 78.1944% !important;
+  
+          @include media-breakpoint-up(md) {
+            padding-bottom: 88.1944% !important;
+          }
+        }
+      }
+  
+      &--gt-chip {
+        width: em(360, 61);
+  
+        top: em(180, 61);
+        left: em(-10, 61);
+      }
+  
+      &--gtr-chips {
+        width: 100%;
+      }
+    }
+  
+    &__btn-wrap {
+      text-align: center;
+      margin: 45px auto;
+      width: 300px;
+  
+      @include media-breakpoint-up(md) {
+        margin-top: 55px;
+        margin: 0;
+      }
+      &-text{
+        margin-top: 4px;
+      }
+    }
+  }
+  
+  
+  .stars-raiting{
+    display: flex;
+    max-width: 163px;
+    &__img{
+      width: 100%;
+    }
+    margin-bottom: 10px;
+  }
+  .product-main__stars-text{
+    color: #FF472E;
+    font-size: 16px;
+    line-height: 28px;
+  }
+  
+  .product-main__advantages{
+    margin-top: 35px;
+  }
+  

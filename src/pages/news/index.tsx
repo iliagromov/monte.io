@@ -7,7 +7,7 @@ import PageArchiveNews from '../../components/containers/PageArchiveNews'
 
 const NewsPage: FC<PageProps> = ({ location }) => (
   <Layout location={location}>
-    <SEO title="Manual" />
+    <SEO title="News" />
     <PageArchiveNews />
   </Layout>
 )

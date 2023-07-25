@@ -1,34 +1,27 @@
 import React, { FC } from 'react'
-import cn from 'classnames'
-import './style.scss'
+
+
 import { Button } from '../../../../components/ui'
-import { Link } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
+import * as SupportBannerStyle from './SupportBanner.module.scss'
 
 export type SupportBannerProps = {
   title?: string | JSX.Element
-  img: {
-    desktop: string
-    desktop2x: string
-  }
   style?: React.CSSProperties
 }
 
 export const SupportBanner: FC<SupportBannerProps> = ({
   title,
-  img,
   style,
 }) => {
+  
   return (
-    <div className="support-banner" style={style}>
-      <picture className="support-banner__img-wrap">
-        <source srcSet={`${img.desktop}, ${img.desktop2x} 2x`} />
-        <img src={img.desktop} alt="alt" loading="lazy" />
-      </picture>
-      <div className="support-banner-text">
-        <h2 className="support-banner__title-h2">
+    <div className={SupportBannerStyle.supportBanner} style={style}>
+        <div className={SupportBannerStyle.supportBanner__Text}>
+        <h2 className={SupportBannerStyle.supportBanner__TitleH2}>
           Meet Ana and Kevin.
         </h2>
-        <div className="support-banner__title">
+        <div className={SupportBannerStyle.supportBanner__Title}>
           We are here to help.
           <br />
           Contact us : <a href="tel:+15042040005">+1 (504) 204 0005</a>
@@ -38,7 +31,7 @@ export const SupportBanner: FC<SupportBannerProps> = ({
           
         </div>
         <Button
-            className={`page-btn`}
+            className={SupportBannerStyle.pageBtn}
             href={'/contact-us'}
             block
           >
@@ -47,6 +40,13 @@ export const SupportBanner: FC<SupportBannerProps> = ({
             </span>
           </Button>
       </div>
+      
+        <StaticImage
+          className={SupportBannerStyle.supportBanner__imgWrap}
+          src='../../../../assets/images/support-desktop@2x.jpg'
+          alt={'img'}
+              />
+      
     </div>
   )
 }

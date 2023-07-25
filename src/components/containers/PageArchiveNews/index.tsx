@@ -1,52 +1,31 @@
 import { Link, graphql, useStaticQuery } from 'gatsby'
-import cn from 'classnames'
 import React, { FC } from 'react'
-import Img, { FluidObject } from 'gatsby-image'
 import './style.scss'
 import ArticleCardPreviw from './ArticleCardPreviw'
 
-
-const PageArchiveNews: FC = () => {
-
+const PageArchiveNews: FC = (props) => {
 
   const { 
-    allWpPost,
-    imgNewsMonteGT1
+    allMarkdownRemark
    } = useStaticQuery(
     graphql` {
-      allWpPost {
+      
+      allMarkdownRemark(
+        filter: {frontmatter: {category: {eq: "news"}}}
+      ){
         nodes {
-          id  
-          slug
-          uri
-          title
-          content
-          date(formatString: "d/Mo/Y")
-          categories {
-            nodes {
-                id
-                slug
-                name
-              }
-          }
-        }
-      }
-      imgNewsMonteGT1: file(relativePath: { eq: "img-news-Monte-GT-1.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 360, quality: 100) {
-            ...GatsbyImageSharpFluid_noBase64
+          id
+          frontmatter {
+            slug
+            category
           }
         }
       }
     }
 `);
-
-
-  // console.log(allWpPost);
-
   
-  const renderNews = allWpPost.nodes.map((newsItem:any, i: number) => {
-      const postURL = `/news${newsItem.uri}`;
+  const renderNews = allMarkdownRemark.nodes.map((newsItem:any, i: number) => {
+      
       return(
             <ArticleCardPreviw 
             postProps={newsItem}

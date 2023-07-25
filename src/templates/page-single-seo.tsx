@@ -1,28 +1,20 @@
 import React from "react";
 import Layout from "../layouts/Default/en";
-import { Link, graphql, useStaticQuery } from "gatsby";
-import { PageProps } from 'gatsby'
-import PageSingleSEO from "../components/containers/PageSingleSEO";
+import { PageSingleSEOContainer } from "../components/containers/PageSingleSEO/PageSingleSEO";
 import SEO from "../components/common/seo";
-export const query = graphql`
-  query($slug: String!) {
-    allWpPage(filter: { slug: { eq: $slug } }) {
-      nodes {
-        title
-        content
-      }
-    }
-  }
-`;
 
-export default function BlogPost({ data, location }) {
-  const post = data.allWpPage.nodes[0];
-  // console.log(post);
+export default function BlogPost({pageContext: {pageData}, location}) {
+  const TitleSEO = pageData.title;
+  const DescriptionSEO = pageData.description;
+  
+  // console.log("🚀 ~ file: page-single-seo.tsx:32 ~ BlogPost ~ pageData:", pageData)
   return (
     <Layout location={location}>
-      <SEO title={post.title} />
-      <PageSingleSEO 
-        postProps={post}
+      <SEO  
+      title={TitleSEO} 
+      description={DescriptionSEO} />
+      <PageSingleSEOContainer 
+      pageProps={pageData}
       />
     </Layout>
   )

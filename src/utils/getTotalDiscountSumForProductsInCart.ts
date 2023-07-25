@@ -1,6 +1,6 @@
 import { ProductInCart } from '../store/Cart'
 import { PromoProduct } from '../api/implementation/promo'
-import { getProductById } from './getProductById'
+import { getProductDataById } from './getProductDataById'
 
 export const getTotalDiscountSumForProductsInCart = (
   productsInCart: ProductInCart[],
@@ -10,7 +10,7 @@ export const getTotalDiscountSumForProductsInCart = (
 
   productsInCart.forEach(product => {
     try {
-      const productData = getProductById(product.id)
+      const productData = getProductDataById(product.id)
       // TODO: add status for price loading/error
       const productPrice = productData ? productData.price : 0
       const productPriceWithDiscount = +productsDiscount.find(

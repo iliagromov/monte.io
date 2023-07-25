@@ -2,18 +2,14 @@ import React, { FC, ComponentProps } from 'react'
 import cn from 'classnames'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Pagination } from 'swiper'
-import { Button, Img, ImgProps } from '../../ui'
-import { Link, graphql, useStaticQuery } from 'gatsby'
+import { Button, ImgProps } from '../../ui'
+import { Link, } from 'gatsby'
 import { useIntl } from 'react-intl'
 import { getHrefWithLocale } from '../../../utils'
 import { FormattedMessage } from 'react-intl'
 
-import {
-  images
-} from '../../../data/page-gt'
-
-
 import './style.scss'
+import { StaticImage } from 'gatsby-plugin-image'
 
 type SwiperProps = ComponentProps<typeof Swiper>
 
@@ -54,57 +50,8 @@ export const ProductCard: FC<ProductCardProps> = ({
       clickable: true,
     },
   }
+ 
 
-  const {
-    monteGT,
-    monteGT2,
-    monteGT3,
-    monteGT4,
-    monteGT5,
-    monteGT6,
-  } = useStaticQuery(graphql`
-    query {
-      monteGT: file(relativePath: { eq: "monte-gt.png" }) {
-          publicURL
-          name
-      }
-      monteGT2: file(relativePath: { eq: "monte-gt-2.png" }) {
-          publicURL
-          name
-      }
-      monteGT3: file(relativePath: { eq: "monte-gt-3.png" }) {
-          publicURL
-          name
-      }
-      monteGT4: file(relativePath: { eq: "monte-gt-4.png" }) {
-          publicURL
-          name
-      }
-      monteGT5: file(relativePath: { eq: "monte-gt-5.png" }) {
-          publicURL
-          name
-      }
-      monteGT6: file(relativePath: { eq: "monte-gt-6.png" }) {
-          publicURL
-          name
-      }
-    }
-  `);
-
-
-  const images = [monteGT, monteGT2, monteGT3, monteGT4, monteGT5,monteGT6 ];
-  const renderSlides = images.map(({ publicURL }, i) => (
-    <SwiperSlide key={i} className="product-card__slide">
-      <Img
-        className="product-card__slide-img"
-        objectFit="scale-down"
-        src={publicURL}
-        srcset={publicURL}
-        ratio={imgRatio}
-      />
-      <div className="swiper-lazy-preloader" />
-    </SwiperSlide>
-  ))
 
   return (
     <div
@@ -113,8 +60,42 @@ export const ProductCard: FC<ProductCardProps> = ({
         'product-card--sticky': isSticky,
       })}
     >
-      <Swiper className="product-card__slider" {...swiperParams}>
-        {renderSlides}
+       <Swiper className="product-card__slider" {...swiperParams}>
+        <SwiperSlide className="product-card__slide">
+          <StaticImage
+            src='../../../assets/images/monte-gt.png'
+            className="product-card__slide-img"
+            alt={'img'}
+          />
+        </SwiperSlide>
+        <SwiperSlide className="product-card__slide">
+          <StaticImage
+            src='../../../assets/images/monte-gt-2.png'
+            className="product-card__slide-img"
+            alt={'img'}
+          />
+        </SwiperSlide>
+        <SwiperSlide className="product-card__slide">
+          <StaticImage
+            src='../../../assets/images/monte-gt-3.png'
+            className="product-card__slide-img"
+            alt={'img'}
+          />
+        </SwiperSlide>
+        <SwiperSlide className="product-card__slide">
+          <StaticImage
+            src='../../../assets/images/monte-gt-4.png'
+            className="product-card__slide-img"
+            alt={'img'}
+          />
+        </SwiperSlide>
+        <SwiperSlide className="product-card__slide">
+          <StaticImage
+            src='../../../assets/images/monte-gt-5.png'
+            className="product-card__slide-img"
+            alt={'img'}
+          />
+        </SwiperSlide>
       </Swiper>
       {isGtApps ? (
         <>

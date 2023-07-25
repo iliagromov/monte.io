@@ -1,141 +1,146 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+// gatsby-node.js
+const util = require('./src/utils/shared-function.ts');
 
-// You can delete this file if you're not using it
+exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
+  const response = await util();
+  console.log("🚀 ~ file: gatsby-node.js:6 ~ exports.sourceNodes= ~ response:", response)
 
-
-// Problem - chunk commons [mini-css-extract-plugin] Conflicting order. Following module has been added:
-// https://robertmarshall.dev/blog/fix-warn-chunk-commons-mini-css-extract-plugin-error-in-gatsby-js/
-// const FilterWarningsPlugin = require("webpack-filter-warnings-plugin");
-
-// exports.onCreateWebpackConfig = ({ actions }) => {
-//   actions.setWebpackConfig({
-//     plugins: [
-//       new FilterWarningsPlugin({
-//         exclude:
-//           /mini-css-extract-plugin[^]*Conflicting order. Following module has been added:/,
-//       }),
-//     ],
-//   });
-// };
-
-
-const path = require(`path`);
-
-
-
-exports.createPages = async ({ graphql, actions: { createPage }  }) => {
-
- 
-  await graphql(`
-     {
-      allWpPage {
-          nodes {
-            id
-            uri
-            slug
-            title
-            content
-          }
-        }
-     }
-   `).then(result => {
-    // console.log(result.data.allWpPage.nodes);
-    result.data.allWpPage.nodes.forEach(node => {
-      createPage({
-        path: `${node.uri}`,
-        component: path.resolve(`./src/templates/page-single-seo.tsx`),
-        context: {
-          // This is the $slug variable passed to blog-post.js
-          uri: node.uri,
-          slug: node.slug,
-        },
-      });
+  response.data.forEach((item) => {
+    actions.createNode({
+      ...item,
+      id: createNodeId(item.date),
+      internal: {
+        type: 'staticResults',
+        contentDigest: createContentDigest(item)
+      }
     });
   });
-  await graphql(`
-    {
-      allWpPost {
+};
+
+/*exports.onCreateWebpackConfig = ({ getConfig, actions, plugins }) => {
+  actions.setWebpackConfig({
+    // отключить  source-map в итоговой сборке
+    devtool: getConfig().mode === "production" ? false : "source-map",
+    resolve: {
+      modules: [path.resolve(__dirname, "src"), "node_modules"],
+    },
+    // по желанию вырубить react-dev-tools
+    plugins: [
+      plugins.define({
+        '__REACT_DEVTOOLS_GLOBAL_HOOK__': `({ isDisabled: true })`
+      })
+    ],
+  })
+}
+*/
+const path = require("path");
+
+// const BrandsJSON = require('./brands.json');
+const PageData = require('./PageData.json');
+
+/* 
+* Новости получаем с wp и генерируем в md файлы,
+* в случае если wp отвалится у нас будет рабочая копия новостей
+* также сократится время сборки проекта
+*/
+
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  const { createPage } = actions
+
+  const resultNews = await graphql(`
+    query GetAllNews {
+      allMarkdownRemark(
+        filter: {frontmatter: {category: {eq: "news"}}}
+      ){
         nodes {
-          id  
-          slug
-          uri
-          title
-          content
-          categories {
-            nodes {
-              id
-              slug
-              name
-            }
+          id
+          frontmatter {
+            slug
+            category
           }
         }
       }
-    }`)
-    .then(result => {
-      result.data.allWpPost.nodes.forEach(node => {
-        // console.log(node);
-        createPage({
-          path: `news/${node.slug}`,
-          component: path.resolve(`./src/templates/page-single-news.tsx`),
-          context: {
-            // This is the $slug variable passed to blog-post.js
-            slug: node.slug,
-            uri: node.uri,
-            name: node.name,
-            categories: node.name,
-          },
-        });
-      })
-    });
-  // await graphql(`
-  //    {
-  //     allWpCategory {
-  //       edges {
-  //         node {
-  //           id
-  //           name
-  //           posts {
-  //             nodes {
-  //               id
-  //               title
-  //               uri
-  //               slug
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //    }
-  //  `).then(result => {
-  //   // console.log('result.data');
-  //   // console.log(result.data.allWpCategory.edges);
-  //   result.data.allWpCategory.edges.forEach(edge => {
-  //     console.log(edge.node.name);
-  //     createPage({
-  //       path: `categories/${edge.node.name}`,
-  //       component: path.resolve(`./src/templates/page-single-news.tsx`),
-  //       context: {
-  //         // This is the $slug variable passed to blog-post.js
-  //         uri: edge.node.name,
-  //       },
-  //     });
+    }
+  `)
 
-  //     edge.node.posts.nodes.forEach(node =>{
-  //       console.log(node);
-  //       createPage({
-  //         path: `posts/${node.slug}`,
-  //         component: path.resolve(`./src/templates/page-single-news.tsx`),
-  //         context: {
-  //           // This is the $slug variable passed to blog-post.js
-  //           uri: node.name,
-  //           slug: node.slug,
-  //         },
-  //       });
-  //     });
-  //   });
-  // });
+  if (resultNews.errors) {
+    reporter.panicOnBuild('Error loading MDX result', resultNews.errors)
+  }
+
+  // Create blog post pages.
+  const news = resultNews.data.allMarkdownRemark.nodes
+  news.forEach(node => {
+    createPage({
+      path: `${node.frontmatter.category}/${node.frontmatter.slug}`,
+      component: path.resolve(`./src/templates/page-single-news.tsx`),
+      context: {
+        id: node.id,
+        slug: node.frontmatter.slug
+      },
+    })
+  })
+
+
+
+  // Прохожусь по всем брендам, моделям, движкам, годам и создаю SEO страницы
+  /**
+   */
+  /**
+   * @type brand
+   * {
+              name: string
+              slug: string
+              path: string
+              contex: {
+                  id: 'id-number-slug',
+                  slug: string,
+                  pageData: {
+                      title: string
+                      description: string
+                      titleH1: string
+                      models?: []
+                      engines?: []
+                      years?: []
+                      canonical?: string,
+                      brand?: string,
+                      model?: string,
+                      engine?: string,
+                      year?: string,
+                  }
+              }
+          }
+   * 
+   */
+  PageData.brands.forEach((brand) => {
+
+    createPage({
+      path: brand.slug,
+      component: path.resolve(`./src/templates/page-single-seo.tsx`),
+      context: brand.context
+    });
+
+    brand.models.forEach((model) => {
+      createPage({
+        path: model.path,
+        component: path.resolve(`./src/templates/page-single-seo.tsx`),
+        context: model.context
+      });
+
+      model.engines.forEach((engine) => {
+        createPage({
+          path: engine.path,
+          component: path.resolve(`./src/templates/page-single-seo.tsx`),
+          context: engine.context
+        });
+
+        engine.years.forEach((year, idx) => {
+          createPage({
+            path: year.path,
+            component: path.resolve(`./src/templates/page-store-seo.tsx`),
+            context: year.context
+          });
+        });
+      });
+    });
+  });/**/
 }

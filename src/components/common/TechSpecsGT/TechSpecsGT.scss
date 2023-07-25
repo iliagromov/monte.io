@@ -1,0 +1,14 @@
+@import '../../../styles/imports';
+
+
+.specs {
+    margin-top: 50px;
+  
+    @include media-breakpoint-up(md) {
+      margin-bottom: 130px;
+    }
+  
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 0;
+    }
+  }

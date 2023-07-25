@@ -1,7 +1,6 @@
 // FIXME: слишком много нужно прокидываться через пропсы
-import { graphql, useStaticQuery } from 'gatsby'
+
 import { navigate } from 'gatsby'
-import Img from 'gatsby-image'
 import React, { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
 import {
@@ -24,6 +23,7 @@ import ProductsItemStore from '../ProductsItem/ProductsItemStore'
 import * as style from './GainCalculator.module.scss'
 import { GainCalculatorSummary } from './GainCalculatorSummary'
 import { useGainCalculator } from './useGainCalculator'
+import { StaticImage } from 'gatsby-plugin-image'
 
 type GainCalculatorProps = {
   onCloseModal?: () => void
@@ -44,17 +44,7 @@ export const GainCalculator: FC<GainCalculatorProps> = ({
     selectedCarEngine,
   } = isStoreCalculator ? useStore() : useGainCalculator()
 
-  const { imgProductThumb } = useStaticQuery(graphql`
-    query {
-      imgProductThumb: file(relativePath: { eq: "store-product-yellow.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 670, quality: 100) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
-        }
-      }
-    }
-  `)
+ 
 
   const productsWithImages = getProductsWithImages(products)
   const productGTR = productsWithImages.find(p => p.id === ProductIds.gtr)
@@ -105,9 +95,10 @@ export const GainCalculator: FC<GainCalculatorProps> = ({
           {renderCarSelects}
 
           <div className="text-center pt-3 pt-md-5">
-            <Img
+            <StaticImage
               className={style['thumbImg']}
-              fluid={imgProductThumb.childImageSharp.fluid}
+              src='../../../assets/images/store-product-yellow.png'
+              alt={'img'}
             />
           </div>
         </>

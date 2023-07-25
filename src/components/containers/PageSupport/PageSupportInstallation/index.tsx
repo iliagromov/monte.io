@@ -12,35 +12,18 @@ import { items as menuItems } from '../../../../data/support-menu'
 import AddMenu from '../../../common/AddMenu'
 import FaqSection from '../../../common/Faq'
 import FaqList from '../../../common/FaqList'
-import { Video } from '../../../common/Video'
 import DownloadBtns from './components/DownloadBtns'
 import DownloadProgrammer from './components/DownloadProgrammer'
 import {
   InfoItem,
   InstallationInfoList,
 } from './components/InstallationInfoList'
+import { Video } from '../../../common/Video/Video'
 
 type PageSupportInstallationProps = {}
 
 const PageSupportInstallation: FC<PageSupportInstallationProps> = () => {
-  const { installationVideoPreview, downloadImage } = useStaticQuery(graphql`
-    query {
-      installationVideoPreview: file(relativePath: { eq: "gtr-install.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1040, quality: 100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      downloadImage: file(relativePath: { eq: "chip-and-settings.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1040, quality: 100) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
-        }
-      }
-    }
-  `)
+  
 
   return (
     <>
@@ -61,7 +44,6 @@ const PageSupportInstallation: FC<PageSupportInstallationProps> = () => {
             <FormattedMessage id={videoSection.title} />
           </h2>
           <Video
-            preview={installationVideoPreview.childImageSharp.fluid}
             youTubeId={videoSection.youTubeId}
             imgStyle={{
               objectPosition: 'left center',
@@ -75,7 +57,6 @@ const PageSupportInstallation: FC<PageSupportInstallationProps> = () => {
         buttonText={downloadProgrammer.buttonText}
         buttonHref={downloadProgrammer.buttonHref}
         comment={downloadProgrammer.comment}
-        imgSourses={downloadImage.childImageSharp.fluid}
       />
       <DownloadBtns />
       <FaqSection title={faq.title} smallTitle>

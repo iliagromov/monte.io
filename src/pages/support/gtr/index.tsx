@@ -8,7 +8,10 @@ import PageSupportGTR from '../../../components/containers/PageSupport/PageSuppo
 
 const SupportGtrPage: FC<PageProps> = ({ location }) => (
   <Layout location={location}>
-    <SEO title="GTR support" />
+    <SEO 
+    title="Frequently Asked Questions "
+    description='Frequently Asked Questions. Everything you need to know about the installation of your Monte Tuning performance chip tuning'
+     />
     <PageSupportGTR />
   </Layout>
 )

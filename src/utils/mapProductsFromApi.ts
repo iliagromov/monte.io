@@ -1,6 +1,6 @@
 import { ProductResponse } from '../api/implementation/products'
 import { Product } from '../types/product'
-import { getProductById } from './getProductById'
+import { getProductDataById } from './getProductDataById'
 
 export const mapProductsFromApi = (products: ProductResponse[]): Product[] => {
   return products.map(product => {
@@ -9,9 +9,10 @@ export const mapProductsFromApi = (products: ProductResponse[]): Product[] => {
       id: product.id,
       title: product.title,
       //HOTFIX price
-      price: 1,
-      pageLink: getProductById(product.id).pageLink,
-      img: getProductById(product.id).img,
+      // price: 1,
+      price:  product.price,
+      pageLink: getProductDataById(product.id).pageLink,
+      img: getProductDataById(product.id).img,
       hp: {
         percent: product.hp.percent,
         maxIncrease: product.hp.max_increase,

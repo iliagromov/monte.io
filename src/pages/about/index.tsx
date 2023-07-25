@@ -7,7 +7,10 @@ import PageAbout from '../../components/containers/PageAbout'
 
 const Page: FC<PageProps> = ({ location }) => (
   <Layout location={location}>
-    <SEO title="Our products" />
+    <SEO 
+    title="About"
+    description='About us. Everything you need to know about the Monte Tuning Tuning Inc'
+     />
     <PageAbout />
   </Layout>
 )

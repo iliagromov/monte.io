@@ -1,14 +1,15 @@
 import React, { FC, useState, useEffect } from 'react'
 const { productIds } = require('../../../types/product')
 import cn from 'classnames'
-import Img from 'gatsby-image'
 import { RightOutlined } from '@ant-design/icons'
 import { Link, navigate } from 'gatsby'
 import { FormattedMessage, useIntl } from 'react-intl'
 import { Badge, Button, Heading, HeadingProps, notification } from '../../ui'
 import { getHrefWithLocale, ProductId } from '../../../utils'
-import { getProductById } from '../../../utils/getProductById'
+import { getProductDataById } from '../../../utils/getProductDataById'
 import './style.scss'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { getPrice } from '../../../utils/getPrice'
 
 type FeatureItem = {
   id: string
@@ -55,7 +56,7 @@ const ProductsItem: FC<ProductsItemProps> = ({
   titleSize = 'h1',
 }) => {
 
-
+  const imgSrc = getImage(img)
   
   const addToCart = () => {
     addToCartClick()
@@ -70,11 +71,10 @@ const ProductsItem: FC<ProductsItemProps> = ({
     navigate('/cart/')
   }
 
-  const productData = getProductById(id)
+  const productData = getPrice(id)
   // TODO: add status for price loading/error
   const price = productData?.price || 0
 
-  const intl = useIntl()
   const infoItems = [
     {
       title: power,
@@ -176,10 +176,11 @@ const ProductsItem: FC<ProductsItemProps> = ({
         <FormattedMessage id={descr} />
       </div>*/}
       <Link to={moreLink}>
-        <Img
-          className="products-item__img-wrap mx-auto"
-          fixed={img.childImageSharp.fixed}
-        />
+         <GatsbyImage
+              className="products-item__img-wrap mx-auto"
+            image={imgSrc}
+            alt={'img'}
+          />
       </Link>
       <div
         className={cn('products-item__info-list', {

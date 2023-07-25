@@ -11,7 +11,7 @@ export const PageAbout: FC<PageAbout> = () => {
       <AddMenu items={aboutMenu as any} />
       <section className="section">
         <div className="container">
-          <h1>Page About</h1>
+          <h1>About Monte Tuning Inc</h1>
         </div>
       </section>
     </>

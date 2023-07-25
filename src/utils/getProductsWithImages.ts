@@ -6,22 +6,12 @@ export const getProductsWithImages = products => {
     query {
       monteGT: file(relativePath: { eq: "monte-gt-yellow.png" }) {
         childImageSharp {
-          fluid(maxWidth: 440, quality: 100) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
-          fixed(width: 371, quality: 100) {
-            ...GatsbyImageSharpFixed
-          }
+          gatsbyImageData(placeholder: BLURRED  )
         }
       }
       monteGTR: file(relativePath: { eq: "product-monte-gtr.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 440, quality: 100) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
-          fixed(width: 255, quality: 100) {
-            ...GatsbyImageSharpFixed
-          }
+          gatsbyImageData(placeholder: BLURRED  )
         }
       }
     }

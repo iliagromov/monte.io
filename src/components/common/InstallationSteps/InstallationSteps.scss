@@ -1,0 +1,47 @@
+@import '../../../styles/imports';
+
+
+.installations-steps {
+    padding-top: 0.1px;
+  
+    &__list {
+      margin-top: -80px;
+    }
+  
+    &__item {
+      margin-top: 80px;
+      list-style: none;
+    }
+  }
+  
+  .installations-step {
+    text-align: center;
+  
+    &__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+  
+      width: 116px;
+      height: 116px;
+      font-size: 38px;
+      margin-bottom: 25px;
+      border-radius: 50%;
+  
+      background: $color-athens-gray;
+  
+      svg {
+        max-width: 50px;
+      }
+    }
+  
+    &__title {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+  
+    &__descr {
+      font-size: 16px;
+    }
+  }
+  

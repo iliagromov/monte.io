@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../layouts/Default/en";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql } from "gatsby";
 import PageSingleNews from "../components/containers/PageSingleNews";
 import SEO from "../components/common/seo";
 
@@ -11,36 +11,24 @@ import SEO from "../components/common/seo";
  * Если запрос сделан на посты, то тут тоже дергаю посты, чтобы не путаться, потому подумать как правильно выполять запросы WP
  */
 export const query = graphql`
-  query($slug: String!) {
-    allWpPost(filter: { slug: { eq: $slug } }) {
-      nodes {
-        id  
+   query GetNewsPost ($id: String!) {
+    markdownRemark(id: { eq: $id }) {
+      frontmatter {
         slug
-        uri
         title
-        content
-        date(formatString: "d/Mo/Y")
-        categories {
-          nodes {
-              id
-              slug
-              name
-            }
-        }
       }
     }
   }
 `;
 
-export default function BlogPost({ data, location }) {
-  // FIXME: data.allWpPost.nodes[0] cделать нормальный путь и проверку
-  const post = data.allWpPost.nodes[0];
-  // console.log(post);
+export default function BlogPost({data, location}) {
+  
+  const post = data.markdownRemark.frontmatter;
+
   return (
     <Layout location={location}>
       <SEO title={post.title} />
-      <PageSingleNews 
-        postProps={post}
+      <PageSingleNews postProps={post}
         />
     </Layout>
   )

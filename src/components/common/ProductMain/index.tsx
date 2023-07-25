@@ -1,5 +1,4 @@
 import cn from 'classnames'
-import Img, { FluidObject } from 'gatsby-image'
 import React, { FC } from 'react'
 import { FormattedMessage, useIntl } from 'react-intl'
 import { ProductId, productsMap } from '../../../types/product'
@@ -20,7 +19,7 @@ export type ProductMainProps = {
   descr: string
   images?: {
     name: string
-    img: FluidObject
+    img?: any
   }[]
   onClick?: () => void
   isBtn: boolean
@@ -62,20 +61,20 @@ export const ProductMain: FC<ProductMainProps> = ({
     )
   })
 
-  const renderImages = images?.map(({ img, name }) => (
-    <Img
-      className={cn(
-        `position-absolute`,
-        `${blockName}__img-wrap`,
-        `${blockName}__img-wrap--${name}`
-      )}
-      imgStyle={{
-        objectFit: 'scale-down',
-      }}
-      fluid={img}
-      key={name}
-    />
-  ))
+  // const renderImages = images?.map(({ img, name }) => (
+  //   <Img
+  //     className={cn(
+  //       `position-absolute`,
+  //       `${blockName}__img-wrap`,
+  //       `${blockName}__img-wrap--${name}`
+  //     )}
+  //     imgStyle={{
+  //       objectFit: 'scale-down',
+  //     }}
+  //     fluid={img}
+  //     key={name}
+  //   />
+  // ))
 
   const renderContent = (
     <>

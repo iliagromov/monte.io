@@ -1,4 +1,4 @@
-import { getProductById } from './getProductById'
+import { getProductDataById } from './getProductDataById'
 import { ProductId } from '../types/product'
 
 /**
@@ -16,7 +16,7 @@ const getCarPowerGain = function ({
   productId: ProductId
   type: 'hp' | 'nm'
 }) {
-  const product = getProductById(productId)
+  const product = getProductDataById(productId)
 
   const { percent, maxIncrease } = product[type]
   const increase = Math.round((+value / 100) * percent)

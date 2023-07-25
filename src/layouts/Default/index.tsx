@@ -18,10 +18,12 @@ import { Subscribe } from './components/Subscribe'
 import subscribeData from '../../data/subscribe'
 
 import './style.scss'
+import { graphql, useStaticQuery } from 'gatsby'
 // @ts-ignore
 type LayoutProps = {
   i18nMessages?: any
 }
+
 
 const Layout: FC<LayoutProps> = ({ children, i18nMessages }) => {
   const {
@@ -29,8 +31,8 @@ const Layout: FC<LayoutProps> = ({ children, i18nMessages }) => {
     needToShowSubscribe,
     needToShowWarranty,
     langsMenu,
-  } = useLayout()
-
+  } = useLayout();
+    
   return (
     <IntlProvider locale={langKey} messages={i18nMessages}>
       <div className="site">
@@ -48,7 +50,7 @@ const Layout: FC<LayoutProps> = ({ children, i18nMessages }) => {
           </div>
          <section className={cn('section')}>
             <div className="container">
-              <SupportBanner img={bannerData.img} />
+              <SupportBanner />
             </div>
           </section>
           {needToShowWarranty && <Warranty items={warrantyItems as any} />}
